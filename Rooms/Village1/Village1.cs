@@ -147,7 +147,7 @@ namespace HKSecondQuest.Rooms.Village1
             SetItem(LocationNames.Grubfather, ItemNames.Lumafly_Lantern, true, grubCost: 3);
             SetItem(LocationNames.Grubfather, ItemNames.Grubsong, true, grubCost: 4);
             SetItem(LocationNames.Grubfather, ItemNames.Kings_Idol, true, grubCost: 5);
-            SetItem(LocationNames.Grubfather, ItemNames.Pale_Ore, true, grubCost: 6);
+            SetItem(LocationNames.Grubfather, ItemNames.Pale_Ore, true, grubCost: 7);
              
             SetItem(LocationNames.Seer, ItemNames.Elegant_Key, true, essenceCost: 150);
             SetItem(LocationNames.Seer, ItemNames.Dream_Wielder, true, essenceCost: 300);

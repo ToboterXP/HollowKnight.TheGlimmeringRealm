@@ -33,10 +33,11 @@ namespace HKSecondQuest.Rooms.City
             SetItem(LocationNames.Flukenest, ItemNames.Desolate_Dive);
             SetItem(LocationNames.Wanderers_Journal_Pleasure_House, ItemNames.Dream_Nail);
             SetItem(LocationNames.Kings_Station_Stag, ItemNames.Geo_Rock_Default);
-            SetItem(LocationNames.Hallownest_Seal_Kings_Station, ItemNames.Kings_Idol);
+            SetItem(LocationNames.Hallownest_Seal_Kings_Station, ItemNames.Wanderers_Journal);
             SetItem(LocationNames.City_Crest, ItemNames.Vengeful_Spirit);
             SetItem(LocationNames.City_of_Tears_Map, ItemNames.Kings_Station_Stag);
             SetItem(LocationNames.World_Sense, ItemNames.Kings_Brand);
+            SetItem(LocationNames.Grub_City_of_Tears_Guarded, ItemNames.Grub);
 
             SetItem(LocationNames.Mask_Shard_Grey_Mourner, ItemNames.Shaman_Stone);
         }
@@ -63,7 +64,7 @@ namespace HKSecondQuest.Rooms.City
             ReplaceText("RELICDEALER_JOURNAL_1", "Ah, one of my commemorative journals! They have little stories from wanderers of the kingdom in them!");
             ReplaceText("RELICDEALER_JOURNAL_2", "These aren't actually written by wanderers. Their stories just aren't captivating enough.");
             ReplaceText("RELICDEALER_JOURNAL_3", "You know, these were quite the rage for a while in Hallownest. No idea what happened with all those journals there.");
-            ReplaceText("RELICDEALER_JOURNAL_4", "Ah, another journal. Thanks!");
+            ReplaceText("RELICDEALER_JOURNAL_4", "Oh, I really liked this one! It's about a slug warrior who carries his son with him in his house. Fantastic lore!");
             ReplaceText("RELICDEALER_JOURNAL_5", "Ah, another journal. Thanks!");
             ReplaceText("RELICDEALER_JOURNAL_6", "Ah, another journal. Thanks!");
             ReplaceText("RELICDEALER_JOURNAL_7", "Ah, another journal. Thanks!");
