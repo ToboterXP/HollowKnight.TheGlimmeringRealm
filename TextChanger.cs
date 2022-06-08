@@ -25,6 +25,8 @@ namespace HKSecondQuest
     {
         List<TextReplacement> texts = new List<TextReplacement>();
 
+        public bool Enabled = true;
+
         public void Hook()
         {
             ModHooks.LanguageGetHook += OnLanguageGet;
@@ -32,6 +34,7 @@ namespace HKSecondQuest
 
         public string OnLanguageGet(string key, string sheetTitle, string orig)
         {
+            if (!Enabled) return orig; 
             
             foreach(TextReplacement textReplacement in texts)
             {
