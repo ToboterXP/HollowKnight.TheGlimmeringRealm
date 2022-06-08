@@ -33,7 +33,7 @@ namespace HKSecondQuest.Rooms.City
             SetItem(LocationNames.Flukenest, ItemNames.Desolate_Dive);
             SetItem(LocationNames.Wanderers_Journal_Pleasure_House, ItemNames.Dream_Nail);
             SetItem(LocationNames.Kings_Station_Stag, ItemNames.Geo_Rock_Default);
-            SetItem(LocationNames.Grub_City_of_Tears_Guarded, ItemNames.Kings_Idol);
+            SetItem(LocationNames.Hallownest_Seal_Kings_Station, ItemNames.Kings_Idol);
             SetItem(LocationNames.City_Crest, ItemNames.Vengeful_Spirit);
             SetItem(LocationNames.City_of_Tears_Map, ItemNames.Kings_Station_Stag);
             SetItem(LocationNames.World_Sense, ItemNames.Kings_Brand);
