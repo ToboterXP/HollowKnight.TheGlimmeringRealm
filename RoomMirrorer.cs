@@ -145,13 +145,40 @@ namespace HKSecondQuest
         {
             orig(self);
 
-            foreach (string name in excludedObjects)
+            /*foreach (string name in excludedObjects)
             {
                 Transform transform = GameObject.Find(name).transform;
                 transform.SetScaleX(-transform.GetScaleX());
-            }
+            }*/
 
-            excludedObjects.Clear();
+            foreach (GameObject prefab in GameObject.FindObjectsOfType<GameObject>())
+            {
+                if (isFlipping && prefab.scene.name != "DontDestroyOnLoad" && prefab.scene.name != "HideAndDontSave")
+                {
+
+                    PromptMarker prefabPrompt;
+                    TMPro.TextMeshPro textMesh;
+                    prefab.gameObject.TryGetComponent<PromptMarker>(out prefabPrompt);
+                    prefab.gameObject.TryGetComponent(out textMesh);
+                    if ((prefabPrompt != null || textMesh != null) && prefab.transform.localScale.x > 0)
+                    {
+                        prefab.transform.localScale = new Vector3(-1, 1, 1);
+                    }
+                }
+                else
+                {
+                    PromptMarker prefabPrompt;
+                    TMPro.TextMeshPro textMesh;
+                    prefab.gameObject.TryGetComponent<PromptMarker>(out prefabPrompt);
+                    prefab.gameObject.TryGetComponent(out textMesh);
+                    if ((prefabPrompt != null || textMesh != null) && prefab.transform.localScale.x < 0)
+                    {
+                        prefab.transform.localScale = Vector3.one;
+                    }
+
+                    excludedObjects.Clear();
+                }
+            }
         }
 
         private void GameMapUpdate(On.GameMap.orig_Update orig, GameMap self)
@@ -217,17 +244,21 @@ namespace HKSecondQuest
             {
                 
                 PromptMarker prefabPrompt;
+                TMPro.TextMeshPro textMesh;
                 prefab.gameObject.TryGetComponent<PromptMarker>(out prefabPrompt);
-                if (prefabPrompt != null && prefab.transform.localScale.x > 0)
+                prefab.gameObject.TryGetComponent(out textMesh);
+                if ((prefabPrompt != null || textMesh != null) && prefab.transform.localScale.x > 0)
                 {
                     prefab.transform.localScale = new Vector3(-1, 1, 1);
                 }
             } else
             {
                 PromptMarker prefabPrompt;
+                TMPro.TextMeshPro textMesh;
                 prefab.gameObject.TryGetComponent<PromptMarker>(out prefabPrompt);
-                if (prefabPrompt != null && prefab.transform.localScale.x < 0)
-                {
+                prefab.gameObject.TryGetComponent(out textMesh);
+                if ((prefabPrompt != null || textMesh != null) && prefab.transform.localScale.x < 0)
+                { 
                     prefab.transform.localScale = Vector3.one;
                 }
             }

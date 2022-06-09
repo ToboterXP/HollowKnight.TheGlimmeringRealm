@@ -14,6 +14,7 @@ namespace HKSecondQuest.Rooms.Area1
         public override void OnLoad()
         {
             PlaceGO(Prefabs.SMALL_PLATFORM.Object, 15, 13);
+            DestroyGO("plat_float_07");
         }
     }
 }

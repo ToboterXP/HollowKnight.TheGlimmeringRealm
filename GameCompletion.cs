@@ -49,7 +49,7 @@ namespace HKSecondQuest
             int masks = self.maxHealth - 5; //max 1
             int vessels = self.MPReserveMax / 11; //max 1
 
-            float percentage = 3 * charmCount + 2 * nailUpgrades + 3 * charmNotches + 3 * spells + 2 * mainUpgrades + 3 * dreamers + 3 * masks + 2 * vessels;
+            float percentage = 3 * charmCount + 2 * nailUpgrades + 3 * charmNotches + 2 * spells + 2 * mainUpgrades + 3 * dreamers + 3 * masks + 2 * vessels;
 
             self.completionPercentage = percentage;
         }

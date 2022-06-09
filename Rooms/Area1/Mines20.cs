@@ -15,6 +15,8 @@ namespace HKSecondQuest.Rooms.Area1
         public override void OnLoad()
         {
             PlaceGO(Prefabs.SMALL_PLATFORM.Object, 67, 190);
+            PlaceGO(Prefabs.SMALL_PLATFORM.Object, 11, 157);
+            PlaceGO(Prefabs.SMALL_PLATFORM.Object, 13, 164);
             PlaceGO(Prefabs.LARGE_PLATFORM.Object, 38, 60).transform.SetScaleX(1.5f);
         }
     }

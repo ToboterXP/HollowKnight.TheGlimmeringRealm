@@ -55,6 +55,9 @@ namespace HKSecondQuest
         {
             Instance = this;
 
+            SetEnabled(false);
+            TextChanger.Enabled = true;
+
             //Instantiate all Room subclasses
             foreach (Type type in this.GetType().Assembly.GetTypes())
             {

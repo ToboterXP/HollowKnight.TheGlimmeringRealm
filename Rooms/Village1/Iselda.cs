@@ -28,7 +28,6 @@ namespace HKSecondQuest.Rooms.Village1
             SetItem(LocationNames.Iselda, ItemNames.Pale_Ore, true, 1000, alternateDesc: "A glimmering chunk of fairly average looking rock. Probably completely unnecessary for your journey.");
             SetItem(LocationNames.Iselda, ItemNames.Hallownest_Seal, true, 320, alternateDesc: "A seal bearing the sigil of the Glimmering City. Held in high regard by some.");
             SetItem(LocationNames.Iselda, ItemNames.Mask_Shard, true, 250, alternateDesc: "A cracked fragment of white, pale shell. Just like your own.");
-            SetItem(LocationNames.Iselda, ItemNames.Mask_Shard, true, 150, alternateDesc: "A cracked fragment of white, pale shell. Just like your own.");
             SetItem(LocationNames.Iselda, ItemNames.Vessel_Fragment, true, 400, alternateDesc: "A cracked fragment of white, pale shell. Just like your own.");
             SetItem(LocationNames.Iselda, ItemNames.Lifeblood_Heart, true, 210, alternateDesc: "A small medal, filled with a drop of pulsing blue liquid.");
             SetItem(LocationNames.Iselda, ItemNames.Charm_Notch, true, 310, alternateDesc: "A small carved notch. It looks like it attaches to your belt. Maybe you could use more charms with it?");

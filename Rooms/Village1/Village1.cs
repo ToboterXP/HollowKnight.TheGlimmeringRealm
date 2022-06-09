@@ -27,7 +27,7 @@ namespace HKSecondQuest.Rooms.Village1
             ReplaceText("ELDERBUG_BLACK_EGG_OPENED", "Hello, dear wanderer. And where have your travels lead you this time?");
             ReplaceText("ELDERBUG_INTRO_VISITEDCROSSROAD", "Hello, dear wanderer. And where have your travels lead you this time?");
             ReplaceText("ELDERBUG_STAG_STATION_REOPENED", "Looks like the young station keeper finally opened the station again.<br>Never seen anyone who's more proud of their husband before.");
-            ReplaceText("ELDERBUG_INTRO_NORMAL", "Oh, a traveler. Noone has come this way for a long time, you know. The roads have gotten more ever more dangerous.<page>But do make yourself at home. Sadly, most of our town isn't in great shape, with most of the people missing, or stuck down below.");
+            ReplaceText("ELDERBUG_INTRO_NORMAL", "Oh, a traveler. No one has come this way for a long time, you know. The roads have gotten more and more dangerous.<page>But do make yourself at home. Sadly, most of our town isn't in great shape, with most of the people missing, or stuck down below.");
             ReplaceText("ELDERBUG_GENERIC_2", "Have you heard of the Glimmering City? It sits at the top of the Realm, proud and tall.<br>I'd love to visit again one day, it's a sight to behold!");
             ReplaceText("ELDERBUG_HINT_FUNGAL_WASTES", "Hello, dear wanderer. And where have your travels lead you this time?");
             ReplaceText("ELDERBUG_HISTORY_2", "You know, a few years an emissary from hallownest arrived, on his way through to the king.<br>Strange fellow. Looked a little like you. Big white shoulder paldrons.<br>Thought you might know him maybe. Real Buzz Saw enthusiast.");
@@ -37,6 +37,15 @@ namespace HKSecondQuest.Rooms.Village1
             ReplaceText("ELDERBUG_INTRO_MAIN", "The entrance to the lower levels has been blocked for days.<br>I'm almost worried sick.");
             ReplaceText("ELDERBUG_HINT_CITY_OF_TEARS", "Hello, dear wanderer. And where have your travels lead you this time?");
             ReplaceText("ELDERBUG_TOWN_GREET_4", "There's been quite the conflict raging, over in the deeper parts of the realm. But I mostly stay away from politics. Terrible for the appetite, really.");
+            ReplaceText("ELDERBUG_MAP_SHOP_OPEN", "The stag station shop has opened. Perhaps you'll take a look?");
+            ReplaceText("ELDERBUG_TOWN_GREET_3", "You know, there's a lovely old catapillar living below. Great father, and an excellent cook!");
+            ReplaceText("ELDERBUG_SHOPKEEP_RETURNED", "Oh, Sly has returned! No idea where that old vagabond has been spending his time.<page>Though I could make an educated guess...");
+            ReplaceText("ELDERBUG_DREAM_FLOWER", "These petals... they remind me of better days. Maybe it's a sign?");
+            ReplaceText("ELDERBUG_KINGS_PASS", "The old outer gate has been locked for a long time now. Well, I say locked. People get through occasionally. Then some Menderbug comes along and puts the pieces back together.<page>It's quite a curious system, really.");
+            ReplaceText("ELDERBUG_BLACK_EGG_OPENED", "Oh, you broke into the kings vault you say? That's dangerous. You should be more careful.");
+            ReplaceText("ELDERBUG_DUNG", "You've smelled better on other occasions, have you per chance fought some sort of dung knight? No? A shame, we used to be friends.");
+            ReplaceText("ELDERBUG_TEMPLE_VISITED", "You've seen the kings secret vault, you say? Be careful with those things. One should never meddle with royalty. It just leads to trouble.");
+            ReplaceText("ELDERBUG_HINT_RESTING_GROUNDS", "Hello, dear wanderer. And where have your travels lead you this time?");
 
             ReplaceText("BRETTA_DREAM_BED", "Maybe... becoming a fighter myself one day?... Bretta the Brave...");
             ReplaceText("BRETTA_DREAM_BENCH", "He's back!... Such a strong little fellow... Perhaps he could teach... me?");
@@ -127,7 +136,8 @@ namespace HKSecondQuest.Rooms.Village1
             SetTransition("Fungus1_15", "right1", "Tutorial_01", "top2");
             SetTransition("Town", "bot1", "Crossroads_01", "top1");
             SetTransition("Crossroads_01", "left1", "Crossroads_38", "right1");
-            SetTransition("Crossroads_01", "right1", "Crossroads_08", "left1");
+            SetTransition("Crossroads_01", "right1", "Crossroads_13", "left1");
+            SetTransition("Crossroads_13", "right1", "Crossroads_08", "left1");
             SetTransition("Crossroads_08", "left2", "RestingGrounds_07", "right1");
             SetTransition("Crossroads_08", "right1", "Crossroads_48", "left1");
             SetTransition("Crossroads_08", "right2", "Crossroads_09", "left1");
@@ -144,8 +154,8 @@ namespace HKSecondQuest.Rooms.Village1
 
             SetItem(LocationNames.Dirtmouth_Stag, ItemNames.Geo_Rock_Default);
              
-            SetItem(LocationNames.Grubfather, ItemNames.Lumafly_Lantern, true, grubCost: 3);
-            SetItem(LocationNames.Grubfather, ItemNames.Grubsong, true, grubCost: 4);
+            SetItem(LocationNames.Grubfather, ItemNames.Lumafly_Lantern, true, grubCost: 4);
+            SetItem(LocationNames.Grubfather, ItemNames.Grubsong, true, grubCost: 3);
             SetItem(LocationNames.Grubfather, ItemNames.Kings_Idol, true, grubCost: 5);
             SetItem(LocationNames.Grubfather, ItemNames.Pale_Ore, true, grubCost: 7);
              
