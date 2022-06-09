@@ -108,6 +108,7 @@ namespace HKSecondQuest.Rooms.Village1
             ReplaceText("WITCH_DREAM1", "Maybe I will one day dream... of whole new world?!");
             ReplaceText("WITCH_DREAM_FALL", "Dreams... such power...");
             ReplaceText("WITCH_DREAM", "Have no dreams... must collect...");
+            ReplaceText("WITCH_TALK", "Bring me... dreams...");
         }
 
         public override void OnBeforeLoad()
@@ -159,10 +160,10 @@ namespace HKSecondQuest.Rooms.Village1
             SetItem(LocationNames.Grubfather, ItemNames.Kings_Idol, true, grubCost: 5);
             SetItem(LocationNames.Grubfather, ItemNames.Pale_Ore, true, grubCost: 7);
              
-            SetItem(LocationNames.Seer, ItemNames.Elegant_Key, true, essenceCost: 150);
-            SetItem(LocationNames.Seer, ItemNames.Dream_Wielder, true, essenceCost: 300);
-            SetItem(LocationNames.Seer, ItemNames.Kings_Idol, true, essenceCost: 500);
-            SetItem(LocationNames.Seer, ItemNames.Dream_Gate, true, essenceCost: 600);
+            SetItem(LocationNames.Seer, ItemNames.Elegant_Key, true, essenceCost: 150, destroySeerRewards: true);
+            SetItem(LocationNames.Seer, ItemNames.Dream_Wielder, true, essenceCost: 300, destroySeerRewards: true);
+            SetItem(LocationNames.Seer, ItemNames.Kings_Idol, true, essenceCost: 500, destroySeerRewards: true);
+            SetItem(LocationNames.Seer, ItemNames.Dream_Gate, true, essenceCost: 600, destroySeerRewards: true);
         }
     }
 }

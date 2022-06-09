@@ -37,7 +37,7 @@ namespace HKSecondQuest
 
 
         //Call in OnWorldInit
-        public void SetItem(string location, string item, bool merge = false, int geoCost = 0, int essenceCost = 0, int grubCost = 0, string alternateName=null, string alternateDesc=null)
+        public void SetItem(string location, string item, bool merge = false, int geoCost = 0, int essenceCost = 0, int grubCost = 0, string alternateName=null, string alternateDesc=null, bool destroySeerRewards=false)
         {
             //find item and location
             AbstractPlacement placement = Finder.GetLocation(location).Wrap();
@@ -62,6 +62,11 @@ namespace HKSecondQuest
             if (alternateDesc != null) ((MsgUIDef)aitem.UIDef).shopDesc = new BoxedString(alternateDesc);
 
             placement.Add(aitem);
+
+            if (destroySeerRewards)
+            {
+                placement.AddTag<DestroySeerRewardTag>().destroyRewards = SeerRewards.All;
+            }
 
             PlacementConflictResolution resolution = merge ? PlacementConflictResolution.MergeKeepingNew : PlacementConflictResolution.Throw;
 

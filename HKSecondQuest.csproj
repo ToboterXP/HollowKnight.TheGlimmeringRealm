@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <HollowKnightRefs>C:/Program Files (x86)/Steam/steamapps/common/Hollow Knight/hollow_knight_Data/Managed</HollowKnightRefs>
-    <ExportDir>C:/Users/tobi1/Documents/Momentane Projekte/HKSecondQuest/bin/Exports</ExportDir>
+    <ExportDir>C:/Users/tobi1/Documents/GitHub/HollowKnight.TheGlimmeringRealm/bin/Exports</ExportDir>
     
     <!-- Uncomment this to generate a documentation file to be included with the mod -->
     <!--<DocumentationFile>$(OutputPath)/$(AssemblyTitle).xml</DocumentationFile>-->
