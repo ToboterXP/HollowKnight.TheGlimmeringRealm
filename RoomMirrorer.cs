@@ -10,6 +10,7 @@ using MonoMod.Cil;
 using HutongGames.PlayMaker.Actions;
 using HutongGames.PlayMaker;
 using System.Reflection;
+using System.Collections;
 
 /* Mirroring Code from Mimijackz MirroredHallownest Mod
  * 
@@ -29,22 +30,21 @@ namespace HKSecondQuest
         private bool isFlipping = false;
         private bool previouslyFlipping = false;
 
-        //bool previouslyWallTouching = false;
+        bool inKeyboardMenu = false;
 
         List<string> excludedObjects = new List<string>();
 
+        //hook all the things that need hooking
         public void Hook()
         {
             On.tk2dCamera.UpdateCameraMatrix += OnUpdateCameraMatrix;
             On.GameCameras.StartScene += OnNewSceneCam;
+            
+            On.GameManager.OnNextLevelReady += OnNextScene;
 
-            IL.HeroController.HeroDash += FlipHorizontalInput;
-            IL.HeroController.FixedUpdate += FlipHorizontalInput;
-            IL.HeroController.LookForInput += FlipHorizontalInput;
-            IL.HeroController.UnPauseInput += FlipHorizontalInput;
-
-            On.HeroController.LookForInput += FlipHorizontalInputMore;
-            On.GameManager.OnNextLevelReady += FlipSwimFSM;
+            On.UIManager.GoToKeyboardMenu += OnOpenKeyboardMenu;
+            On.UIManager.GoToRemapControllerMenu += OnOpenGamepadMenu;
+            On.UIManager.HideCurrentMenu += OnHideMenu;
 
             On.ObjectPool.Spawn_GameObject_Transform_Vector3_Quaternion += OnSpawnObject;
             On.GameManager.OnNextLevelReady += OnSceneLoad;
@@ -52,6 +52,66 @@ namespace HKSecondQuest
 
         }
 
+        //inverts the inputs the game uses
+        public void InvertInputs()
+        {
+            PlayerAction tmp = InputHandler.Instance.inputActions.left;
+            InputHandler.Instance.inputActions.left = InputHandler.Instance.inputActions.right;
+            InputHandler.Instance.inputActions.right = tmp;
+
+            InputHandler.Instance.inputActions.moveVector.InvertXAxis = !InputHandler.Instance.inputActions.moveVector.InvertXAxis;
+
+        }
+
+        //make sure controls are unflipped before being saved
+        public IEnumerator OnHideMenu(On.UIManager.orig_HideCurrentMenu orig, global::UIManager self)
+        {
+            if (isFlipping && inKeyboardMenu)
+            {
+                inKeyboardMenu = false;
+                InvertInputs();
+            }
+
+            return orig(self);
+        }
+
+        public IEnumerator OnOpenKeyboardMenu(On.UIManager.orig_GoToKeyboardMenu orig, global::UIManager self)
+        {
+            //invert inputs if keyboard menu is opened
+            if (isFlipping && !inKeyboardMenu)
+            {
+                InvertInputs();
+                inKeyboardMenu = true; //only flip it once
+            }
+
+            return orig(self);
+        }
+
+        public IEnumerator OnOpenGamepadMenu(On.UIManager.orig_GoToRemapControllerMenu orig, global::UIManager self)
+        {
+            //invert inputs if gamepad menu is opened
+            if (isFlipping && !inKeyboardMenu)
+            {
+                InvertInputs();
+                inKeyboardMenu = true; //only flip it once
+            }
+
+            return orig(self);
+        }
+
+        //flip the controls if necessary
+        public void OnNextScene(On.GameManager.orig_OnNextLevelReady orig, global::GameManager self)
+        {
+            orig(self);
+
+            //swap directions if the world has been flipped
+            if (isFlipping != previouslyFlipping)
+            {
+                InvertInputs();
+            }
+        }
+
+        //updates wheter the room should be flipped or not
         public void UpdateFlipping()
         {
             previouslyFlipping = isFlipping;
@@ -59,142 +119,13 @@ namespace HKSecondQuest
             else isFlipping = false;
         }
 
-        public void FlipSwimFSM(On.GameManager.orig_OnNextLevelReady orig, global::GameManager self)
-        {
-            orig(self);
-
-            if (!HeroController.instance) return;
-
-            PlayMakerFSM fsm = HeroController.instance.gameObject.LocateMyFSM("Surface Water");
-
-            List<FsmState> states = new List<FsmState>(fsm.FsmStates);
-
-            FsmState swimRight = states.Find((state) => state.Name == "Swim Right");
-            FsmState swimLeft = states.Find((state) => state.Name == "Swim Left");
-
-            //swap directions of swimming if the world has been flipped
-            if (isFlipping != previouslyFlipping)
-            {
-                FunctionCall swap = ((SendMessage)swimRight.Actions[0]).functionCall;
-                ((SendMessage)swimRight.Actions[0]).functionCall = ((SendMessage)swimLeft.Actions[0]).functionCall;
-                ((SendMessage)swimLeft.Actions[0]).functionCall = swap;
-
-                FsmFloat swap2 = ((SetVelocity2d)swimRight.Actions[3]).x;
-                ((SetVelocity2d)swimRight.Actions[3]).x = ((SetVelocity2d)swimLeft.Actions[3]).x;
-                ((SetVelocity2d)swimLeft.Actions[3]).x = swap2;
-            }
-        }
-
-        private void FlipHorizontalInputMore(On.HeroController.orig_LookForInput orig, global::HeroController self)
-        {
-            /*if (isFlipping && self.acceptingInput)
-            {
-                if (InputHandler.Instance != null && GameManager.instance != null && !GameManager.instance.isPaused) { 
-
-                    bool CanWallSlide = (bool)typeof(HeroController).GetMethod("CanWallSlide", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(self, new object[0]);
-                    
-                    if (self.playerData.GetBool("hasWalljump") && CanWallSlide && !self.cState.attacking)
-                    {
-                        if (self.touchingWallL && InputHandler.Instance.inputActions.right.IsPressed && !self.cState.wallSliding)
-                        {
-                            typeof(HeroController).GetProperty("airDashed").SetValue(self, false);
-                            typeof(HeroController).GetProperty("doubleJumped").SetValue(self, false);
-                            self.wallSlideVibrationPlayer.Play();
-                            self.cState.wallSliding = true;
-                            self.cState.willHardLand = false;
-                            self.wallslideDustPrefab.enableEmission = true;
-                            self.wallSlidingL = false;
-                            self.wallSlidingR = true;
-                            self.FaceLeft();
-                            typeof(HeroController).GetMethod("CancelFallEffects", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(self, new object[0]);
-                        }
-                        if (self.touchingWallR && InputHandler.Instance.inputActions.left.IsPressed && !self.cState.wallSliding)
-                        {
-                            typeof(HeroController).GetProperty("airDashed").SetValue(self, false);
-                            typeof(HeroController).GetProperty("doubleJumped").SetValue(self, false);
-                            self.wallSlideVibrationPlayer.Play();
-                            self.cState.wallSliding = true;
-                            self.cState.willHardLand = false;
-                            self.wallslideDustPrefab.enableEmission = true;
-                            self.wallSlidingL = true;
-                            self.wallSlidingR = false;
-                            self.FaceRight();
-                            typeof(HeroController).GetMethod("CancelFallEffects", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(self, new object[0]);
-                        }
-                    }
-                }
-            }*/
-
-            orig(self);
-
-            if (isFlipping) self.move_input = -self.move_input;
-        }
-
-        /*private void OnCollision(On.HeroController.orig_OnCollisionStay2D orig, global::HeroController self, Collision2D collision)
-        {
-            orig(self, collision);
-
-            if (self.cState.touchingWall && isFlipping)
-            {
-                bool tmp = self.touchingWallL;
-                self.touchingWallL = self.touchingWallR;
-                self.touchingWallR = tmp;
-            }
-        }*/
-
-        //Thanks Mulhima for the help!
-        private void FlipHorizontalInput(ILContext il)
-        {
-            if (isFlipping)
-            {
-                var cursor = new ILCursor(il);
-
-                while (cursor.TryGotoNext(MoveType.After,
-                            i => i.MatchLdfld<HeroController>("inputHandler"),
-                            i => i.MatchLdfld<InputHandler>("inputActions"),
-                            i => i.MatchLdfld<HeroActions>("right")
-                        ))
-                {
-                    cursor.EmitDelegate<Func<PlayerAction, PlayerAction>>((_) => {
-                        if (isFlipping)
-                        {
-                            return InputHandler.Instance.inputActions.left;
-}
-                        else
-                        {
-                            return InputHandler.Instance.inputActions.right;
-                        }
-                    });
-                }
-
-                cursor.Goto(0);
-
-                while (cursor.TryGotoNext(MoveType.After,
-                            i => i.MatchLdfld<HeroController>("inputHandler"),
-                            i => i.MatchLdfld<InputHandler>("inputActions"),
-                            i => i.MatchLdfld<HeroActions>("left")
-                        ))
-                {
-                    cursor.EmitDelegate<Func<PlayerAction, PlayerAction>>((_) => {
-                        if (isFlipping)
-                        {
-                            
-                            return InputHandler.Instance.inputActions.right;
-                        }
-                        else
-                        {
-                            return InputHandler.Instance.inputActions.left;
-                        }
-                    });
-                }
-            }
-        }
-
+        //adds an object to be excluded from not being flipped
         public void AddExcludedObject(string name)
         {
             excludedObjects.Add(name);
         }
 
+        //make sure text already in the scene is flipped
         private void OnSceneLoad(On.GameManager.orig_OnNextLevelReady orig, global::GameManager self)
         {
             orig(self);
@@ -230,6 +161,7 @@ namespace HKSecondQuest
             excludedObjects.Clear();
         }
 
+        //make sure the map is flipped (unused)
         private void GameMapUpdate(On.GameMap.orig_Update orig, GameMap self)
         {
             orig(self);
@@ -243,8 +175,7 @@ namespace HKSecondQuest
             }
         }
 
-
-
+        //flip newly spawned cameras
         private void OnNewSceneCam(On.GameCameras.orig_StartScene orig, GameCameras self)
         {
 
@@ -255,13 +186,7 @@ namespace HKSecondQuest
                 {
                     return;
                 }
-                /*if (self.tk2dCam.transform.GetComponentInChildren<IsFlippedComponent>() == null) self.tk2dCam.gameObject.AddComponent<IsFlippedComponent>();
-                if (self.tk2dCam.transform.GetComponentInChildren<IsFlippedComponent>().flipped)
-                {
-                    return;
-                }
-
-                self.tk2dCam.transform.GetComponentInChildren<IsFlippedComponent>().flipped = true;*/
+               
                 foreach (UCamera cam in self.tk2dCam.transform.GetComponentsInChildren<UCamera>()) {
                     if (cam.GetComponent<IsFlippedComponent>() == null) cam.gameObject.AddComponent<IsFlippedComponent>();
                     if (!cam.GetComponent<IsFlippedComponent>().flipped)
@@ -286,6 +211,7 @@ namespace HKSecondQuest
             }
         }
 
+        //flip text that is spawned via prefab
         private GameObject OnSpawnObject(On.ObjectPool.orig_Spawn_GameObject_Transform_Vector3_Quaternion orig, GameObject prefab, Transform parent, Vector3 pos, Quaternion rot)
         {
             prefab = orig(prefab, parent, pos, rot);
@@ -315,6 +241,7 @@ namespace HKSecondQuest
             return prefab;
         }
 
+        //make sure cameras stay flipped
         private void OnUpdateCameraMatrix(On.tk2dCamera.orig_UpdateCameraMatrix orig, tk2dCamera self)
         {
             orig(self);
@@ -341,75 +268,19 @@ namespace HKSecondQuest
             cam.projectionMatrix = p;
         } 
 
+        //flip a camera
         void FlipUCam(UCamera cam)
         {
             Matrix4x4 mat = cam.projectionMatrix;
             mat *= Matrix4x4.Scale(new Vector3(-1, 1, 1));
             cam.projectionMatrix = mat;
         }
+
+
         bool hasBlurCam(GameCameras self)
         {
             return !(self.tk2dCam == null || self.tk2dCam.transform.GetComponentInChildren<Camera>() == null);
         }
-
-        enum Gravity { Up, Down, Left, Right }
-        /*public CollisionSide OnHCFindCollisionDirection(On.HeroController.orig_FindCollisionDirection orig,
-        HeroController self, Collision2D collision)
-        {
-            Vector2 normal = collision.GetSafeContact().Normal;
-            float x = normal.x;
-            float y = normal.y;
-
-            Gravity gravity = isFlipping ? Gravity.Up : Gravity.Down;
-
-            if (y >= 0.5f)
-            {
-                return gravity switch
-                {
-                    Gravity.Up => CollisionSide.top,
-                    Gravity.Left => CollisionSide.left,
-                    Gravity.Right => CollisionSide.right,
-                    _ => CollisionSide.bottom,
-                };
-            }
-
-            if (y <= -0.5f)
-            {
-                return gravity switch
-                {
-                    Gravity.Up => CollisionSide.bottom,
-                    Gravity.Left => CollisionSide.right,
-                    Gravity.Right => CollisionSide.left,
-                    _ => CollisionSide.top,
-                };
-            }
-
-            if (x < 0f)
-            {
-                return gravity switch
-                {
-                    Gravity.Up => CollisionSide.left,
-                    Gravity.Left => CollisionSide.top,
-                    Gravity.Right => CollisionSide.bottom,
-                    _ => CollisionSide.right,
-                };
-            }
-
-            if (x > 0f)
-            {
-                return gravity switch
-                {
-                    Gravity.Up => CollisionSide.right,
-                    Gravity.Left => CollisionSide.bottom,
-                    Gravity.Right => CollisionSide.top,
-                    _ => CollisionSide.left,
-                };
-            }
-
-            Debug.LogError(
-                $"ERROR: unable to determine direction of collision - contact points at ({normal.x},{normal.y})");
-            return CollisionSide.bottom;
-        }*/
 
     }
 }

@@ -8,7 +8,7 @@ namespace HKSecondQuest.Rooms.Area3
 {
     internal class Fungal23 : Room
     {
-        public Fungal23() : base("Fungus2_23") { /*IsFlipped = true;*/ }
+        public Fungal23() : base("Fungus2_23") { IsFlipped = true; }
 
     }
 }
