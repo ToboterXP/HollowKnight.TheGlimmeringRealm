@@ -41,7 +41,7 @@ namespace HKSecondQuest.Rooms.Village3
             ReplaceText("WEAVERS_DEN_MAIN", "Inn");
 
             ReplaceText("MIDWIFE_MAIN", "The Mayoress");
-            ReplaceText("SPIDER_MEET", "Weeeelcome! Isn't this a quaint little villageee? Sooo peaceful, far away from the kingdoms toils and troubles! You simply must meet my husband upstairs, he's a true gourmand! <page>... though perhaps I might have a little bite as well?");
+            ReplaceText("SPIDER_MEET", "Weeeelcome! Isn't this a quaint little villageee? Sooo peaceful, far away from the kingdom's toils and troubles! You simply must meet my husband upstairs, he's a true gourmand! <page>... though perhaps I might have a little bite as well?");
             ReplaceText("SPIDER_GREET", "Oh I simply must apologize, my mannerssss! The traders from the City haven't come by in a loooong time... Everyone here is absolutely starving!");
             ReplaceText("SPIDER_REPEAT", "The new kinggg locked someone in the tunnels below, long agooo! We neveer go therrrre. Even when the hunger grooows... too large...");
             ReplaceText("SPIDER_GREET2", "Aaaah, the keeeey to below?! Keeep your fingers from there. Nothing good will come of it! I must stop you!"); //only after kings brand
@@ -52,7 +52,7 @@ namespace HKSecondQuest.Rooms.Village3
             ReplaceText("JINN_MEET", "Huh, a little man! Another lodger perhaps? Or a trader? I will pay for food, any food!");
             ReplaceText("JINN_RETURN", "Ah, the little man returns! Has it met the mayor and his wife yet?");
             ReplaceText("JINN_TALK_01", "You should really meet the mayor and his wife. They are quite delightful... although being inedible helps in that regard.");
-            ReplaceText("JINN_TALK_02", "The mayor is an absolute blast at charade night, let me tell you. You can hardly tell it's him!");
+            ReplaceText("JINN_TALK_02", "The mayor is an absolute blast at charades night, let me tell you. You can hardly tell it's him!");
             ReplaceText("JINN_TALK_03", "I was a guard at the King's Pass once. But then the king started going mad, so I left and went here. It's much nicer here.");
             ReplaceText("JINN_TALK_GENERIC", "I heard the mayor is guarding something important for the new king. But he hasn't told me what.");
 

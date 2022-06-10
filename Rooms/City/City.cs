@@ -57,7 +57,7 @@ namespace HKSecondQuest.Rooms.City
             ReplaceText("RELICDEALER_SUPER", "Souvenir Seeker");
             ReplaceText("RELICDEALER_SHOP_INTRO", "Good day to you, pale visitor! And welcome to my little store. I sell little souvenirs to the hordes of foreign visitors who can afford these exclusive trinkets.<page>But my stocks have dried up for a while, so any help would be truly appreciated!");
             ReplaceText("RELICDEALER_DREAM", "Some day... I'm gonna be selling microwaves or dishwashers! Not this useless crap. But I guess a bug's gotta earn their dreams.");
-            ReplaceText("RELICDEALER_TALK", "You know, no foreign visitors have come here in years. Everything has gone to crap a little bit.<page>But always keeping up appearances is important! Who knows, the Prince of Hallownest might just come walking in tomorrow! One should never loose Hope.");
+            ReplaceText("RELICDEALER_TALK", "You know, no foreign visitors have come here in years. Everything has gone to crap a little bit.<page>But always keeping up appearances is important! Who knows, the Prince of Hallownest might just come walking in tomorrow! One should never lose Hope.");
             ReplaceText("RELICDEALER_TALK_2", "Where are you getting all these souvenirs from by the way? I hope you aren't stealing them from any loving homes?! My reputation could never survive that!");
             ReplaceText("RELICDEALER_TALK_REPEAT", "If you find any souvenirs, please bring them over!");
             ReplaceText("RELICDEALER_CONVO_1", "My stocks have dried up for a while, so any help would be truly appreciated!");
@@ -70,13 +70,13 @@ namespace HKSecondQuest.Rooms.City
             ReplaceText("RELICDEALER_JOURNAL_7", "Ah, another journal. Thanks!");
             ReplaceText("RELICDEALER_JOURNAL_8", "Ah, another journal. Thanks!");
             ReplaceText("RELICDEALER_SEAL_1", "A glimmering seal! These were very popular until recently!");
-            ReplaceText("RELICDEALER_SEAL_2", "These little trinkets are in the shape of Glimmering King's coat of arms. It's even got the little fork at the top!");
+            ReplaceText("RELICDEALER_SEAL_2", "These little trinkets are in the shape of the Glimmering King's coat of arms. It's even got the little fork at the top!");
             ReplaceText("RELICDEALER_SEAL_3", "You may think these look quite similar to the Seal of Hallownest, but you'd be wrong. They are actually a different shade of purple.");
-            ReplaceText("RELICDEALER_SEAL_4", "You know, I heard of a land far away, called the land of storms. It's inhabitants are supposed to have myterious and arcane powers. Perhaps some will come and visit one day?");
+            ReplaceText("RELICDEALER_SEAL_4", "You know, I heard of a land far away, called the land of storms. Its inhabitants are supposed to have mysterious and arcane powers. Perhaps some will come and visit one day?");
             ReplaceText("RELICDEALER_SEAL_5", "Ah, another seal! Thanks for that!");
             ReplaceText("RELICDEALER_SEAL_6", "Ah, another seal! Thanks for that!");
             ReplaceText("RELICDEALER_SEAL_7", "Ah, another seal! Thanks for that!");
-            ReplaceText("RELICDEALER_IDOL_1", "A king's idol. These are a small effigy of the Glimmering King. The old man sadly isn't around anymore these days, but he was quite the figure. Children loved these. Always kept chewing the heads of.");
+            ReplaceText("RELICDEALER_IDOL_1", "A king's idol. These are a small effigy of the Glimmering King. The old man sadly isn't around anymore these days, but he was quite the figure. Children loved these. Always kept chewing the heads off.");
             ReplaceText("RELICDEALER_IDOL_2", "Did you know, with the prongs on the end, these can be used as forks in a pinch!<page>Although that's probably treason.");
             ReplaceText("RELICDEALER_IDOL_3", "After the coup, the king fled deep into the mountain. No idea what happened to him there. Kingdom has never been the same, though.");
             ReplaceText("RELICDEALER_IDOL_4", "Ah, another idol! Thanks for that!");

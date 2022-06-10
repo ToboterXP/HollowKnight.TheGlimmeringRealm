@@ -20,7 +20,7 @@ namespace HKSecondQuest.Rooms.Area1
             //override Quirrel dialog in mines
             ReplaceText("QUIRREL_MINES_1", "Oh, a fellow traveler. How nice to meet a friendly face in these hostile tunnels.");
             ReplaceText("QUIRREL_MINES_2", "These caves are quite the attraction, aren't they? Though the miners seem less than hospitable.<page>I wonder what befell them?");
-            ReplaceText("QUIRREL_MINES_3", "But then again, I'm not sure what everyone would need all these crystal for anyways.<br>They don't seem terribly useful.");
+            ReplaceText("QUIRREL_MINES_3", "But then again, I'm not sure what everyone would need all these crystals for anyways.<br>They don't seem terribly useful.");
             ReplaceText("QUIRREL_MINES_4", "Perhaps they are absolutely crazy for crystaline wine glasses?");
 
             //override Cornifer dialog in cliffs
@@ -29,9 +29,9 @@ namespace HKSecondQuest.Rooms.Area1
             ReplaceText("CORNIFER_REFUSE", "Not interested? A pitty, the stags are a real marvel. If you're nice, they'll even let you pet them.");
             ReplaceText("CLIFFS_BOUGHT", "If you're looking for respite, there's a small hut further up. Friendly guy. Used to be a cook.");
             ReplaceText("CORNIFER_AGAIN", "Oh, back again? Might I interest you in a ticket after all?");
-            ReplaceText("CORNIFER_NOT_ENOUGH", "Not enough money? I thought so, that's probably the reason why noone is using it anymore. Too expensive, you see? But maintenance is costly.");
+            ReplaceText("CORNIFER_NOT_ENOUGH", "Not enough money? I thought so, that's probably the reason why no one is using it anymore. Too expensive, you see? But maintenance is costly.");
             ReplaceText("CORNIFER_INTRO_1", "Oh dear, I haven't even introduced myself, have I? The name's Cornifer. I'm an engineer for the stag network.<br>The only one left by now, probably. I'm currently on a journey to repair the stations out here, they are in quite a state, you know?");
-            ReplaceText("CORNIFER_INTRO_2", "Orders from the head stag masters are really getting sparse these days. No idea why, they used to be so hectic all the time. Couldn't happen to me if tried.");
+            ReplaceText("CORNIFER_INTRO_2", "Orders from the head stag masters are really getting sparse these days. No idea why, they used to be so hectic all the time. Couldn't happen to me if I tried.");
             ReplaceText("DREAM", "Being an engineer really is the best profession, isn't it?<br>Although I always wanted to be a cartographer. We'll see.");
             ReplaceText("CORNIFER_SUB", "The Engineer");
             ReplaceText("CORNIFER_MEET", "Quite a place to be meeting someone, isn't it?<page>Since you're out here all alone, might I interest you in a ticket for Dirtmouth station?");
@@ -43,7 +43,7 @@ namespace HKSecondQuest.Rooms.Area1
             ReplaceText("MATO_BOW", "Best of luck!");
             ReplaceText("MATO_GREET", "Oh, it's my little customer! How is my old charm coming along?");
             ReplaceText("MATO_DREAM", "Maybe I should pay a visit to the old village at the foot of the hill again?<page>But no... they'll just be staring at me, as usual.");
-            ReplaceText("MATO_SLY", "That's a truely exquisit little charm you are wearing there! Where did you get it? The village to the west? ... Perhaps I'll have to pay them a visit at some point...");
+            ReplaceText("MATO_SLY", "That's a truly exquisit little charm you are wearing there! Where did you get it? The village to the west? ... Perhaps I'll have to pay them a visit at some point...");
             ReplaceText("MATO_MEET", "Oh, a visitor! That's quite unusual, all the way up here. Unless you count the bugs that try to kill you, of course.<page>I make little charms as a hobby, do you want one?");
             ReplaceText("MATO_TAUGHT", "I hope you'll have much success with my little charm! Just polish it regularly with some Durandoo fat!");
             ReplaceText("NM_MATO_SUPER", "Charm Maker");

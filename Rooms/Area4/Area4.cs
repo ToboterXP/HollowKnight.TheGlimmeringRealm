@@ -48,7 +48,7 @@ namespace HKSecondQuest.Rooms.Area4
             ReplaceText("QUIRREL_GREENPATH_1", "Oh, we meet again! This really is a lovely corner in this hostile kingdom, isn't it?");
             ReplaceText("QUIRREL_GREENPATH_2", "I think this will be the last time we meet. I'm feeling a strange pull eastward. Far, far away...");
             ReplaceText("QUIRREL_GREENPATH_3", "Perhaps it's one of the other fallen kingdoms calling? The Land of Storms maybe? Or Hallownest?");
-            ReplaceText("QUIRREL_GREENPATH_REPEAT", "Maybe you can fell it too? Maybe you will follow it as well?");
+            ReplaceText("QUIRREL_GREENPATH_REPEAT", "Maybe you can feel it too? Maybe you will follow it as well?");
         }
     }
 }

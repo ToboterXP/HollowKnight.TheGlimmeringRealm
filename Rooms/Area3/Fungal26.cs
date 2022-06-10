@@ -9,5 +9,11 @@ namespace HKSecondQuest.Rooms.Area3
     internal class Fungal26 : Room 
     {
         public Fungal26() : base("Fungus2_26") { IsFlipped = true; }
+
+        public override void OnBeforeLoad()
+        {
+            HKSecondQuest.Instance.RoomMirrorer.AddExcludedObject("Item name");
+            HKSecondQuest.Instance.RoomMirrorer.AddExcludedObject("Item desc");
+        }
     }
 }

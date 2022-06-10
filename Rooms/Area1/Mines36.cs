@@ -13,11 +13,6 @@ namespace HKSecondQuest.Rooms.Area1
             IsFlipped = true;
         }
 
-        public override void OnBeforeLoad()
-        {
-            HKSecondQuest.Instance.RoomMirrorer.AddExcludedObject("Inspect");
-        }
-
         public override void OnLoad()
         {
             PlaceGO(Prefabs.SMALL_PLATFORM.Object, 21, 13);

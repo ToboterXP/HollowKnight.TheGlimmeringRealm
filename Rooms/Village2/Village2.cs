@@ -37,15 +37,15 @@ namespace HKSecondQuest.Rooms.Village2
         public override void OnInit()
         {
             ReplaceText("CHARMSLUG_MEET_1", "Oooooh, a customer, how delightful! Can I interest you in my charming services?");
-            ReplaceText("CHARMSLUG_MEET_2", "You may call me Salubra, and I run this ... ahem ... Charm Shop.<page>Now, what kind of services may I provide to such strapping young bug such as you?");
+            ReplaceText("CHARMSLUG_MEET_2", "You may call me Salubra, and I run this ... ahem ... Charm Shop.<page>Now, what kind of services may I provide to a strapping young bug such as yourself?");
             ReplaceText("CHARMSLUG_MEET_3A", "You know dear old Gruzmother, up in the old store room?<br>She used to be my business partner. But then she got pregnant, so I had to continue my business alone.<page>A pitty really, she was quite the talent. Send her my regard!");
             ReplaceText("CHARMSLUG_MEET_3B", "You know dear old Gruzmother, up in the old store room?<br>She used to be my business partner. But then she got pregnant, so I had to continue my business alone.<page>A pitty really, she was quite the talent. Send her my regard!");
-            ReplaceText("CHARMSLUG_REPEAT", "Ooooh, a repeat customer? Well, my services are always at your ready if you have Geo to spare!<page>A little bug came by a little while ago. Paid quite well, but he seemed slightly dazed afterwards.<page>Too much mushroom wine perhaps? Maybe you'll meet him if you take a look around.");
+            ReplaceText("CHARMSLUG_REPEAT", "Ooooh, a repeat customer? Well, my services are always at the ready if you have Geo to spare!<page>A little bug came by a little while ago. Paid quite well, but he seemed slightly dazed afterwards.<page>Too much mushroom wine perhaps? Maybe you'll meet him if you take a look around.");
             ReplaceText("CHARMSLUG_OVERCHARM", "Oh my, such a well decorated fella you are! Surely, you must be a strapping young army bug to collect such a charming collection!");
             ReplaceText("CHARMSLUG_COMBO", "How charming, to meet someone with such an alluring combination of charms on him.<br>You must be an excellent fighter with such distinguished medals on your chest!");
             ReplaceText("CHARMSLUG_NOSTOCK", "Oh dear, oh my! I'm afraid I can't be providing my charming services to you today - a terrible headache, you see?");
             ReplaceText("CHARMSLUG_DREAM", "Oh my, a customer! Maybe that rotund bug who fixed the station actually was right,<br>that traffic would return to the village.<page>A pitty he seemed so uninterested in my services - he looked like he had such skillful hands!");
-            ReplaceText("CHARMSLUG_TRUTH", "This village you used to have quite the traffic you know? Travelers coming in and out constantly, on their way to the Glimmering City. But travel has dried up quite a bit it seems, and so has my patronage.<br>I wonder what was responsible for that?");
+            ReplaceText("CHARMSLUG_TRUTH", "This village used to have quite the traffic you know? Travelers coming in and out constantly, on their way to the Glimmering City. But travel has dried up quite a bit it seems, and so has my patronage.<br>I wonder what was responsible for that?");
             ReplaceText("CHARM_SLUG_SUPER", "Charming Hostess");
 
             ReplaceText("SLY_RESCUE_3", "My name is Sly. I usually run a small store in Dirtmouth, but it gets a little lonely and boring there sometimes, you know.");

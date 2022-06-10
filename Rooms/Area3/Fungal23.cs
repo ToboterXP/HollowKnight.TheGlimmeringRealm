@@ -10,9 +10,5 @@ namespace HKSecondQuest.Rooms.Area3
     {
         public Fungal23() : base("Fungus2_23") { /*IsFlipped = true;*/ }
 
-        public override void OnBeforeLoad()
-        {
-            HKSecondQuest.Instance.RoomMirrorer.AddExcludedObject("Inspect");
-        }
     }
 }

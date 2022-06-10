@@ -10,9 +10,5 @@ namespace HKSecondQuest.Rooms.Area4
     {
         public Greenpath_26() : base("Fungus1_26") { IsFlipped = true; }
 
-        public override void OnBeforeLoad()
-        {
-            HKSecondQuest.Instance.RoomMirrorer.AddExcludedObject("Inspect");
-        }
     }
 }

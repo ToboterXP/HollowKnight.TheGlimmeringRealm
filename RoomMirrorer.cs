@@ -9,6 +9,7 @@ using System;
 using MonoMod.Cil;
 using HutongGames.PlayMaker.Actions;
 using HutongGames.PlayMaker;
+using System.Reflection;
 
 /* Mirroring Code from Mimijackz MirroredHallownest Mod
  * 
@@ -27,6 +28,8 @@ namespace HKSecondQuest
 
         private bool isFlipping = false;
         private bool previouslyFlipping = false;
+
+        //bool previouslyWallTouching = false;
 
         List<string> excludedObjects = new List<string>();
 
@@ -84,9 +87,60 @@ namespace HKSecondQuest
 
         private void FlipHorizontalInputMore(On.HeroController.orig_LookForInput orig, global::HeroController self)
         {
+            /*if (isFlipping && self.acceptingInput)
+            {
+                if (InputHandler.Instance != null && GameManager.instance != null && !GameManager.instance.isPaused) { 
+
+                    bool CanWallSlide = (bool)typeof(HeroController).GetMethod("CanWallSlide", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(self, new object[0]);
+                    
+                    if (self.playerData.GetBool("hasWalljump") && CanWallSlide && !self.cState.attacking)
+                    {
+                        if (self.touchingWallL && InputHandler.Instance.inputActions.right.IsPressed && !self.cState.wallSliding)
+                        {
+                            typeof(HeroController).GetProperty("airDashed").SetValue(self, false);
+                            typeof(HeroController).GetProperty("doubleJumped").SetValue(self, false);
+                            self.wallSlideVibrationPlayer.Play();
+                            self.cState.wallSliding = true;
+                            self.cState.willHardLand = false;
+                            self.wallslideDustPrefab.enableEmission = true;
+                            self.wallSlidingL = false;
+                            self.wallSlidingR = true;
+                            self.FaceLeft();
+                            typeof(HeroController).GetMethod("CancelFallEffects", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(self, new object[0]);
+                        }
+                        if (self.touchingWallR && InputHandler.Instance.inputActions.left.IsPressed && !self.cState.wallSliding)
+                        {
+                            typeof(HeroController).GetProperty("airDashed").SetValue(self, false);
+                            typeof(HeroController).GetProperty("doubleJumped").SetValue(self, false);
+                            self.wallSlideVibrationPlayer.Play();
+                            self.cState.wallSliding = true;
+                            self.cState.willHardLand = false;
+                            self.wallslideDustPrefab.enableEmission = true;
+                            self.wallSlidingL = true;
+                            self.wallSlidingR = false;
+                            self.FaceRight();
+                            typeof(HeroController).GetMethod("CancelFallEffects", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(self, new object[0]);
+                        }
+                    }
+                }
+            }*/
+
             orig(self);
+
             if (isFlipping) self.move_input = -self.move_input;
         }
+
+        /*private void OnCollision(On.HeroController.orig_OnCollisionStay2D orig, global::HeroController self, Collision2D collision)
+        {
+            orig(self, collision);
+
+            if (self.cState.touchingWall && isFlipping)
+            {
+                bool tmp = self.touchingWallL;
+                self.touchingWallL = self.touchingWallR;
+                self.touchingWallR = tmp;
+            }
+        }*/
 
         //Thanks Mulhima for the help!
         private void FlipHorizontalInput(ILContext il)
@@ -145,15 +199,10 @@ namespace HKSecondQuest
         {
             orig(self);
 
-            /*foreach (string name in excludedObjects)
-            {
-                Transform transform = GameObject.Find(name).transform;
-                transform.SetScaleX(-transform.GetScaleX());
-            }*/
-
+            
             foreach (GameObject prefab in GameObject.FindObjectsOfType<GameObject>())
             {
-                if (isFlipping && prefab.scene.name != "DontDestroyOnLoad" && prefab.scene.name != "HideAndDontSave")
+                if (isFlipping && prefab.scene.name != "DontDestroyOnLoad" && prefab.scene.name != "HideAndDontSave" && !excludedObjects.Contains(prefab.name))
                 {
 
                     PromptMarker prefabPrompt;
@@ -175,10 +224,10 @@ namespace HKSecondQuest
                     {
                         prefab.transform.localScale = Vector3.one;
                     }
-
-                    excludedObjects.Clear();
                 }
             }
+
+            excludedObjects.Clear();
         }
 
         private void GameMapUpdate(On.GameMap.orig_Update orig, GameMap self)
@@ -240,9 +289,9 @@ namespace HKSecondQuest
         private GameObject OnSpawnObject(On.ObjectPool.orig_Spawn_GameObject_Transform_Vector3_Quaternion orig, GameObject prefab, Transform parent, Vector3 pos, Quaternion rot)
         {
             prefab = orig(prefab, parent, pos, rot);
-            if (isFlipping)
+            if (isFlipping && !excludedObjects.Contains(prefab.name))
             {
-                
+
                 PromptMarker prefabPrompt;
                 TMPro.TextMeshPro textMesh;
                 prefab.gameObject.TryGetComponent<PromptMarker>(out prefabPrompt);
@@ -302,5 +351,65 @@ namespace HKSecondQuest
         {
             return !(self.tk2dCam == null || self.tk2dCam.transform.GetComponentInChildren<Camera>() == null);
         }
+
+        enum Gravity { Up, Down, Left, Right }
+        /*public CollisionSide OnHCFindCollisionDirection(On.HeroController.orig_FindCollisionDirection orig,
+        HeroController self, Collision2D collision)
+        {
+            Vector2 normal = collision.GetSafeContact().Normal;
+            float x = normal.x;
+            float y = normal.y;
+
+            Gravity gravity = isFlipping ? Gravity.Up : Gravity.Down;
+
+            if (y >= 0.5f)
+            {
+                return gravity switch
+                {
+                    Gravity.Up => CollisionSide.top,
+                    Gravity.Left => CollisionSide.left,
+                    Gravity.Right => CollisionSide.right,
+                    _ => CollisionSide.bottom,
+                };
+            }
+
+            if (y <= -0.5f)
+            {
+                return gravity switch
+                {
+                    Gravity.Up => CollisionSide.bottom,
+                    Gravity.Left => CollisionSide.right,
+                    Gravity.Right => CollisionSide.left,
+                    _ => CollisionSide.top,
+                };
+            }
+
+            if (x < 0f)
+            {
+                return gravity switch
+                {
+                    Gravity.Up => CollisionSide.left,
+                    Gravity.Left => CollisionSide.top,
+                    Gravity.Right => CollisionSide.bottom,
+                    _ => CollisionSide.right,
+                };
+            }
+
+            if (x > 0f)
+            {
+                return gravity switch
+                {
+                    Gravity.Up => CollisionSide.right,
+                    Gravity.Left => CollisionSide.bottom,
+                    Gravity.Right => CollisionSide.top,
+                    _ => CollisionSide.left,
+                };
+            }
+
+            Debug.LogError(
+                $"ERROR: unable to determine direction of collision - contact points at ({normal.x},{normal.y})");
+            return CollisionSide.bottom;
+        }*/
+
     }
 }

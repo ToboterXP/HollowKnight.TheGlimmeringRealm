@@ -10,9 +10,5 @@ namespace HKSecondQuest.Rooms.Village1
     {
         public Crossroads37() : base("Crossroads_37") { IsFlipped = true; }
 
-        public override void OnBeforeLoad()
-        {
-            HKSecondQuest.Instance.RoomMirrorer.AddExcludedObject("Inspect");
-        }
     }
 }

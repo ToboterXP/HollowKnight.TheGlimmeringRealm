@@ -47,7 +47,7 @@ namespace HKSecondQuest.Rooms.Area3
             ReplaceText("LEGEATER_DREAM", "It smells nice as well. Dark. Perhaps... in its sleep?<page>But no, I smell his sharp metal. What if he wakes?!<page>But... just a leg maybe....");
             ReplaceText("LEGEATER_NOSTOCK", "My smellys... You've taken them all! Now I have none. None!<page>But you smell nice... Like the deepest cracks of the rocks<br>Dark. Darker yet Darker.");
             ReplaceText("LEGEATER_REFUSE_AGAIN", "Not enough to smell again? Well then see you shall not! These smellys will stay mine!");
-            ReplaceText("LEGEATER_CONVO1", "I roam these lands. The farmers have been gone for months now, you see? Once I had to sneak. Now there's noone left to see me. Except these wicked mushrooms.<page>Tasty mushrooms...");
+            ReplaceText("LEGEATER_CONVO1", "I roam these lands. The farmers have been gone for months now, you see? Once I had to sneak. Now there's no one left to see me. Except these wicked mushrooms.<page>Tasty mushrooms...");
             ReplaceText("LEGEATER_CONVO2", "Sometimes, nasty people come. People with pointy metal. Take my stuff.<page>It's not fair. Why don't they get their own?!");
             ReplaceText("LEGEATER_CONVO3", "This key, I saw it in the wake of a small stumbling bug. He looked all bitter and sinewy...<page>But such a musty, tasty key!");
             ReplaceText("LEGEATER_CONVO4", "A very round bug came by recently...<br>He smelled all oily, like an ancient old grandma slug!<page>Gave me a wonderful old oily copper fitting. Here. Smell it!<page>But no take! It's my favorite!");

@@ -21,7 +21,7 @@ namespace HKSecondQuest.Rooms.Area5
 
         public override void OnInit()
         {
-            ReplaceText("ABYSS_TUT_TAB_01", "Here lies the mad old king! Nobody may enter, on accounts of him being mad and old!<br><br>King Mask Maker");
+            ReplaceText("ABYSS_TUT_TAB_01", "Here lies the mad old king! Nobody may enter, on account of him being mad and old!<br><br>King Mask Maker");
             ReplaceText("HOLLOW_KNIGHT_MAIN", "Fallen King");
         }
     }
