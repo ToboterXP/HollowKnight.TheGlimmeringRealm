@@ -8,11 +8,11 @@
   </PropertyGroup>
   <PropertyGroup>
     <RootNamespace>HKSecondQuest</RootNamespace>
-    <AssemblyName>HKSecondQuest</AssemblyName>
+    <AssemblyName>TheGlimmeringRealm</AssemblyName>
     <TargetFramework>net472</TargetFramework>
-    <AssemblyTitle>HKSecondQuest</AssemblyTitle>
-    <Product>HKSecondQuest</Product>
-    <Description>A Hollow Knight Mod</Description>
+    <AssemblyTitle>TheGlimmeringRealm</AssemblyTitle>
+    <Product>TheGlimmeringRealm</Product>
+    <Description>A Hollow Knight Mod changing the layout and lore of the world into a whole new Realm</Description>
     <Copyright>Copyright ©  2022</Copyright>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
