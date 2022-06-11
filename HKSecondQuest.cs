@@ -205,6 +205,8 @@ namespace HKSecondQuest
             string scene = next.name;
             ActiveRoom = null;
 
+            RoomMirrorer.BeforeSceneLoad();
+
             GeneralChanges.OnSceneLoad();
 
             foreach (Room room in rooms)

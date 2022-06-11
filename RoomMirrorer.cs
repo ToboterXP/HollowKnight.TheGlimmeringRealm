@@ -121,8 +121,14 @@ namespace HKSecondQuest
 
         //adds an object to be excluded from not being flipped
         public void AddExcludedObject(string name)
-        {
+        { 
             excludedObjects.Add(name);
+        }
+
+        //Called before any Rooms are executed
+        public void BeforeSceneLoad()
+        {
+            excludedObjects.Clear();
         }
 
         //make sure text already in the scene is flipped
@@ -157,8 +163,6 @@ namespace HKSecondQuest
                     }
                 }
             }
-
-            excludedObjects.Clear();
         }
 
         //make sure the map is flipped (unused)
@@ -173,7 +177,7 @@ namespace HKSecondQuest
             {
                 self.transform.SetScaleX(scaleX * -1);
             }
-        }
+        } 
 
         //flip newly spawned cameras
         private void OnNewSceneCam(On.GameCameras.orig_StartScene orig, GameCameras self)
