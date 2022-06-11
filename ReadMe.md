@@ -16,7 +16,7 @@ Huge Thanks to:
 - homothetyhk for the MenuChanger Mod
 - Exempt-Medic & Rye for Playtesting
 - Mimijackz for Mirrored Hallownest Code adapted to mirror rooms
-- Mulhima, Link459, homothetyhk, Flibber, BadMagic, Godfriend and SFGrenade for technical help
+- Mulhima, homothetyhk, Flibber, BadMagic, Godfriend, Link459 and SFGrenade for technical help
 
 And everyone in the HK Modding Discord for all their help and support
 
