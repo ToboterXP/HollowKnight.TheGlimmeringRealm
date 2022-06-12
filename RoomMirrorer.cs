@@ -30,6 +30,8 @@ namespace HKSecondQuest
         private bool isFlipping = false;
         private bool previouslyFlipping = false;
 
+        private bool inputsInverted = false; //are the inputs currently inverted?
+
         bool inKeyboardMenu = false;
 
         List<string> excludedObjects = new List<string>();
