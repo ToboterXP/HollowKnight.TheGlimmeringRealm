@@ -46,6 +46,8 @@ namespace HKSecondQuest
             On.UIManager.GoToRemapControllerMenu += OnOpenGamepadMenu;
             On.UIManager.HideCurrentMenu += OnHideMenu;
 
+            On.HutongGames.PlayMaker.Actions.SendEventByName.OnEnter += OnSendEventByName;
+
             On.ObjectPool.Spawn_GameObject_Transform_Vector3_Quaternion += OnSpawnObject;
             On.GameManager.OnNextLevelReady += OnSceneLoad;
             On.GameMap.Update += GameMapUpdate;
@@ -53,48 +55,55 @@ namespace HKSecondQuest
         }
 
         //inverts the inputs the game uses
-        public void InvertInputs()
+        public void SetInvertInputs(bool invert)
         {
-            PlayerAction tmp = InputHandler.Instance.inputActions.left;
-            InputHandler.Instance.inputActions.left = InputHandler.Instance.inputActions.right;
-            InputHandler.Instance.inputActions.right = tmp;
+            if (invert != inputsInverted)
+            {
+                inputsInverted = invert;
+                PlayerAction tmp = InputHandler.Instance.inputActions.left;
+                InputHandler.Instance.inputActions.left = InputHandler.Instance.inputActions.right;
+                InputHandler.Instance.inputActions.right = tmp;
 
-            InputHandler.Instance.inputActions.moveVector.InvertXAxis = !InputHandler.Instance.inputActions.moveVector.InvertXAxis;
+                InputHandler.Instance.inputActions.moveVector.InvertXAxis = !InputHandler.Instance.inputActions.moveVector.InvertXAxis;
+            }
+        }
 
+        public void OnSendEventByName(On.HutongGames.PlayMaker.Actions.SendEventByName.orig_OnEnter orig, global::HutongGames.PlayMaker.Actions.SendEventByName self)
+        {
+            string event_ = self.sendEvent.Value;
+
+            if (event_ == "INVENTORY OPENED") SetInvertInputs(false);
+            if (event_ == "INVENTORY CLOSED") SetInvertInputs(isFlipping);
+
+            orig(self);
         }
 
         //make sure controls are unflipped before being saved
         public IEnumerator OnHideMenu(On.UIManager.orig_HideCurrentMenu orig, global::UIManager self)
         {
-            if (isFlipping && inKeyboardMenu)
-            {
-                inKeyboardMenu = false;
-                InvertInputs();
-            }
+            SetInvertInputs(false);
 
-            return orig(self);
+            var ret = orig(self);
+
+            SetInvertInputs(isFlipping);
+
+            return ret;
         }
 
         public IEnumerator OnOpenKeyboardMenu(On.UIManager.orig_GoToKeyboardMenu orig, global::UIManager self)
         {
-            //invert inputs if keyboard menu is opened
-            if (isFlipping && !inKeyboardMenu)
-            {
-                InvertInputs();
-                inKeyboardMenu = true; //only flip it once
-            }
+            if (isFlipping) return self.GoToOptionsMenu(); //it seems to break stuff, so just don't allow it
+             
+            SetInvertInputs(false);
 
             return orig(self);
         }
 
         public IEnumerator OnOpenGamepadMenu(On.UIManager.orig_GoToRemapControllerMenu orig, global::UIManager self)
         {
-            //invert inputs if gamepad menu is opened
-            if (isFlipping && !inKeyboardMenu)
-            {
-                InvertInputs();
-                inKeyboardMenu = true; //only flip it once
-            }
+            if (isFlipping) return self.GoToOptionsMenu(); //it seems to break stuff, so just don't allow it
+
+            SetInvertInputs(false); 
 
             return orig(self);
         }
@@ -104,11 +113,7 @@ namespace HKSecondQuest
         {
             orig(self);
 
-            //swap directions if the world has been flipped
-            if (isFlipping != previouslyFlipping)
-            {
-                InvertInputs();
-            }
+            SetInvertInputs(isFlipping);
         }
 
         //updates wheter the room should be flipped or not
@@ -148,7 +153,8 @@ namespace HKSecondQuest
                     prefab.gameObject.TryGetComponent(out textMesh);
                     if ((prefabPrompt != null || textMesh != null) && prefab.transform.localScale.x > 0)
                     {
-                        prefab.transform.localScale = new Vector3(-1, 1, 1);
+                        Vector3 oldScale = prefab.transform.localScale;
+                        prefab.transform.localScale = new Vector3(-oldScale.x, oldScale.y, oldScale.z);
                     }
                 }
                 else
@@ -159,7 +165,8 @@ namespace HKSecondQuest
                     prefab.gameObject.TryGetComponent(out textMesh);
                     if ((prefabPrompt != null || textMesh != null) && prefab.transform.localScale.x < 0)
                     {
-                        prefab.transform.localScale = Vector3.one;
+                        Vector3 oldScale = prefab.transform.localScale;
+                        prefab.transform.localScale = new Vector3(-oldScale.x, oldScale.y, oldScale.z);
                     }
                 }
             }
@@ -186,7 +193,7 @@ namespace HKSecondQuest
             orig(self);
             if (isFlipping)
             {
-                if (!hasBlurCam(self))
+                if (!hasBlurCam(self)) 
                 {
                     return;
                 }
@@ -228,7 +235,8 @@ namespace HKSecondQuest
                 prefab.gameObject.TryGetComponent(out textMesh);
                 if ((prefabPrompt != null || textMesh != null) && prefab.transform.localScale.x > 0)
                 {
-                    prefab.transform.localScale = new Vector3(-1, 1, 1);
+                    Vector3 oldScale = prefab.transform.localScale;
+                    prefab.transform.localScale = new Vector3(-oldScale.x, oldScale.y, oldScale.z);
                 }
             } else
             {
@@ -237,8 +245,9 @@ namespace HKSecondQuest
                 prefab.gameObject.TryGetComponent<PromptMarker>(out prefabPrompt);
                 prefab.gameObject.TryGetComponent(out textMesh);
                 if ((prefabPrompt != null || textMesh != null) && prefab.transform.localScale.x < 0)
-                { 
-                    prefab.transform.localScale = Vector3.one;
+                {
+                    Vector3 oldScale = prefab.transform.localScale;
+                    prefab.transform.localScale = new Vector3(-oldScale.x, oldScale.y, oldScale.z);
                 }
             }
             

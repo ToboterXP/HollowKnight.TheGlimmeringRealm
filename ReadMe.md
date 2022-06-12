@@ -3,6 +3,7 @@
 A mod for the game Hollow Knight, that changes the game world into a new layout.
 
 - Changes item placements, room transitions and NPC dialogue
+- No map included!
 
 Dependencies:
 ItemChanger
@@ -12,7 +13,7 @@ Made by Toboter
 
 Huge Thanks to:
 
-- homothetyhk, Flibber and BadMagic for their ItemChanger Mod
+- homothetyhk and Flibber for their ItemChanger Mod
 - homothetyhk for the MenuChanger Mod
 - Exempt-Medic & Rye for Playtesting
 - Mimijackz for Mirrored Hallownest Code adapted to mirror rooms
