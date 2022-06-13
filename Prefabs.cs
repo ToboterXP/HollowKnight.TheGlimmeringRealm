@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace HKSecondQuest
 {
+    /// <summary>
+    /// Contains the data necessary to find and load a prefab
+    /// </summary>
     class Prefab
     {
         public string OriginRoom;
@@ -21,6 +24,9 @@ namespace HKSecondQuest
         }
     }
 
+    /// <summary>
+    /// Contains the prefabs to be loaded by the PrefabManager
+    /// </summary>
     internal class Prefabs
     {
         public static Prefab BREAKABLE_FLOOR = new Prefab("RestingGrounds_05", "Quake Floor");

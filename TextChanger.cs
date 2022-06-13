@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace HKSecondQuest
 {
+    /// <summary>
+    /// Identifies a changed text
+    /// </summary>
     class TextReplacement
     {
         public string Key;
@@ -21,8 +24,14 @@ namespace HKSecondQuest
         }
     }
 
+    /// <summary>
+    /// Handles text changes
+    /// </summary>
     public class TextChanger
     {
+        /// <summary>
+        /// All changed texts
+        /// </summary>
         List<TextReplacement> texts = new List<TextReplacement>();
 
         public bool Enabled = true;
@@ -32,6 +41,9 @@ namespace HKSecondQuest
             ModHooks.LanguageGetHook += OnLanguageGet;
         }
 
+        /// <summary>
+        /// Returns a changed text if one is available, otherwise the original
+        /// </summary>
         public string OnLanguageGet(string key, string sheetTitle, string orig)
         {
             if (!Enabled) return orig; 
@@ -47,6 +59,9 @@ namespace HKSecondQuest
             return orig;
         }
 
+        /// <summary>
+        /// Add a new text change
+        /// </summary>
         public void AddReplacement(string key, string text, string sheetKey="")
         {
             texts.Add(new TextReplacement(key, text, sheetKey));

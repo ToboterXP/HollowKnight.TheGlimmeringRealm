@@ -12,28 +12,36 @@ using HutongGames.PlayMaker;
 using System.Reflection;
 using System.Collections;
 
-/* Mirroring Code from Mimijackz MirroredHallownest Mod
+/* Mirroring Code partially from Mimijackz MirroredHallownest Mod
  * 
- * Input flipping fixed by Mulhima
  */
 
 namespace HKSecondQuest
 {
+    /// <summary>
+    /// Added to cameras to mark whether they have been flipped
+    /// </summary>
     public class IsFlippedComponent : MonoBehaviour
     {
         public bool flipped = false;
     }
 
+    /// <summary>
+    /// Handles horizontal mirroring of rooms
+    /// </summary>
     public class RoomMirrorer
     {
 
         private bool isFlipping = false;
-        private bool previouslyFlipping = false;
 
-        private bool inputsInverted = false; //are the inputs currently inverted?
+        /// <summary>
+        /// Are the inputs currently inverted?
+        /// </summary>
+        private bool inputsInverted = false; 
 
-        bool inKeyboardMenu = false;
-
+        /// <summary>
+        /// List of all objects in this scene that shouldn't be ignored by the text correction code
+        /// </summary>
         List<string> excludedObjects = new List<string>();
 
         //hook all the things that need hooking
@@ -42,8 +50,6 @@ namespace HKSecondQuest
             On.tk2dCamera.UpdateCameraMatrix += OnUpdateCameraMatrix;
             On.GameCameras.StartScene += OnNewSceneCam;
             
-            On.GameManager.OnNextLevelReady += OnNextScene;
-
             On.UIManager.GoToKeyboardMenu += OnOpenKeyboardMenu;
             On.UIManager.GoToRemapControllerMenu += OnOpenGamepadMenu;
             On.UIManager.HideCurrentMenu += OnHideMenu;
@@ -52,24 +58,28 @@ namespace HKSecondQuest
 
             On.ObjectPool.Spawn_GameObject_Transform_Vector3_Quaternion += OnSpawnObject;
             On.GameManager.OnNextLevelReady += OnSceneLoad;
-            On.GameMap.Update += GameMapUpdate;
-
         }
 
-        //inverts the inputs the game uses
+        /// <summary>
+        /// Handles inversion of the player controls (since the normal controls are effectively inverted when the camera is flipped)
+        /// </summary>
         public void SetInvertInputs(bool invert)
         {
             if (invert != inputsInverted)
             {
                 inputsInverted = invert;
-                PlayerAction tmp = InputHandler.Instance.inputActions.left;
+                PlayerAction tmp = InputHandler.Instance.inputActions.left; 
                 InputHandler.Instance.inputActions.left = InputHandler.Instance.inputActions.right;
                 InputHandler.Instance.inputActions.right = tmp;
 
-                InputHandler.Instance.inputActions.moveVector.InvertXAxis = !InputHandler.Instance.inputActions.moveVector.InvertXAxis;
+                //InputHandler.Instance.inputActions.moveVector.InvertXAxis = !InputHandler.Instance.inputActions.moveVector.InvertXAxis;
+                InputHandler.Instance.inputActions.moveVector.InvertXAxis = invert;
             }
         }
 
+        /// <summary>
+        /// Uninvert the controls when the inventory is opened (since it uses a camera that isn't flipped)
+        /// </summary>
         public void OnSendEventByName(On.HutongGames.PlayMaker.Actions.SendEventByName.orig_OnEnter orig, global::HutongGames.PlayMaker.Actions.SendEventByName self)
         {
             string event_ = self.sendEvent.Value;
@@ -80,7 +90,9 @@ namespace HKSecondQuest
             orig(self);
         }
 
-        //make sure controls are unflipped before being saved
+        /// <summary>
+        /// Unflip the controls before any menu is closed (since that action saves the controls in the remapping menus)
+        /// </summary>
         public IEnumerator OnHideMenu(On.UIManager.orig_HideCurrentMenu orig, global::UIManager self)
         {
             SetInvertInputs(false);
@@ -92,6 +104,9 @@ namespace HKSecondQuest
             return ret;
         }
 
+        /// <summary>
+        /// Make sure the keyboard remapping menu is only openable in unflipped rooms
+        /// </summary>
         public IEnumerator OnOpenKeyboardMenu(On.UIManager.orig_GoToKeyboardMenu orig, global::UIManager self)
         {
             if (isFlipping) return self.GoToOptionsMenu(); //it seems to break stuff, so just don't allow it
@@ -101,6 +116,9 @@ namespace HKSecondQuest
             return orig(self);
         }
 
+        /// <summary>
+        /// Make sure the gamepad remapping menu is only openable in unflipped rooms
+        /// </summary>
         public IEnumerator OnOpenGamepadMenu(On.UIManager.orig_GoToRemapControllerMenu orig, global::UIManager self)
         {
             if (isFlipping) return self.GoToOptionsMenu(); //it seems to break stuff, so just don't allow it
@@ -110,42 +128,47 @@ namespace HKSecondQuest
             return orig(self);
         }
 
-        //flip the controls if necessary
-        public void OnNextScene(On.GameManager.orig_OnNextLevelReady orig, global::GameManager self)
-        {
-            orig(self);
 
-            SetInvertInputs(isFlipping);
-        }
 
-        //updates wheter the room should be flipped or not
+        /// <summary>
+        /// Called before the scene is loaded, sets whether the current room is flipped
+        /// </summary>
         public void UpdateFlipping()
         {
-            previouslyFlipping = isFlipping;
             if (HKSecondQuest.Instance.ActiveRoom != null) isFlipping = HKSecondQuest.Instance.ActiveRoom.IsFlipped;
             else isFlipping = false;
         }
 
-        //adds an object to be excluded from not being flipped
+        /// <summary>
+        /// Adds an object to be ignored by the text correction code
+        /// </summary>
+        /// <param name="name"></param>
         public void AddExcludedObject(string name)
         { 
             excludedObjects.Add(name);
         }
 
-        //Called before any Rooms are executed
+        /// <summary>
+        /// Called before a new scene is loaded, clears all previous excluded objects
+        /// </summary>
         public void BeforeSceneLoad()
         {
             excludedObjects.Clear();
         }
 
-        //make sure text already in the scene is flipped
+        /// <summary>
+        /// Called once a scene has finished loading, ensures the control inversion is correct, and that all text is either flipped or unflipped properly
+        /// </summary>
         private void OnSceneLoad(On.GameManager.orig_OnNextLevelReady orig, global::GameManager self)
         {
             orig(self);
 
-            
+            SetInvertInputs(isFlipping);
+
+
             foreach (GameObject prefab in GameObject.FindObjectsOfType<GameObject>())
             {
+                //invert all text if it's in a flipped rooms scene
                 if (isFlipping && prefab.scene.name != "DontDestroyOnLoad" && prefab.scene.name != "HideAndDontSave" && !excludedObjects.Contains(prefab.name))
                 {
 
@@ -159,6 +182,7 @@ namespace HKSecondQuest
                         prefab.transform.localScale = new Vector3(-oldScale.x, oldScale.y, oldScale.z);
                     }
                 }
+                //otherwise, make sure it's not inverted
                 else
                 {
                     PromptMarker prefabPrompt;
@@ -174,21 +198,10 @@ namespace HKSecondQuest
             }
         }
 
-        //make sure the map is flipped (unused)
-        private void GameMapUpdate(On.GameMap.orig_Update orig, GameMap self)
-        {
-            orig(self);
 
-            if (!isFlipping) return;
-
-            float scaleX = self.transform.GetScaleX();
-            if (scaleX >= 0)
-            {
-                self.transform.SetScaleX(scaleX * -1);
-            }
-        } 
-
-        //flip newly spawned cameras
+        /// <summary>
+        /// Called when the cameras have finished loading, makes sure they are properly flipped/unflipped
+        /// </summary>
         private void OnNewSceneCam(On.GameCameras.orig_StartScene orig, GameCameras self)
         {
 
@@ -204,7 +217,6 @@ namespace HKSecondQuest
                     if (cam.GetComponent<IsFlippedComponent>() == null) cam.gameObject.AddComponent<IsFlippedComponent>();
                     if (!cam.GetComponent<IsFlippedComponent>().flipped)
                     {
-                        HKSecondQuest.Instance.Log("Flip " + cam.name);
                         cam.GetComponent<IsFlippedComponent>().flipped = true;
                         FlipUCam(cam);
                     }
@@ -224,10 +236,13 @@ namespace HKSecondQuest
             }
         }
 
-        //flip text that is spawned via prefab
+        /// <summary>
+        /// Flip any newly spawned text if required
+        /// </summary>
         private GameObject OnSpawnObject(On.ObjectPool.orig_Spawn_GameObject_Transform_Vector3_Quaternion orig, GameObject prefab, Transform parent, Vector3 pos, Quaternion rot)
         {
             prefab = orig(prefab, parent, pos, rot);
+            //flip text in a flipped room
             if (isFlipping && !excludedObjects.Contains(prefab.name))
             {
 
@@ -240,6 +255,7 @@ namespace HKSecondQuest
                     Vector3 oldScale = prefab.transform.localScale;
                     prefab.transform.localScale = new Vector3(-oldScale.x, oldScale.y, oldScale.z);
                 }
+            //otherwise unflip it
             } else
             {
                 PromptMarker prefabPrompt;
@@ -256,7 +272,9 @@ namespace HKSecondQuest
             return prefab;
         }
 
-        //make sure cameras stay flipped
+        /// <summary>
+        /// Make sure the cameras stay flipped
+        /// </summary>
         private void OnUpdateCameraMatrix(On.tk2dCamera.orig_UpdateCameraMatrix orig, tk2dCamera self)
         {
             orig(self);
@@ -283,7 +301,9 @@ namespace HKSecondQuest
             cam.projectionMatrix = p;
         } 
 
-        //flip a camera
+        /// <summary>
+        /// Utility function that handles flipping cameras
+        /// </summary>
         void FlipUCam(UCamera cam)
         {
             Matrix4x4 mat = cam.projectionMatrix;
@@ -291,7 +311,9 @@ namespace HKSecondQuest
             cam.projectionMatrix = mat;
         }
 
-
+        /// <summary>
+        /// Does this scene have a blurry background?
+        /// </summary>
         bool hasBlurCam(GameCameras self)
         {
             return !(self.tk2dCam == null || self.tk2dCam.transform.GetComponentInChildren<Camera>() == null);

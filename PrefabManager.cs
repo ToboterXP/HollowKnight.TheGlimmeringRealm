@@ -8,11 +8,14 @@ using UnityEngine;
 
 namespace HKSecondQuest
 {
+    /// <summary>
+    /// Handles the loading of prefabs defined in the Prefabs class
+    /// </summary>
     internal class PrefabManager
     {
-
-
-        //returns a list of the requested prefabs
+        /// <summary>
+        /// Returns a list of all prefabs to be loaded for the "Prefabs" class
+        /// </summary>
         public List<(string, string)> GetPreloadNames()
         {
             List<(string, string)> preloadNames = new List<(string, string)> ();
@@ -29,7 +32,10 @@ namespace HKSecondQuest
             return preloadNames;
         }
 
-        //assigns the loaded prefabs to their Prefab Object
+        
+        /// <summary>
+        /// Assigns the loaded prefabs to their Prefab objects
+        /// </summary>
         public void InitializePrefabs(Dictionary<string, Dictionary<string, GameObject>> preloadedObjects)
         {
             HKSecondQuest.Instance.Log("Loaded Prefabs:" + preloadedObjects.Count);

@@ -28,7 +28,7 @@ namespace HKSecondQuest.Rooms.Village2
             SetItem(LocationNames.Salubra, ItemNames.Wayward_Compass, true, 10, alternateDesc: "A small compass, spinning aimlessly. Probably completely useless.");
             SetItem(LocationNames.Salubra, ItemNames.Sprintmaster, true, 150, alternateDesc: "A small medal, awarded for the \"Hallownest Marathon 143\"");
             SetItem(LocationNames.Salubra, ItemNames.Spell_Twister, true, 450, alternateDesc: "A glimmering medal, weaving intricate patterns from fine threads of soul when held.");
-            SetItem(LocationNames.Salubra, ItemNames.Glowing_Womb, true, 250, alternateDesc: "An effigy of a pregnant Aspid. Something is moving the pouch.");
+            SetItem(LocationNames.Salubra, ItemNames.Glowing_Womb, true, 250, alternateDesc: "An effigy of a pregnant Aspid. Something is moving in the pouch.");
             SetItem(LocationNames.Salubra, ItemNames.Defenders_Crest, true, 140, alternateDesc: "You have no idea what this is, but it smells like shit.");
             SetItem(LocationNames.Salubra, ItemNames.Crossroads_Stag, true, 105, alternateName: "Forlorn Village Ticket" ,alternateDesc: "A small paper ticket, permitting the wearer to travel to the Forlorn Village via stag");
             SetItem(LocationNames.Crossroads_Stag, ItemNames.Geo_Rock_Default);

@@ -10,16 +10,25 @@ using MenuChanger.MenuPanels;
 
 namespace HKSecondQuest
 {
+    /// <summary>
+    /// Handles the "Glimmering Realm" game mode menu
+    /// </summary>
     internal class SecondQuestModeMenu : ModeMenuConstructor
     {
         MenuPage SteelSoulSelector;
         private ToggleButton steelSoulToggle;
 
+        /// <summary>
+        /// Registers the menu with the ModeMenu
+        /// </summary>
         public static void Register()
         {
             ModeMenu.AddMode(new SecondQuestModeMenu());
         }
 
+        /// <summary>
+        /// Set up the menu page
+        /// </summary>
         public override void OnEnterMainMenu(MenuPage modeMenu)
         {
             SteelSoulSelector = new MenuPage("The Glimmering Realm", modeMenu);
@@ -44,17 +53,26 @@ namespace HKSecondQuest
             startButton.MoveTo(new UnityEngine.Vector2(-100, -300));
         }
 
+        /// <summary>
+        /// Enable the mod, and start a new game
+        /// </summary>
         public void StartGame()
         {
             HKSecondQuest.Instance.SetEnabled(true);
             UIManager.instance.StartNewGame(permaDeath: steelSoulToggle.Value);
         }
 
+        /// <summary>
+        /// Clear the menu instance if the menu is left
+        /// </summary>
         public override void OnExitMainMenu()
         {
             SteelSoulSelector = null;
         }
 
+        /// <summary>
+        /// Initialize the "Glimmering Realm" game mode button
+        /// </summary>
         public override bool TryGetModeButton(MenuPage modeMenu, out BigButton button)
         {
             button = new BigButton(modeMenu,"The Glimmering Realm", "Explore a whole new world");

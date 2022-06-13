@@ -9,8 +9,14 @@ using UnityEngine;
 
 namespace HKSecondQuest
 {
+    /// <summary>
+    /// Implements some overarching changes to text and the world
+    /// </summary>
     internal class GeneralChanges
     {
+        /// <summary>
+        /// Called on Initialization
+        /// </summary>
         public static void ChangeText()
         {
             ReplaceText("GAME_TITLE", "Hollow Knight The Glimmering Realm");
@@ -42,7 +48,25 @@ namespace HKSecondQuest
             ReplaceText("INV_DESC_TRINKET4", "A smooth stone egg. It tastes of nothing, making you wonder why you licked it in the first place.");
             ReplaceText("INV_DESC_SUPERDASH", "A crystaline geode from the Crystal Depths. It hums with energy, ready to catapult you in any direction you desire.");
             ReplaceText("INV_DESC_ART_DASH", "A massive strike with the nail, taught to you by a slightly drunken painter.");
+            ReplaceText("CHARM_DESC_18", "Carved by a powerful nailmaster. Empowers the user to stretch his arm just a little longer.");
+            ReplaceText("CHARM_DESC_7", "Used in the dangerous mines of the Crystal Depths to quickly heal grievously injured miners.");
+            ReplaceText("CHARM_DESC_17", "Mark of the farmers of the Glimmering Realm. Can dispose of pests, and grants access to notes left by other farmers.");
+            ReplaceText("CHARM_DESC_15", "A heavy medal made from multiple tiny nails. The added weight makes enemies recoil further.");
+            ReplaceText("CHARM_DESC_26", "A special order from an artist, who failed to pick it up. Contains a tutorial on advanced carving, in fine print.");
+            ReplaceText("CHARM_DESC_8", "Seems to always contains a small sip of lifeblood, to strengthen those who take a short break.");
+            ReplaceText("CHARM_DESC_2", "A pointless yet adorable tool of navigation");
+            ReplaceText("CHARM_DESC_37", "Banned in most sporting competitions");
+            ReplaceText("CHARM_DESC_33", "Little threads of soul seem to sprout from the mirror, decreasing the amount of soul necessary to cast spells");
+            ReplaceText("CHARM_DESC_22", "It makes you feel like you have butterflies in your stomach, for some reason.");
+            ReplaceText("CHARM_DESC_10", "You honestly don't even want to touch it. Why did you buy this again?");
+            ReplaceText("CHARM_DESC_13", "A little medal containing ancient wisdom from a far away tribe of warriors<br><br>\"Tape a knife to the tip of your nail!\"");
+            ReplaceText("CHARM_DESC_19", "A medal containing the soul of someone's grandma. She's delighted by how much your spells have grown!");
+            ReplaceText("CHARM_DESC_32", "An indispensible tools for the stag network engineer of rank. Accelerates any engineering task.");
+            ReplaceText("CHARM_DESC_30", "A strange medal given to you by Mothman. It might contain drugs.");
+            ReplaceText("CHARM_DESC_3", "A present from an old catapillar. Probably won't change your size though.");
+            ReplaceText("CHARM_DESC_31", "A very pretty medal. Could probably be sold for a good prize to a collector. If you had a mouth to barter with, that is.");
 
+            //Replace Elegy to Hallownest
             ReplaceText("PROLOGUE_EXCERPT_01", "A note to all who it may concern:");
             ReplaceText("PROLOGUE_EXCERPT_02", "I am the new king now! The old king has been banished!");
             ReplaceText("PROLOGUE_EXCERPT_03", "He is evil anyways, and has spread his monsters everywhere!");
@@ -52,6 +76,9 @@ namespace HKSecondQuest
             ReplaceText("CARD", "Have fun with your ticket, see you soon!<br><br>- Cornifer", "Cornifer");
         }
 
+        /// <summary>
+        /// Called before every scene load, locks a bunch of events to certain states
+        /// </summary>
         public static void OnSceneLoad()
         {
             if (HeroController.instance != null)
@@ -76,7 +103,9 @@ namespace HKSecondQuest
             }
         }
 
-        //Called every frame
+        /// <summary>
+        /// Called every frame, disables the stag station map
+        /// </summary>
         public static void OnUpdate()
         {
             //deactivate Stag Station Map
@@ -84,11 +113,17 @@ namespace HKSecondQuest
             if (go != null) go.SetActive(false);
         }
 
+        /// <summary>
+        /// Adds a replacement to the TextChanger
+        /// </summary>
         static void ReplaceText(string key, string text, string sheet="")
         {
             HKSecondQuest.Instance.TextChanger.AddReplacement(key, text, sheetKey: sheet);
         }
 
+        /// <summary>
+        /// Sets a save value in PlayerData
+        /// </summary>
         static void SetBool(string key, bool val)
         {
             HeroController.instance.playerData.SetBool(key, val);

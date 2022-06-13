@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace HKSecondQuest
 {
+    /// <summary>
+    /// Implements changes to the games completion counter
+    /// </summary>
     internal class GameCompletion
     {
         public static bool Enabled = false;
@@ -15,13 +18,16 @@ namespace HKSecondQuest
             On.PlayerData.CountGameCompletion += CalculateCompletion;
         }
 
+        /// <summary>
+        /// Recalculates completion based on items available in the Glimmering Realm
+        /// </summary>
         public static void CalculateCompletion(On.PlayerData.orig_CountGameCompletion orig, global::PlayerData self)
         {
             orig(self);
 
             if (!Enabled) return;
 
-            int charmCount = self.charmsOwned; //max 16
+            int charmCount = self.charmsOwned; //max 17
 
             int nailUpgrades = self.nailSmithUpgrades; // max 3
 

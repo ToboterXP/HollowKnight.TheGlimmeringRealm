@@ -21,40 +21,55 @@ using ItemChanger.Internal;
  * 
  */
 
+
 namespace HKSecondQuest
 {
-    //Module used to store whether this is a second quest save file
+    ///<summary>
+    ///Module used to store whether this is a second quest save file
+    ///</summary>
     public class SaveSettings
     {
         public bool glimmeringRealmEnabled = false;
     }
 
+    /// <summary>
+    /// Base class of the mod that manages Rooms and various other systems
+    /// </summary>
     public class HKSecondQuest : Mod, ILocalSettings<SaveSettings>
     {
         internal static HKSecondQuest Instance;
 
+        /// <summary>
+        /// Instances of all classes derived from Room
+        /// </summary>
         List<Room> rooms = new List<Room>();
 
         public TextChanger TextChanger = new TextChanger();
 
         PrefabManager PrefabMan = new PrefabManager();
 
-        //the currently active room
+        /// <summary>
+        /// The room instance corresponding to the currently loaded scene
+        /// </summary>
         public Room ActiveRoom = null;
 
         public RoomMirrorer RoomMirrorer = new RoomMirrorer();
 
+        /// <summary>
+        /// Is the mod activated in the current file?
+        /// </summary>
         public bool Enabled = false;
 
-        //save data
         public static SaveSettings saveSettings { get; set; } = new SaveSettings();
         public void OnLoadLocal(SaveSettings s) => saveSettings = s;
         public SaveSettings OnSaveLocal() => saveSettings;
+
 
         public HKSecondQuest() : base("The Glimmering Realm")
         {
             Instance = this;
 
+            //Make sure the main menu text is changed, but disable all other functionalitly
             SetEnabled(false);
             TextChanger.Enabled = true; 
 
@@ -71,7 +86,7 @@ namespace HKSecondQuest
 
         public override string GetVersion()
         {
-            return "v0.9.6";
+            return "v1.0.0";
         }
 
         public void SetEnabled(bool enabled)
@@ -90,12 +105,15 @@ namespace HKSecondQuest
         }
 
 
-        //Called when a new save file is started
+        /// <summary>
+        /// Hook for a new file starting, sets up ItemChanger 
+        /// </summary>
         public void InitializeWorld(On.UIManager.orig_StartNewGame orig, UIManager self, bool permaDeath, bool bossRush)
         {
             if (!Enabled)
             {
-                TextChanger.Enabled = false; //make sure text changer gets disabled properly
+                //make sure text changer gets disabled properly if the mod isn't enabled
+                TextChanger.Enabled = false;  
             }
             else
             {
@@ -107,9 +125,10 @@ namespace HKSecondQuest
                 ItemChangerMod.Modules.GetOrAdd<MenderbugUnlock>();
                 ItemChangerMod.Modules.GetOrAdd<ElevatorPass>();
 
+                //save that this is a glimmeringRealm save file
                 saveSettings.glimmeringRealmEnabled = true;
 
-                //Call OnInit for all Room subclasses
+                //Call OnWorldInit for all Room subclasses
                 foreach (Room room in rooms)
                 {
                     room.OnWorldInit();
@@ -123,7 +142,9 @@ namespace HKSecondQuest
 
 
 
-        //called when the mod is initialized
+        /// <summary>
+        /// Called when the mod is loaded
+        /// </summary>
         public override void Initialize(Dictionary<string, Dictionary<string, GameObject>> preloadedObjects)
         {
             Log("Initializing Mod");
@@ -147,7 +168,7 @@ namespace HKSecondQuest
             //intialize the Prefabs
             PrefabMan.InitializePrefabs(preloadedObjects);
 
-            //initialize the TextChanger
+            //initialize the TextChanger, RoomMirrorer, GameCompletion and Menu modules
             TextChanger.Hook();
 
             RoomMirrorer.Hook();
@@ -163,12 +184,15 @@ namespace HKSecondQuest
                 Log("Initialized " + room.RoomName); 
             }
 
+            //load general text changes
             GeneralChanges.ChangeText();
 
             Log("Initialization Complete");
         }
 
-        //called
+        /// <summary>
+        /// Called when a file is started, ensures the mod gets enabled/disabled based on if the file is a Glimmering Realm save
+        /// </summary>
         public void OnGameStart(On.HeroController.orig_Start orig, global::HeroController self)
         {
             orig(self);
@@ -188,6 +212,9 @@ namespace HKSecondQuest
             
         }
 
+        /// <summary>
+        /// Called when the player takes damage, enforces the MinDamage feature of the Room class
+        /// </summary>
         public void OnDamage(On.HeroController.orig_TakeDamage orig, global::HeroController self, GameObject go, CollisionSide damageSide, int damageAmount, int hazardType)
         {
             if (Enabled && ActiveRoom != null && damageAmount < ActiveRoom.MinDamage)
@@ -197,7 +224,9 @@ namespace HKSecondQuest
             orig(self, go, damageSide, damageAmount, hazardType);
         }
 
-        //called before the room has started loading
+        /// <summary>
+        /// Called before any "Start" functions in the new scene are executed
+        /// </summary>
         public void OnBeforeSceneLoad(Scene current, Scene next)
         {
             if (!Enabled) return;
@@ -205,10 +234,12 @@ namespace HKSecondQuest
             string scene = next.name;
             ActiveRoom = null;
 
+            //notify every module that needs it
             RoomMirrorer.BeforeSceneLoad();
 
             GeneralChanges.OnSceneLoad();
 
+            //find and set the active room (if there is one
             foreach (Room room in rooms)
             {
                 if (room.RoomName == scene)
@@ -218,17 +249,21 @@ namespace HKSecondQuest
                 }
             }
 
+            //update whether the map should be flipped
             RoomMirrorer.UpdateFlipping();
 
         }
 
-        //called after the room has loaded
+        /// <summary>
+        /// Called after the "Start" functions of a newly loaded scene have executed
+        /// </summary>
         public void OnSceneLoad(On.GameManager.orig_OnNextLevelReady orig, global::GameManager self)
         {
             orig(self);
 
             if (!Enabled) return;
 
+            //call the OnLoad functions of the current room
             string scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
             Log("Loading " + scene);
             foreach (Room room in rooms)
@@ -240,7 +275,9 @@ namespace HKSecondQuest
             }
         }
 
-        //Called when the main menu is opened
+        /// <summary>
+        /// Called when the main menu is opened, replaces the Hollow Knight Logo with the "Glimmering Realm" Logo
+        /// </summary>
         public void OnMainMenu(On.MenuStyleTitle.orig_SetTitle orig, global::MenuStyleTitle self, int index)
         {
             orig(self, index);
@@ -265,7 +302,9 @@ namespace HKSecondQuest
             }
         }
 
-        //Called every frame
+        /// <summary>
+        /// Called every frame, used by GeneralChanges
+        /// </summary>
         public void OnUpdate(On.HeroController.orig_Update orig, global::HeroController self)
         {
             orig(self);
