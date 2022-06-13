@@ -338,7 +338,6 @@
   <ItemGroup>
     <None Include=".gitignore" />
     <None Include="ReadMe.md" />
-    <None Include="Resources\.gitignore" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\title.png"></EmbeddedResource>
