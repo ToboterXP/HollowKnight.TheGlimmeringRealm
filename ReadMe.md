@@ -3,7 +3,7 @@
 ![GitHub Build Workflow Status](https://img.shields.io/github/workflow/status/ToboterXP/HollowKnight.TheGlimmeringRealm/Build)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/ToboterXP/HollowKnight.TheGlimmeringRealm)
 ![Downloads GitHub all releases](https://img.shields.io/github/downloads/ToboterXP/HollowKnight.TheGlimmeringRealm/total)
-![Lines of Code](https://tokei.rs/b1/github/BadMagic100/ToboterXP/HollowKnight.TheGlimmeringRealm)
+![Lines of Code](https://tokei.rs/b1/github/ToboterXP/HollowKnight.TheGlimmeringRealm)
 
 A mod for the game Hollow Knight that adds a game mode with a whole new world to explore - the Glimmering Realm!.
 
