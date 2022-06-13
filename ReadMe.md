@@ -1,9 +1,10 @@
 # The Glimmering Realm
 
-A mod for the game Hollow Knight, that changes the game world into a new layout.
+A mod for the game Hollow Knight, that adds a game mode with a whole new world to explore - the Glimmering Realm!.
 
-- Changes item placements, room transitions and NPC dialogue
-- No map included!
+- Changes the layout, items and lore of Hallownest into a whole new realm
+- No map included, draw your own or venture forth without guidance
+- Adds a new game mode, all old save files will remain unchanged
 
 Dependencies:
 ItemChanger
