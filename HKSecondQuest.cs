@@ -263,6 +263,10 @@ namespace HKSecondQuest
 
             if (!Enabled) return;
 
+            HeroController.instance.cState.inConveyorZone = false;
+            HeroController.instance.cState.onConveyor = false;
+            HeroController.instance.cState.onConveyorV = false;
+
             //call the OnLoad functions of the current room
             string scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
             Log("Loading " + scene);
