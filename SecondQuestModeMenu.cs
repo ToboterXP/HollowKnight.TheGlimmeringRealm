@@ -37,19 +37,23 @@ namespace HKSecondQuest
 
             var mainLabel = new MenuLabel(SteelSoulSelector, "The Glimmering Realm");
 
+            var mapWarningLabel = new MenuLabel(SteelSoulSelector, "No map included - make one yourself or venture forth at your own risk", MenuLabel.Style.Body);
+
             var startButton = new BigButton(SteelSoulSelector, "Start", "");
             startButton.OnClick += StartGame;
 
 
             steelSoulToggle.SetNeighbor(Neighbor.Down, startButton);
 
-            new VerticalItemPanel(SteelSoulSelector, new UnityEngine.Vector2(0, 300), 300, true, new IMenuElement[]
+            new VerticalItemPanel(SteelSoulSelector, new UnityEngine.Vector2(0, 300), 300, false, new IMenuElement[]
             {
                 mainLabel,
                 steelSoulToggle,
+                mapWarningLabel,
                 startButton
             });
 
+            mapWarningLabel.MoveTo(new UnityEngine.Vector2(250, -200));
             startButton.MoveTo(new UnityEngine.Vector2(-100, -300));
         }
 
