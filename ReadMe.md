@@ -11,7 +11,7 @@ A mod for the game Hollow Knight that adds a game mode with a whole new world to
 
 Dependencies:\
 ItemChanger\
-MenuChanger\
+MenuChanger
 
 Made by Toboter
 
