@@ -9,9 +9,9 @@ A mod for the game Hollow Knight that adds a game mode with a whole new world to
 - No map included, draw your own or venture forth without guidance
 - Adds a new game mode, all old save files will remain unchanged
 
-Dependencies:
-ItemChanger
-MenuChanger
+Dependencies:\
+ItemChanger\
+MenuChanger\
 
 Made by Toboter
 
