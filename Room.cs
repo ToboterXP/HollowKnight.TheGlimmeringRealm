@@ -63,7 +63,7 @@ namespace HKSecondQuest
         /// </summary>
         /// <param name="location">The item location to change</param>
         /// <param name="item">The item it should be changed to</param>
-        /// <param name="merge">Should the item be merged with other items place here (used for shops,grubfather & seer)?</param>
+        /// <param name="merge">Should the item be merged with other items place here (used for shops,grubfather and seer)?</param>
         /// <param name="alternateName">Alternate name to be displayed in shops</param>
         /// <param name="alternateDesc">Alternate description to be displayed in shops</param>
         /// <param name="destroySeerRewards">Should the normal rewards of Seer be removed? (only applicable at that location)</param>

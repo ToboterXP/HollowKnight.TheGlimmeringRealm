@@ -27,33 +27,33 @@ namespace HKSecondQuest
 
             if (!Enabled) return;
 
-            int charmCount = self.charmsOwned; //max 17
+            int charmCount = self.GetInt("charmsOwned"); //max 17
 
-            int nailUpgrades = self.nailSmithUpgrades; // max 3
+            int nailUpgrades = self.GetInt("nailSmithUpgrades"); // max 3
 
-            int charmNotches = self.charmSlots - 3; //max 3
+            int charmNotches = self.GetInt("charmSlots") - 3; //max 3
 
             int spells = 0; //max 3
-            if (self.fireballLevel > 0) spells++;
-            if (self.screamLevel > 0) spells++;
-            if (self.quakeLevel > 0) spells++;
+            if (self.GetInt("fireballLevel") > 0) spells++;
+            if (self.GetInt("screamLevel") > 0) spells++;
+            if (self.GetInt("quakeLevel") > 0) spells++;
 
             int mainUpgrades = 0; //max 7
-            if (self.hasDoubleJump) mainUpgrades++;
-            if (self.hasSuperDash) mainUpgrades++;
-            if (self.hasTramPass) mainUpgrades++;
-            if (self.hasWalljump) mainUpgrades++;
-            if (self.hasLantern) mainUpgrades++;
-            if (self.hasDreamNail) mainUpgrades++;
-            if (self.hasDreamGate) mainUpgrades++;
+            if (self.GetBool("hasDoubleJump")) mainUpgrades++;
+            if (self.GetBool("hasSuperDash")) mainUpgrades++;
+            if (self.GetBool("hasTramPass")) mainUpgrades++;
+            if (self.GetBool("hasWalljump")) mainUpgrades++;
+            if (self.GetBool("hasLantern")) mainUpgrades++;
+            if (self.GetBool("hasDreamNail")) mainUpgrades++;
+            if (self.GetBool("hasDreamGate")) mainUpgrades++;
 
             int dreamers = 0; //max 3
-            if (self.monomonDefeated) dreamers++;
-            if (self.hegemolDefeated) dreamers++;
-            if (self.lurienDefeated) dreamers++;
+            if (self.GetBool("monomonDefeated")) dreamers++;
+            if (self.GetBool("hegemolDefeated")) dreamers++;
+            if (self.GetBool("lurienDefeated")) dreamers++;
 
-            int masks = self.maxHealth - 5; //max 1
-            int vessels = self.MPReserveMax / 11; //max 1
+            int masks = self.GetInt("maxHealth") - 5; //max 1
+            int vessels = self.GetInt("MPReserveMax") / 33; //max 1
 
             float percentage = 3 * charmCount + 2 * nailUpgrades + 3 * charmNotches + 2 * spells + 2 * mainUpgrades + 3 * dreamers + 3 * masks + 2 * vessels;
 

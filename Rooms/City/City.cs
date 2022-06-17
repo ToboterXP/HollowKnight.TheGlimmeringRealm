@@ -129,6 +129,15 @@ namespace HKSecondQuest.Rooms.City
             ReplaceText("NAILSMITH_NEED_ORE2", "I'll need two more Pale Ore. Taking control of the mines was one of the biggest battles, but when they fell to the Mask Maker, the war was basically decided.");
             ReplaceText("NAILSMITH_NOT_ENOUGH_GEO", "You don't have enough to pay? That's okay, you can return later.");
             ReplaceText("NAILSMITH_OFFER_ORE", "Ah, you got your hands on some ore? I'd love to hear how you got it. Why don't you tell me while I go to work?");
+
+            //Quirrel
+            ReplaceText("QUIRREL_MEET_TEMPLE", "Ah, the traveler returns! This is quite an impressive city, isn't it?");
+            ReplaceText("QUIRREL_MEET_TEMPLE_B", "It seems to have gone down a drain in recent years though, not just because of the rain.");
+            ReplaceText("QUIRREL_MEET_TEMPLE_C", "There are scars of battle everywhere. And the guards are extremely touchy. Keep your distance from them, their nails are exceedingly sharp.");
+            ReplaceText("QUIRREL_TEMPLE_1", "They say this is the kings personal vault. I wonder what he's keeping in here that's so important?");
+            ReplaceText("QUIRREL_TEMPLE_4", "Strange, the masks that line the door remind me of something. But I'm not sure what.<page>I guess the art of mask making just has its common patterns. A real headscratcher.");
+            ReplaceText("QUIRREL_TEMPLE_5", "There's a strange old chap in the west of the city. Says he runs a souvenir shop.<page>As we got talking, he talked about how one of his favorite fountains nearby got demolished recently.<page>Apparently the king took umbrage at the statue.<page>I wonder why?");
+            ReplaceText("QUIRREL_TEMPLE_6", "They really are quite strange fellows here. Or maybe everyone but them has just left?");
         }
     }
 }

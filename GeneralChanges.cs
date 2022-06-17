@@ -99,7 +99,7 @@ namespace HKSecondQuest
                 SetBool("corn_abyssLeft", false);
                 SetBool("corniferAtHome", false);
                 SetBool("city2_sewerDoor", true); //open Emilitia entrance
-                SetBool("quirrelLeftEggTemple", true); //despawn quirrel in TBE
+                //SetBool("quirrelLeftEggTemple", true); //despawn quirrel in TBE
             }
         }
 
