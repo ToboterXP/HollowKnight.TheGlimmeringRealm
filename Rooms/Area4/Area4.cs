@@ -45,7 +45,7 @@ namespace HKSecondQuest.Rooms.Area4
             ReplaceText("ACID_LAKE_MAIN", "Abode");
 
             //Quirrel
-            ReplaceText("QUIRREL_GREENPATH_1", "Oh, we meet again! This really is a lovely corner in this hostile kingdom, isn't it?");
+            ReplaceText("QUIRREL_GREENPATH_1", "Oh, we meet again! This really is a lovely corner in this hostile kingdom, isn't it?<page>I came here after a weird little fella in the plantations tried to sneak up on me and steal my shoe laces.<page>Have you met him yet?");
             ReplaceText("QUIRREL_GREENPATH_2", "I think this will be the last time we meet. I'm feeling a strange pull eastward. Far, far away...");
             ReplaceText("QUIRREL_GREENPATH_3", "Perhaps it's one of the other fallen kingdoms calling? The Land of Storms maybe? Or Hallownest?");
             ReplaceText("QUIRREL_GREENPATH_REPEAT", "Maybe you can feel it too? Maybe you will follow it as well?");

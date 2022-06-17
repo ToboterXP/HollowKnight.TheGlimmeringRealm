@@ -13,6 +13,7 @@ using GlobalEnums;
 using InControl;
 using System.Drawing;
 using ItemChanger.Internal;
+using System.Linq;
 
 
 /* The Glimmering Realm
@@ -86,7 +87,7 @@ namespace HKSecondQuest
 
         public override string GetVersion()
         {
-            return "v1.0.2";
+            return "v1.0.3";
         }
 
         public void SetEnabled(bool enabled)
@@ -140,6 +141,26 @@ namespace HKSecondQuest
             orig(self, permaDeath, bossRush);
         }
 
+        /// <summary>
+        /// Correct erroneous 7 grub reward from Grubfather
+        /// </summary>
+        public void CorrectGrubfather()
+        {
+            Settings set = (Settings)typeof(ItemChangerMod).GetField("SET", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
+            foreach(var placement in set.GetPlacements())
+            {
+                if (placement.Name == LocationNames.Grubfather)
+                {
+                    foreach (var item in placement.Items)
+                    {
+                        if (item.name == ItemNames.Pale_Ore)
+                        {
+                            item.GetTag<CostTag>().Cost = new PDIntCost(6, nameof(PlayerData.grubsCollected), 6 + " Grubs");
+                        }
+                    }
+                }
+            }
+        }
 
 
         /// <summary>
@@ -162,6 +183,8 @@ namespace HKSecondQuest
             On.HeroController.Update += OnUpdate;
 
             On.HeroController.Start += OnGameStart;
+
+            Events.OnEnterGame += CorrectGrubfather;
 
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged += OnBeforeSceneLoad;
 

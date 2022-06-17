@@ -111,7 +111,24 @@ namespace HKSecondQuest.Rooms.City
             ReplaceText("MASK_MAKER_REPEAT3", "The keys to the vault?! Securely guarded in the towns of the kingdom!");
             ReplaceText("MASK_MAKER_REPEAT", "The old king, you ask?! He is gone! Sealed away, the mad fool!");
             ReplaceText("MASK_MAKER_GREET", "My loyal subject intrudes on my work?! What does it want?!");
-        
+
+            //Nailsmith
+            ReplaceText("NAILSMITH_MEET_1", "Yes sir, the nails will be ready tomorrow. I promise.");
+            ReplaceText("NAILSMITH_MEET_2", "Hmm?<page>Oh, a visitor. How nice to see a friendly face for once.");
+            ReplaceText("NAILSMITH_MEET_3", "I make nails. Didn't always, but now I do apparently.");
+            ReplaceText("NAILSMITH_DREAM_INTERIOR", "More and more blades... how I miss making fences and signposts... much more beautiful...");
+            ReplaceText("NAILSMITH_DECLINE", "No? A pitty. I was looking forward to making a nail for someone else - for once.");
+            ReplaceText("NAILSMITH_OFFER", "Your blade looks fairly beaten up. Want me to take a look?");
+            ReplaceText("NAILSMITH_COMPLETE_1", "There we go. That blade was barely holding an edge anymore. Now it should be at least serviceable<page>If you bring me some ore, I could improve it a little more. But almost all has been mined for the war already.");
+            ReplaceText("NAILSMITH_COMPLETE_2", "Beautiful. The Pale metal makes a little band along the blade, holding quite a sharper edge than the old metal ever could.");
+            ReplaceText("NAILSMITH_COMPLETE_3", "Wonderful! I put in some structural members of Pale metal, the blade should be much more stable yet flexible now. Good luck on your travels. It's one of my best ones yet.");
+            ReplaceText("NAILSMITH_GREET", "The little warrior returns. How are your travels going?");
+            ReplaceText("NAILSMITH_REGREET", "Still here? At least I'll have a reason to rest my claws a little, then.");
+            ReplaceText("NAILSMITH_ACCEPT", "Alright, hand it over and I'll get the forge going.");
+            ReplaceText("NAILSMITH_NEED_ORE1", "I'll need one more Pale Ore. It was once mined in the Crystal Depths, but it I doubt it'll be easy to come by there.");
+            ReplaceText("NAILSMITH_NEED_ORE2", "I'll need two more Pale Ore. Taking control of the mines was one of the biggest battles, but when they fell to the Mask Maker, the war was basically decided.");
+            ReplaceText("NAILSMITH_NOT_ENOUGH_GEO", "You don't have enough to pay? That's okay, you can return later.");
+            ReplaceText("NAILSMITH_OFFER_ORE", "Ah, you got your hands on some ore? I'd love to hear how you got it. Why don't you tell me while I go to work?");
         }
     }
 }

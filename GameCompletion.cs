@@ -57,6 +57,8 @@ namespace HKSecondQuest
 
             float percentage = 3 * charmCount + 2 * nailUpgrades + 3 * charmNotches + 2 * spells + 2 * mainUpgrades + 3 * dreamers + 3 * masks + 2 * vessels;
 
+            if (percentage > 100) percentage = 100;
+
             self.completionPercentage = percentage;
         }
     }

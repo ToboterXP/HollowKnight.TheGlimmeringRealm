@@ -28,7 +28,7 @@ namespace HKSecondQuest
             ReplaceText("STAG_TOWN", "A bustling little town, this once was. Used to run here at least ten times a day.<page>But there's only Iselda here, to occasionally keep me company. At least some things never change.");
             ReplaceText("STAG_GREENPATH", "Well, if this isn't a surprise. These gates have been stuck for months. Iselda's husband must have been hard at work. A wonder such a small fella would get these pried open.");
             ReplaceText("STAG_RUINS2", "Welcome traveler, to the Glimmering City! It seems to be a little worse for wear at the moment, though.<page>No wonder the stag network is so dilapitated, with all this water running in.");
-            ReplaceText("STAG_CROSSROADS", "Ah, the old village on the road to the Glimmering City! Travelers often stayed here for the night, in one of the Inns.<page>Not sure how many are left, though.");
+            ReplaceText("STAG_CROSSROADS", "Ah, the old village on the road to the Glimmering City! Travelers often stayed here for the night, in one of the Inns.<page>Not sure how many are left, though.<page>I heard there's a little cleptomaniac bug that lives deep within the plantations. Maybe you should pay him a visit. You also seem to like collecting things.");
             ReplaceText("STAG_NEST", "This is where we stags live. Please don't wake anyone up, being a stag is hard work!", "Stag");
 
             //inventory text

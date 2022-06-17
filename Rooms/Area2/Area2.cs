@@ -52,7 +52,6 @@ namespace HKSecondQuest.Rooms.Area2
             SetItem(LocationNames.Grub_Greenpath_MMC, ItemNames.Wanderers_Journal);
             SetItem(LocationNames.Grub_Greenpath_Journal, ItemNames.Wanderers_Journal);
             SetItem(LocationNames.Grub_Greenpath_Stag, ItemNames.Vessel_Fragment);
-            SetItem(LocationNames.Wanderers_Journal_Greenpath_Lower, ItemNames.Grub);
             SetItem(LocationNames.Wanderers_Journal_Greenpath_Stag, ItemNames.Grub);
             SetItem(LocationNames.Greenpath_Stag, ItemNames.Geo_Rock_Default);
 
