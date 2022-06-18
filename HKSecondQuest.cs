@@ -87,7 +87,7 @@ namespace HKSecondQuest
 
         public override string GetVersion()
         {
-            return "v1.0.3";
+            return "v1.0.4.1";
         }
 
         public void SetEnabled(bool enabled)
@@ -286,9 +286,12 @@ namespace HKSecondQuest
 
             if (!Enabled) return;
 
-            HeroController.instance.cState.inConveyorZone = false;
-            HeroController.instance.cState.onConveyor = false;
-            HeroController.instance.cState.onConveyorV = false;
+            if (HeroController.instance != null)
+            {
+                HeroController.instance.cState.inConveyorZone = false;
+                HeroController.instance.cState.onConveyor = false;
+                HeroController.instance.cState.onConveyorV = false;
+            }
 
             //call the OnLoad functions of the current room
             string scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;

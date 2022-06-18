@@ -28,7 +28,7 @@ namespace HKSecondQuest
         /// <summary>
         /// What's the minimum amount of damage any hit should deal?
         /// </summary>
-        public int MinDamage = 1;
+        public int MinDamage = 0;
 
         
         /// <param name="roomName">The scene name of this room (or a placeholder if there is none)</param>
