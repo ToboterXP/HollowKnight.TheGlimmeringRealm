@@ -30,6 +30,9 @@ namespace HKSecondQuest.Rooms.City
 
             SetTransition("Ruins_Bathhouse", "right1", "Room_Mansion", "left1");
 
+            SetTransition("Ruins1_31", "bot1", "Room_GG_Shortcut", "top1");
+            SetTransition("Room_GG_Shortcut", "left1", "Ruins2_10b", "right1");
+
             SetItem(LocationNames.Flukenest, ItemNames.Desolate_Dive);
             SetItem(LocationNames.Wanderers_Journal_Pleasure_House, ItemNames.Dream_Nail);
             SetItem(LocationNames.Kings_Station_Stag, ItemNames.Geo_Rock_Default);
@@ -138,6 +141,19 @@ namespace HKSecondQuest.Rooms.City
             ReplaceText("QUIRREL_TEMPLE_4", "Strange, the masks that line the door remind me of something. But I'm not sure what.<page>I guess the art of mask making just has its common patterns. A real headscratcher.");
             ReplaceText("QUIRREL_TEMPLE_5", "There's a strange old chap in the west of the city. Says he runs a souvenir shop.<page>As we got talking, he talked about how one of his favorite fountains nearby got demolished recently.<page>Apparently the king took umbrage at the statue.<page>I wonder why?");
             ReplaceText("QUIRREL_TEMPLE_6", "They really are quite strange fellows here. Or maybe everyone but them has just left?");
+
+            //Fluke Hermit
+            ReplaceText("FLUKE_HERMIT_DREAM", "Must ... improve ... maggot crop!");
+            /*ReplaceText("FLUKE_HERMIT_PRAY"
+            ReplaceText("FLUKE_HERMIT_PRAY_REPEAT", ""); Only accesible with Flukenest*/
+            ReplaceText("FLUKE_HERMIT_MAIN", "Farmer");
+            ReplaceText("FLUKE_HERMIT_IDLE_1", "Careful! They must grow! Meat is precious!");
+            ReplaceText("FLUKE_HERMIT_IDLE_2", "They grow fast! So many hunger!");
+            ReplaceText("FLUKE_HERMIT_IDLE_3", "Riches will be mine! I will be a Hero!");
+            ReplaceText("FLUKE_HERMIT_IDLE_4", "They grow fast in theses tunnels. It will take weeks till the fungi sprout again!");
+            ReplaceText("FLUKE_HERMIT_IDLE_5", "Till then, I'm the only one...");
+            ReplaceText("FLUKE_HERMIT_PEERING", "");
+            ReplaceText("FLUKE_HERMIT_PEERING_DREAM", "So much money! I'll finally buy that little house in Ditrmouth! Far away from this!");
         }
     }
 }

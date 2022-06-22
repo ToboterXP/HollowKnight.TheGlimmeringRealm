@@ -20,7 +20,7 @@ namespace HKSecondQuest.Rooms.Area2
             ReplaceText("GREEN_TABLET_03", "Looking for gardener<br>Must be of reputable standing, and experienced with murdering shrubbery.<br><br>Pay 30 geo per hour");
             ReplaceText("GREEN_TABLET_05", "Visit Unn's flower shop, now!<br>Discounts on all flesh eating plants!<br>Take two, get two for free!");
             ReplaceText("GREEN_TABLET_07", "Keep off the pasture. It's full of durandoo dung.");
-            ReplaceText("GREEN_TABLET_02", "Elderly mossnight seeks Vengefly<page>Bush trimming experience required<page>Paid in exposure");
+            ReplaceText("GREEN_TABLET_02", "Elderly mossknight seeks Vengefly<page>Bush trimming experience required<page>Paid in exposure");
 
 
             ReplaceText("GREENPATH_MAIN", "Overgrown");

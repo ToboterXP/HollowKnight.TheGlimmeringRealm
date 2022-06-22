@@ -164,6 +164,8 @@ namespace HKSecondQuest.Rooms.Village1
             SetItem(LocationNames.Seer, ItemNames.Dream_Wielder, true, essenceCost: 300, destroySeerRewards: true);
             SetItem(LocationNames.Seer, ItemNames.Kings_Idol, true, essenceCost: 500, destroySeerRewards: true);
             SetItem(LocationNames.Seer, ItemNames.Dream_Gate, true, essenceCost: 600, destroySeerRewards: true);
+            SetItem(LocationNames.Seer, ItemNames.Arcane_Egg, true, essenceCost: 700, destroySeerRewards: true);
+
         }
     }
 }

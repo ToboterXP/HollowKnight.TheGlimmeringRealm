@@ -30,6 +30,7 @@ namespace HKSecondQuest
             ReplaceText("STAG_RUINS2", "Welcome traveler, to the Glimmering City! It seems to be a little worse for wear at the moment, though.<page>No wonder the stag network is so dilapitated, with all this water running in.");
             ReplaceText("STAG_CROSSROADS", "Ah, the old village on the road to the Glimmering City! Travelers often stayed here for the night, in one of the Inns.<page>Not sure how many are left, though.<page>I heard there's a little cleptomaniac bug that lives deep within the plantations. Maybe you should pay him a visit. You also seem to like collecting things.");
             ReplaceText("STAG_NEST", "This is where we stags live. Please don't wake anyone up, being a stag is hard work!", "Stag");
+            ReplaceText("STAG_HIDDEN", "Ah, the old station at the King's Palace. It does seem to be in quite bad shape, a wonder that it still works.<page>Though I doubt it will see much travel in the future.");
 
             //inventory text
             ReplaceText("INV_DESC_WHITEKEY", "A very fancy, glimmering key");
@@ -65,6 +66,7 @@ namespace HKSecondQuest
             ReplaceText("CHARM_DESC_30", "A strange medal given to you by Mothman. It might contain drugs.");
             ReplaceText("CHARM_DESC_3", "A present from an old catapillar. Probably won't change your size though.");
             ReplaceText("CHARM_DESC_31", "A very pretty medal. Could probably be sold for a good prize to a collector. If you had a mouth to barter with, that is.");
+            ReplaceText("CHARM_DESC_40_N", "A finely crafted medal, eternally giving off a faint lullaby.<br>Crafted by a mother mourning her family.");
 
             //Replace Elegy to Hallownest
             ReplaceText("PROLOGUE_EXCERPT_01", "A note to all who it may concern:");
@@ -81,6 +83,13 @@ namespace HKSecondQuest
         /// </summary>
         public static void OnSceneLoad()
         {
+
+            //fix bug when diving into direction changing transition
+            string entryGate = GameManager.instance.entryGateName;
+            if (entryGate.StartsWith("left") || entryGate.StartsWith("right")) HeroController.instance.exitedQuake = false;
+            if (entryGate.StartsWith("top") || entryGate.StartsWith("bot")) HeroController.instance.exitedSuperDashing = false;
+
+            //fix playerdata bools
             if (HeroController.instance != null)
             {
                 SetBool("crossroadsInfected", false); //uninfect crossroads
@@ -99,6 +108,8 @@ namespace HKSecondQuest
                 SetBool("corn_abyssLeft", false);
                 SetBool("corniferAtHome", false);
                 SetBool("city2_sewerDoor", true); //open Emilitia entrance
+                SetBool("bathHouseWall", true); //break wall in right city elevator
+                SetBool("gladeDoorOpened", false); //lock glade door permanently
                 //SetBool("quirrelLeftEggTemple", true); //despawn quirrel in TBE
             }
         }
