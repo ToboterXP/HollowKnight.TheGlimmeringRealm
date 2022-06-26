@@ -15,5 +15,6 @@ Quick Slash 32
 Dream Wielder 30
 Grubsong 3
 Dashmaster 31
+Dreamshield
 
 Don't include Flukenest without adding Flukehermit dialog

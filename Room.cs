@@ -30,6 +30,8 @@ namespace HKSecondQuest
         /// </summary>
         public int MinDamage = 0;
 
+        public int Revision = 1; //World init gets called if save from older Revision is loaded
+
         
         /// <param name="roomName">The scene name of this room (or a placeholder if there is none)</param>
         protected Room(string roomName)
@@ -67,11 +69,16 @@ namespace HKSecondQuest
         /// <param name="alternateName">Alternate name to be displayed in shops</param>
         /// <param name="alternateDesc">Alternate description to be displayed in shops</param>
         /// <param name="destroySeerRewards">Should the normal rewards of Seer be removed? (only applicable at that location)</param>
-        public void SetItem(string location, string item, bool merge = false, int geoCost = 0, int essenceCost = 0, int grubCost = 0, string alternateName=null, string alternateDesc=null, bool destroySeerRewards=false)
+        public void SetItem(string location, string item, bool merge = false, int geoCost = 0, int essenceCost = 0, int grubCost = 0, string alternateName=null, string alternateDesc=null, bool destroySeerRewards=false, bool nonIncremental=false)
         {
             //find item and location
             AbstractPlacement placement = Finder.GetLocation(location).Wrap();
             AbstractItem aitem = Finder.GetItem(item);
+
+            if (nonIncremental)
+            {
+                aitem.RemoveTags<IItemModifierTag>();
+            }
 
             //set cost tags if necessary
             if (geoCost > 0) 
@@ -102,7 +109,7 @@ namespace HKSecondQuest
             }
 
             //choose conflict reolution methos
-            PlacementConflictResolution resolution = merge ? PlacementConflictResolution.MergeKeepingNew : PlacementConflictResolution.Throw;
+            PlacementConflictResolution resolution = merge ? PlacementConflictResolution.MergeKeepingNew : PlacementConflictResolution.Replace;
 
             //add placement
             ItemChangerMod.AddPlacements(new AbstractPlacement[] { placement }, resolution);

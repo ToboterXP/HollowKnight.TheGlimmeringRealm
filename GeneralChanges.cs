@@ -110,6 +110,7 @@ namespace HKSecondQuest
                 SetBool("city2_sewerDoor", true); //open Emilitia entrance
                 SetBool("bathHouseWall", true); //break wall in right city elevator
                 SetBool("gladeDoorOpened", false); //lock glade door permanently
+                SetBool("whitePalaceMidWarp", false); //so the TFK dream warp works
                 //SetBool("quirrelLeftEggTemple", true); //despawn quirrel in TBE
             }
         }

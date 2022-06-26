@@ -11,7 +11,7 @@ namespace HKSecondQuest.Rooms.Area6
 {
     internal class Area6 : Room
     {
-        public Area6() : base("Area 6") { }
+        public Area6() : base("Area 6") { Revision = 2; }
 
         public override void OnWorldInit()
         {
@@ -44,7 +44,7 @@ namespace HKSecondQuest.Rooms.Area6
                 //sprite=new BoxedSprite(SpriteManager.Instance.GetSprite("ItemChanger.Resources.Charms.40.png"))
             };
             placement.Add(aitem);
-            ItemChangerMod.AddPlacements(new AbstractPlacement[] { placement }, PlacementConflictResolution.Throw);
+            ItemChangerMod.AddPlacements(new AbstractPlacement[] { placement }, PlacementConflictResolution.Replace);
 
             SetItem(LocationNames.Wanderers_Journal_Ancient_Basin, ItemNames.Rancid_Egg);
             SetItem(LocationNames.Monarch_Wings, ItemNames.Awoken_Dream_Nail);
@@ -61,14 +61,14 @@ namespace HKSecondQuest.Rooms.Area6
             ReplaceText("PALACE_GROUNDS_MAIN", "Ruins");
             ReplaceText("ABYSS", "Scorched Gardens", "MapZones");
             ReplaceText("PALACE_GROUNDS", "Palace Ruins", "MapZones");
-            ReplaceText("RESTING_GROUNDS", "Old Palace Graveyard", "MapZones");
+            ReplaceText("RESTING_GROUNDS", "Old Graveyard", "MapZones");
 
-            ReplaceText("QUEEN_SUPER", "Glimmering");
+            ReplaceText("QUEEN_SUPER", "The Glimmering");
             ReplaceText("QUEEN_DUNG_02", "When I was young we used to try and sneak them into peoples back pockets, for a laugh.");
             ReplaceText("QUEEN_DUNG", "You poor thing! Did someone sell you one of those old prank charms?");
             ReplaceText("QUEEN_DREAM", "Will I ever leave here alive? These gardens used to bloom so beautifully. How I loathe that usurper!");
             ReplaceText("QUEEN_MEET", "Aah, someone's there! Are you one of his men!? Please! Don't tell him! I'll give you anything I've got!");
-            ReplaceText("QUEEN_TALK_01", "So... you aren't a member of the masked army? What a relief! Thank you for finding me. I've been hiding here for weeks. Keep the charm, maybe you can help me. If you want.");
+            ReplaceText("QUEEN_TALK_01", "So... you aren't a member of the masked army? What a relief! Thank you for finding me. I've been hiding here for an eternity. Keep the charm, maybe you can help me. If you want.");
             ReplaceText("QUEEN_TALK_02", "My husband has been locked deep below, battered and beaten, to suffer for all eternity.<page>I want you to break the seal placed on him, to end his pain forever.");
             ReplaceText("QUEEN_TALK_EXTRA", "Killing him won't be enough... a more powerful strike will be needed to break his seal.<page>I know there are tools to enter minds. I know such a tool is hidden on these Grounds, but whether it's enough I cannot say.<page>You may need to find a way to strengthen it.");
             ReplaceText("QUEEN_MEET_REPEAT", "Please... I beg you... Release him from his suffering.");
