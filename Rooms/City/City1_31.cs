@@ -12,7 +12,7 @@ namespace HKSecondQuest.Rooms.City
 
         public override void OnLoad()
         {
-            PlaceGO(Prefabs.LARGE_PLATFORM.Object, 7, 2);
+            //PlaceGO(Prefabs.LARGE_PLATFORM.Object, 7, 2);
             PlaceGO(Prefabs.LARGE_PLATFORM.Object, 57, 53);
             DestroyGO("Breakable Wall Ruin Lift");
         }

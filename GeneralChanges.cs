@@ -30,6 +30,12 @@ namespace HKSecondQuest
             ReplaceText("STAG_RUINS2", "Welcome traveler, to the Glimmering City! It seems to be a little worse for wear at the moment, though.<page>No wonder the stag network is so dilapitated, with all this water running in.");
             ReplaceText("STAG_CROSSROADS", "Ah, the old village on the road to the Glimmering City! Travelers often stayed here for the night, in one of the Inns.<page>Not sure how many are left, though.<page>I heard there's a little cleptomaniac bug that lives deep within the plantations. Maybe you should pay him a visit. You also seem to like collecting things.");
             ReplaceText("STAG_NEST", "This is where we stags live. Please don't wake anyone up, being a stag is hard work!", "Stag");
+            ReplaceText("STAG_HIDDEN", "Ah, the old station at the King's Palace. It does seem to be in quite bad shape, a wonder that it still works.<page>Though I doubt it will see much travel in the future.");
+            ReplaceText("STAG_DREAM", "I wonder how my brethren are doing? I really can handle all trafic on my own these days...");
+            ReplaceText("STAG_TRAM", "Oh, you carry a tram pass! They are beautiful machines, aren't they? Though I always said they should leave out the windows. Travel just isn't the same without the fresh breeze in your mane.");
+            ReplaceText("STAG_HOPE_1", "The stag nest. Be careful, it's quite crammed. Once dozens of stags were necessary to run the stag network. Now I can easily handle everyone. I'm the youngest, you see? So the burden fell on me.");
+            ReplaceText("STAG_HOPE_2", "There have been now new stags as well for quite some time. It just isn't necessary these days. So everyone just gets older and older.");
+            ReplaceText("STAG_REMEMBER_1", "Ah, Cornifer has been busy, hasn't he? At least some of the network is up and running again. I'm sure business will be right back to normal soon.");
 
             //inventory text
             ReplaceText("INV_DESC_WHITEKEY", "A very fancy, glimmering key");
@@ -65,6 +71,8 @@ namespace HKSecondQuest
             ReplaceText("CHARM_DESC_30", "A strange medal given to you by Mothman. It might contain drugs.");
             ReplaceText("CHARM_DESC_3", "A present from an old catapillar. Probably won't change your size though.");
             ReplaceText("CHARM_DESC_31", "A very pretty medal. Could probably be sold for a good prize to a collector. If you had a mouth to barter with, that is.");
+            ReplaceText("CHARM_DESC_40_N", "A finely crafted medal, eternally giving off a faint lullaby.<br>Crafted by a mother mourning her family.");
+            ReplaceText("CHARM_DESC_38", "A little medal with an emblem shaped like a flower. Used by gardeners across the world to repell snail invasions.");
 
             //Replace Elegy to Hallownest
             ReplaceText("PROLOGUE_EXCERPT_01", "A note to all who it may concern:");
@@ -81,6 +89,13 @@ namespace HKSecondQuest
         /// </summary>
         public static void OnSceneLoad()
         {
+
+            //fix bug when diving into direction changing transition
+            string entryGate = GameManager.instance.entryGateName;
+            if (entryGate.StartsWith("left") || entryGate.StartsWith("right")) HeroController.instance.exitedQuake = false;
+            if (entryGate.StartsWith("top") || entryGate.StartsWith("bot")) HeroController.instance.exitedSuperDashing = false;
+
+            //fix playerdata bools
             if (HeroController.instance != null)
             {
                 SetBool("crossroadsInfected", false); //uninfect crossroads
@@ -99,6 +114,9 @@ namespace HKSecondQuest
                 SetBool("corn_abyssLeft", false);
                 SetBool("corniferAtHome", false);
                 SetBool("city2_sewerDoor", true); //open Emilitia entrance
+                SetBool("bathHouseWall", true); //break wall in right city elevator
+                SetBool("gladeDoorOpened", false); //lock glade door permanently
+                SetBool("whitePalaceMidWarp", false); //so the TFK dream warp works
                 //SetBool("quirrelLeftEggTemple", true); //despawn quirrel in TBE
             }
         }

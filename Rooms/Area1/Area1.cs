@@ -28,13 +28,13 @@ namespace HKSecondQuest.Rooms.Area1
             ReplaceText("CLIFFS_GREET", "Good morning, quite a place to be meeting someone, isn't it?<page>Since you're out here all alone, might I interest you in a ticket for the local stag station?");
             ReplaceText("CORNIFER_REFUSE", "Not interested? A pitty, the stags are a real marvel. If you're nice, they'll even let you pet them.");
             ReplaceText("CLIFFS_BOUGHT", "If you're looking for respite, there's a small hut further up. Friendly guy. Used to be a cook.");
-            ReplaceText("CORNIFER_AGAIN", "Oh, back again? Might I interest you in a ticket after all?");
+            ReplaceText("CORNIFER_AGAIN", "Oh, back again? Might I interest you after all?");
             ReplaceText("CORNIFER_NOT_ENOUGH", "Not enough money? I thought so, that's probably the reason why no one is using it anymore. Too expensive, you see? But maintenance is costly.");
             ReplaceText("CORNIFER_INTRO_1", "Oh dear, I haven't even introduced myself, have I? The name's Cornifer. I'm an engineer for the stag network.<br>The only one left by now, probably. I'm currently on a journey to repair the stations out here, they are in quite a state, you know?");
             ReplaceText("CORNIFER_INTRO_2", "Orders from the head stag masters are really getting sparse these days. No idea why, they used to be so hectic all the time. Couldn't happen to me if I tried.");
             ReplaceText("DREAM", "Being an engineer really is the best profession, isn't it?<br>Although I always wanted to be a cartographer. We'll see.");
             ReplaceText("CORNIFER_SUB", "The Engineer");
-            ReplaceText("CORNIFER_MEET", "Quite a place to be meeting someone, isn't it?<page>Since you're out here all alone, might I interest you in a ticket for Dirtmouth station?");
+            ReplaceText("CORNIFER_MEET", "Quite a place to be meeting someone, isn't it?<page>Since you're out here all alone, might I interest you in a ticket for the local stag station?");
 
             ReplaceText("MATO_REFUSE", "Fair enough, come back later if you're interested.");
             ReplaceText("MATO_REPEAT", "Charms are really rewarding to make! It's a shame it's a dying art.");

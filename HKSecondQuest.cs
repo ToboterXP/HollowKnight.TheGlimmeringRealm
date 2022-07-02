@@ -31,6 +31,7 @@ namespace HKSecondQuest
     public class SaveSettings
     {
         public bool glimmeringRealmEnabled = false;
+        public int revision = 1;
     }
 
     /// <summary>
@@ -54,6 +55,8 @@ namespace HKSecondQuest
         /// </summary>
         public Room ActiveRoom = null;
 
+        public Room PreviousRoom = null;
+
         public RoomMirrorer RoomMirrorer = new RoomMirrorer();
 
         /// <summary>
@@ -65,10 +68,12 @@ namespace HKSecondQuest
         public void OnLoadLocal(SaveSettings s) => saveSettings = s;
         public SaveSettings OnSaveLocal() => saveSettings;
 
+        public const int CurrentRevision = 2;
+
 
         public HKSecondQuest() : base("The Glimmering Realm")
         {
-            Instance = this;
+            Instance = this; 
 
             //Make sure the main menu text is changed, but disable all other functionalitly
             SetEnabled(false);
@@ -87,7 +92,7 @@ namespace HKSecondQuest
 
         public override string GetVersion()
         {
-            return "v1.0.4.1";
+            return "v1.1.0.0";
         }
 
         public void SetEnabled(bool enabled)
@@ -128,6 +133,7 @@ namespace HKSecondQuest
 
                 //save that this is a glimmeringRealm save file
                 saveSettings.glimmeringRealmEnabled = true;
+                saveSettings.revision = CurrentRevision;
 
                 //Call OnWorldInit for all Room subclasses
                 foreach (Room room in rooms)
@@ -146,6 +152,8 @@ namespace HKSecondQuest
         /// </summary>
         public void CorrectGrubfather()
         {
+            if (!saveSettings.glimmeringRealmEnabled) return;
+
             Settings set = (Settings)typeof(ItemChangerMod).GetField("SET", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
             foreach(var placement in set.GetPlacements())
             {
@@ -160,6 +168,26 @@ namespace HKSecondQuest
                     }
                 }
             }
+        }
+
+        public void OnSaveLoad()
+        {
+            if (!saveSettings.glimmeringRealmEnabled) return;
+
+            if (saveSettings.revision < CurrentRevision)
+            {
+                RevisionManager.OnRevision(saveSettings.revision, CurrentRevision);
+
+                //apply changes from new revisions if old revisions are loaded
+                foreach(Room room in rooms)
+                {
+                    if (room.Revision > saveSettings.revision)
+                    {
+                        room.OnWorldInit();
+                    }
+                }
+            }
+            saveSettings.revision = CurrentRevision;
         }
 
 
@@ -185,6 +213,7 @@ namespace HKSecondQuest
             On.HeroController.Start += OnGameStart;
 
             Events.OnEnterGame += CorrectGrubfather;
+            Events.OnEnterGame += OnSaveLoad;
 
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged += OnBeforeSceneLoad;
 
@@ -262,6 +291,8 @@ namespace HKSecondQuest
 
             GeneralChanges.OnSceneLoad();
 
+            PreviousRoom = ActiveRoom;
+
             //find and set the active room (if there is one
             foreach (Room room in rooms)
             {
@@ -327,7 +358,7 @@ namespace HKSecondQuest
                     title.GetComponent<SpriteRenderer>().sprite = titleSprite;
                     //slightly blue, to make it stand apart from the background
                     title.GetComponent<SpriteRenderer>().color = new UnityEngine.Color(193 / 255f, 225 / 255f, 253 / 255f);
-                    title.transform.SetScaleMatching(2.7f);
+                    title.transform.SetScaleMatching(2.7f); 
                 }
             }
         }
@@ -343,6 +374,7 @@ namespace HKSecondQuest
 
             GeneralChanges.OnUpdate();
         }
+
 
     }
 }

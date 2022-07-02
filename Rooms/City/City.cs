@@ -30,11 +30,14 @@ namespace HKSecondQuest.Rooms.City
 
             SetTransition("Ruins_Bathhouse", "right1", "Room_Mansion", "left1");
 
+            SetTransition("Ruins1_31", "bot1", "Room_GG_Shortcut", "top1");
+            SetTransition("Room_GG_Shortcut", "left1", "Ruins2_10b", "right1");
+
             SetItem(LocationNames.Flukenest, ItemNames.Desolate_Dive);
             SetItem(LocationNames.Wanderers_Journal_Pleasure_House, ItemNames.Dream_Nail);
             SetItem(LocationNames.Kings_Station_Stag, ItemNames.Geo_Rock_Default);
             SetItem(LocationNames.Hallownest_Seal_Kings_Station, ItemNames.Wanderers_Journal);
-            SetItem(LocationNames.City_Crest, ItemNames.Vengeful_Spirit);
+            SetItem(LocationNames.City_Crest, ItemNames.Shade_Soul);
             SetItem(LocationNames.City_of_Tears_Map, ItemNames.Kings_Station_Stag);
             SetItem(LocationNames.World_Sense, ItemNames.Kings_Brand);
             SetItem(LocationNames.Grub_City_of_Tears_Guarded, ItemNames.Grub);
@@ -46,7 +49,7 @@ namespace HKSecondQuest.Rooms.City
         {
             ReplaceText("RUINS_MAIN", "The Gray City");
             ReplaceText("MAP_NAME_CITY", "The Gray City");
-            ReplaceText("CITY", "The Gray City");
+            ReplaceText("CITY", "The City");
             ReplaceText("KINGS_STATION", "The Gray City");
             ReplaceText("EGGTEMPLE_SUPER", "Mask Maker's");
             ReplaceText("EGGTEMPLE_MAIN", "Vault");
@@ -65,7 +68,7 @@ namespace HKSecondQuest.Rooms.City
             ReplaceText("RELICDEALER_JOURNAL_2", "These aren't actually written by wanderers. Their stories just aren't captivating enough.");
             ReplaceText("RELICDEALER_JOURNAL_3", "You know, these were quite the rage for a while in Hallownest. No idea what happened with all those journals there.");
             ReplaceText("RELICDEALER_JOURNAL_4", "Oh, I really liked this one! It's about a slug warrior who carries his son with him in his house. Fantastic lore!");
-            ReplaceText("RELICDEALER_JOURNAL_5", "Ah, another journal. Thanks!");
+            ReplaceText("RELICDEALER_JOURNAL_5", "Hmm, this is a curious story. It seems to be written by a bug called Elena, about the depths of a derelict kingdom. Strange, I can't remember ever writing this.");
             ReplaceText("RELICDEALER_JOURNAL_6", "Ah, another journal. Thanks!");
             ReplaceText("RELICDEALER_JOURNAL_7", "Ah, another journal. Thanks!");
             ReplaceText("RELICDEALER_JOURNAL_8", "Ah, another journal. Thanks!");
@@ -73,19 +76,19 @@ namespace HKSecondQuest.Rooms.City
             ReplaceText("RELICDEALER_SEAL_2", "These little trinkets are in the shape of the Glimmering King's coat of arms. It's even got the little fork at the top!");
             ReplaceText("RELICDEALER_SEAL_3", "You may think these look quite similar to the Seal of Hallownest, but you'd be wrong. They are actually a different shade of purple.");
             ReplaceText("RELICDEALER_SEAL_4", "You know, I heard of a land far away, called the land of storms. Its inhabitants are supposed to have mysterious and arcane powers. Perhaps some will come and visit one day?");
-            ReplaceText("RELICDEALER_SEAL_5", "Ah, another seal! Thanks for that!");
+            ReplaceText("RELICDEALER_SEAL_5", "These seals are supposedly a charm against evil spirits entering your dreams. That said, they are little more than a small slab of fungiwood, so probably not.");
             ReplaceText("RELICDEALER_SEAL_6", "Ah, another seal! Thanks for that!");
             ReplaceText("RELICDEALER_SEAL_7", "Ah, another seal! Thanks for that!");
             ReplaceText("RELICDEALER_IDOL_1", "A king's idol. These are a small effigy of the Glimmering King. The old man sadly isn't around anymore these days, but he was quite the figure. Children loved these. Always kept chewing the heads off.");
             ReplaceText("RELICDEALER_IDOL_2", "Did you know, with the prongs on the end, these can be used as forks in a pinch!<page>Although that's probably treason.");
             ReplaceText("RELICDEALER_IDOL_3", "After the coup, the king fled deep into the mountain. No idea what happened to him there. Kingdom has never been the same, though.");
-            ReplaceText("RELICDEALER_IDOL_4", "Ah, another idol! Thanks for that!");
+            ReplaceText("RELICDEALER_IDOL_4", "There was a great battle at the gates of the palace, you know? But in the end, the Mask Maker's forces prevailed, and burned the palace to the ground.<page>A shame really. It was a beautiful piece of architecture.");
             ReplaceText("RELICDEALER_IDOL_5", "Ah, another idol! Thanks for that!");
             ReplaceText("RELICDEALER_IDOL_6", "Ah, another idol! Thanks for that!");
             ReplaceText("RELICDEALER_IDOL_7", "Ah, another idol! Thanks for that!");
             ReplaceText("RELICDEALER_EGG_1", "Oh, an Arcane Egg! These were very much an upper class thing. I used to talk for hours about the perils of the hunters that collected them.<page>All rubbish, of course. They're made just down the road.");
             ReplaceText("RELICDEALER_EGG_2", "The guy who made these eggs sadly doesn't work in the business anymore. He's kinda busy being a king these days. I guess it's proof you can still move up in the world.");
-            ReplaceText("RELICDEALER_EGG_3", "Ah, another egg! Thanks!");
+            ReplaceText("RELICDEALER_EGG_3", "I once had a request from a local restaurant that wanted to license these for their arcane omelettes. I sadly had to decline the offer. Professionals have standards!");
             ReplaceText("RELICDEALER_EGG_4", "Ah, another egg! Thanks!");
             ReplaceText("RELICDEALER_NO_RELICS", "Hmm, looks like you don't have any souvenirs for me? Would you like to buy some? Although you don't really seem the commemorative type.");
             ReplaceText("RELICDEALER_NAILSMITH", "Oooh, you've got a really wrecked looking sword there! That would sell for a fortune with a good story!<page>The Nailsmith just down the road might be much more interested, though.");
@@ -138,6 +141,47 @@ namespace HKSecondQuest.Rooms.City
             ReplaceText("QUIRREL_TEMPLE_4", "Strange, the masks that line the door remind me of something. But I'm not sure what.<page>I guess the art of mask making just has its common patterns. A real headscratcher.");
             ReplaceText("QUIRREL_TEMPLE_5", "There's a strange old chap in the west of the city. Says he runs a souvenir shop.<page>As we got talking, he talked about how one of his favorite fountains nearby got demolished recently.<page>Apparently the king took umbrage at the statue.<page>I wonder why?");
             ReplaceText("QUIRREL_TEMPLE_6", "They really are quite strange fellows here. Or maybe everyone but them has just left?");
+
+            //Fluke Hermit
+            ReplaceText("FLUKE_HERMIT_DREAM", "Must ... improve ... maggot crop!");
+            /*ReplaceText("FLUKE_HERMIT_PRAY"
+            ReplaceText("FLUKE_HERMIT_PRAY_REPEAT", ""); Only accesible with Flukenest*/
+            ReplaceText("FLUKE_HERMIT_MAIN", "Farmer");
+            ReplaceText("FLUKE_HERMIT_IDLE_1", "Careful! They must grow! Meat is precious!");
+            ReplaceText("FLUKE_HERMIT_IDLE_2", "They grow fast! So many hunger!");
+            ReplaceText("FLUKE_HERMIT_IDLE_3", "Riches will be mine! I will be a Hero!");
+            ReplaceText("FLUKE_HERMIT_IDLE_4", "They grow fast in theses tunnels. It will take weeks till the fungi sprout again!");
+            ReplaceText("FLUKE_HERMIT_IDLE_5", "Till then, I'm the only one...");
+            ReplaceText("FLUKE_HERMIT_PEERING", "");
+            ReplaceText("FLUKE_HERMIT_PEERING_DREAM", "So much money! I'll finally buy that little house in Ditrmouth! Far away from this!");
+
+            //Zemeer
+            ReplaceText("XUN_MEET", "Bonjour! May I offer you a beautiful flower? No? Then perhaps you might aid in the delivery of one?<page>Be careful, it is extremely fragile, one of a kind, and ordered by the king himself!<page>I even have a little token of gratitude if you complete the delivery.");
+            ReplaceText("XUN_ACCEPT", "Fantastic! It needs to be delivered to a grave in the Crystal Depths. Remember, it's extremely fragile and one of a kind!");
+            ReplaceText("XUN_REFUSE", "No? Fair enough. I'll ask the next guy who passes through.");
+            ReplaceText("XUN_REOFFER", "Wanna take a shot at the delivery anyways?");
+            ReplaceText("XUN_SUCCESS1", "You did it! Fantastic! I knew I could count on you! Now... what did we agree to again?<page>What? Money? No, you must be mistaken! Here have a random medal!");
+            ReplaceText("XUN_FAILED", "Oh, you broke it? No problem. Just between us: I've got dozens of the things. Just don't tell the king, or he'll want a lower price.");
+            ReplaceText("XUN_REOFFER2", "Would you try the delivery again?");
+            ReplaceText("XUN_ACCEPT2", "Fantastic! It needs to be delivered to a grave in the Crystal Depths. Good luck!");
+            ReplaceText("XUN_FAILED2", "That one broke as well? No worried, I can use the sticks as supports for my roses.");
+            ReplaceText("XUN_SUCCESS2", "You did it! Fantastic! I knew I could count on you! Now... what did we agree to again?<page>What? Money? No, you must be mistaken! Here have a random medal!");
+            ReplaceText("XUN_HAVE_FLOWER", "Just... take the first turn right... then left ...<page>Something like that. You can't miss it, it's green.");
+            ReplaceText("XUN_HAVE_FLOWER2", "Just... take the first turn right... then left ...<page>Something like that. You can't miss it, it's green.");
+            ReplaceText("XUN_GRAVE_INSPECT", "Here rests the masked child");
+            ReplaceText("XUN_GRAVE_INSPECT2", "Here rests the masked child");
+            ReplaceText("XUN_DREAM", "Flower vendor is such a wonderful and fullfilling job! Now I even get to boss around heavily armed children!");
+            ReplaceText("XUN_KING_BRAND", "Oh, you stole the Mask Maker's key? What a delightful story! You'll have to tell me all about your heist at some point!");
+            ReplaceText("XUN_GRAVE_FLOWER", "A flower has been placed");
+            ReplaceText("XUN_MAIN", "Vendor");
+
+            ReplaceText("POGGY_TALK", "Ah, welcome to my butcher's shop! I might be a little see through, but I guarantee you, my meat is not!<page>Except the aspic.<page>Can I interest you in a lovely slice of crawling ham?");
+            ReplaceText("POGGY_REPEAT", "I can guarantee you, it's fresher than it looks! And you won't get it cheaper anywhere else!");
+
+            ReplaceText("RUINS_MARISSA_POSTER", "And now on stage, the delightful Sylas and Delilah!<br>The best hits from last year and the year before that!");
+            ReplaceText("MARISSA_TALK", "Oh dear, an audience! Sadly, my dear friend Sylas has departed, so it won't be the same. But an aria should still be possible!");
+            ReplaceText("MARISSA_REPEAT", "He truely was a dear friend... Maybe I should follow? ... One day maybe.");
+            ReplaceText("BATHHOUSE_CORPSE", "...Sylas!...Delilah!...");
         }
     }
 }

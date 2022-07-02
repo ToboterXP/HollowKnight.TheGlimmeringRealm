@@ -109,6 +109,10 @@ namespace HKSecondQuest.Rooms.Village1
             ReplaceText("WITCH_DREAM_FALL", "Dreams... such power...");
             ReplaceText("WITCH_DREAM", "Have no dreams... must collect...");
             ReplaceText("WITCH_TALK", "Have you met... the old bug? He is not as shiny as you... but smells nice...<page>Have you met... the old caterpillar? He lacks... children...");
+
+            ReplaceText("GH_GRAVEDIGGER_NC_MAIN", "Gravedigger");
+            ReplaceText("GRAVEDIGGER_TALK", "Ah, another warrior! Fantastic, those are always great for business!");
+            ReplaceText("GRAVEDIGGER_REPEAT", "Could maybe commit a few murders on your way out? Or at least some light pillaging?");
         }
 
         public override void OnBeforeLoad()
@@ -164,6 +168,8 @@ namespace HKSecondQuest.Rooms.Village1
             SetItem(LocationNames.Seer, ItemNames.Dream_Wielder, true, essenceCost: 300, destroySeerRewards: true);
             SetItem(LocationNames.Seer, ItemNames.Kings_Idol, true, essenceCost: 500, destroySeerRewards: true);
             SetItem(LocationNames.Seer, ItemNames.Dream_Gate, true, essenceCost: 600, destroySeerRewards: true);
+            SetItem(LocationNames.Seer, ItemNames.Arcane_Egg, true, essenceCost: 700, destroySeerRewards: true);
+
         }
     }
 }

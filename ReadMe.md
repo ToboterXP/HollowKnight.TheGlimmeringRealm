@@ -14,6 +14,7 @@ ItemChanger\
 MenuChanger
 
 Made by Toboter
+Cutscenes drawn by Gaia - the Dancer On The Sun
 
 Available on Scarab
 

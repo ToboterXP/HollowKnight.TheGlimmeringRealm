@@ -15,3 +15,7 @@ Quick Slash 32
 Dream Wielder 30
 Grubsong 3
 Dashmaster 31
+Carefree Melody 40N
+Dreamshield 
+
+Don't include Flukenest without adding Flukehermit dialog
