@@ -39,5 +39,7 @@ namespace HKSecondQuest
         public static Prefab DUSK_KNIGHT = new Prefab("Abyss_05", "Dusk Knight");
         public static Prefab WHITE_PALACE_ENTRANCE = new Prefab("White_Palace_11", "door1");
         public static Prefab DREAM_ENTRY = new Prefab("White_Palace_11", "Dream Entry");
+        public static Prefab WHITE_PALACE_LEVER = new Prefab("White_Palace_14", "White Palace Orb Lever");
+        public static Prefab PURE_VESSEL_STATUE = new Prefab("GG_Workshop", "GG_Statue_HollowKnight");
     }
 }

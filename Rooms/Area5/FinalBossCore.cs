@@ -7,6 +7,18 @@ using UnityEngine;
 
 namespace HKSecondQuest.Rooms.Area5
 {
+    internal class EndingTransitionController : MonoBehaviour
+    {
+        bool started = false;
+        void Update()
+        {
+            if (!started && GameObject.Find("Boss Corpse") && GameObject.Find("Boss Corpse").LocateMyFSM("Corpse").ActiveStateName == "Idle")
+            {
+                started = true;
+                GameManager.instance.ChangeToScene("Cinematic_Ending_A", "door1", 0);
+            }
+        }
+    }
     //Activates the Dream Transition to the Palace Gardens in the last phase
     internal class DreamTransitionController : MonoBehaviour
     {
@@ -72,6 +84,7 @@ namespace HKSecondQuest.Rooms.Area5
         public override void OnLoad()
         {
             GameObject.Find("Boss Control").AddComponent<DreamTransitionAdder>();
+            GameObject.Find("Boss Control").AddComponent<EndingTransitionController>();
         }
 
 

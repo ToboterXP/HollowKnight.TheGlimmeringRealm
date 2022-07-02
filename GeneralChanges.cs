@@ -31,6 +31,11 @@ namespace HKSecondQuest
             ReplaceText("STAG_CROSSROADS", "Ah, the old village on the road to the Glimmering City! Travelers often stayed here for the night, in one of the Inns.<page>Not sure how many are left, though.<page>I heard there's a little cleptomaniac bug that lives deep within the plantations. Maybe you should pay him a visit. You also seem to like collecting things.");
             ReplaceText("STAG_NEST", "This is where we stags live. Please don't wake anyone up, being a stag is hard work!", "Stag");
             ReplaceText("STAG_HIDDEN", "Ah, the old station at the King's Palace. It does seem to be in quite bad shape, a wonder that it still works.<page>Though I doubt it will see much travel in the future.");
+            ReplaceText("STAG_DREAM", "I wonder how my brethren are doing? I really can handle all trafic on my own these days...");
+            ReplaceText("STAG_TRAM", "Oh, you carry a tram pass! They are beautiful machines, aren't they? Though I always said they should leave out the windows. Travel just isn't the same without the fresh breeze in your mane.");
+            ReplaceText("STAG_HOPE_1", "The stag nest. Be careful, it's quite crammed. Once dozens of stags were necessary to run the stag network. Now I can easily handle everyone. I'm the youngest, you see? So the burden fell on me.");
+            ReplaceText("STAG_HOPE_2", "There have been now new stags as well for quite some time. It just isn't necessary these days. So everyone just gets older and older.");
+            ReplaceText("STAG_REMEMBER_1", "Ah, Cornifer has been busy, hasn't he? At least some of the network is up and running again. I'm sure business will be right back to normal soon.");
 
             //inventory text
             ReplaceText("INV_DESC_WHITEKEY", "A very fancy, glimmering key");

@@ -13,7 +13,7 @@ namespace HKSecondQuest.Rooms.City
 
         public override void OnLoad()
         { 
-            PlaceGO(Prefabs.LARGE_PLATFORM.Object, 66, 98, Quaternion.Euler(0, 0, 90));
+            //PlaceGO(Prefabs.LARGE_PLATFORM.Object, 66, 98, Quaternion.Euler(0, 0, 90));
         }
     }
 }

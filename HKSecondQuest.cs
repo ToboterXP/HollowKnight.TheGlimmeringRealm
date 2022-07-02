@@ -152,6 +152,8 @@ namespace HKSecondQuest
         /// </summary>
         public void CorrectGrubfather()
         {
+            if (!saveSettings.glimmeringRealmEnabled) return;
+
             Settings set = (Settings)typeof(ItemChangerMod).GetField("SET", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
             foreach(var placement in set.GetPlacements())
             {
@@ -170,6 +172,8 @@ namespace HKSecondQuest
 
         public void OnSaveLoad()
         {
+            if (!saveSettings.glimmeringRealmEnabled) return;
+
             if (saveSettings.revision < CurrentRevision)
             {
                 RevisionManager.OnRevision(saveSettings.revision, CurrentRevision);
@@ -354,7 +358,7 @@ namespace HKSecondQuest
                     title.GetComponent<SpriteRenderer>().sprite = titleSprite;
                     //slightly blue, to make it stand apart from the background
                     title.GetComponent<SpriteRenderer>().color = new UnityEngine.Color(193 / 255f, 225 / 255f, 253 / 255f);
-                    title.transform.SetScaleMatching(2.7f);
+                    title.transform.SetScaleMatching(2.7f); 
                 }
             }
         }

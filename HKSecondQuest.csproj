@@ -6,7 +6,7 @@
     <!-- Uncomment this to generate a documentation file to be included with the mod -->
     <!--<DocumentationFile>$(OutputPath)/$(AssemblyTitle).xml</DocumentationFile>-->
   </PropertyGroup>
-  <PropertyGroup>
+  <PropertyGroup> 
     <RootNamespace>HKSecondQuest</RootNamespace>
     <AssemblyName>TheGlimmeringRealm</AssemblyName>
     <TargetFramework>net472</TargetFramework>
@@ -24,13 +24,25 @@
   <Target Name="CopyMod" AfterTargets="PostBuildEvent">
     <RemoveDir Condition="Exists('$(ExportDir)/$(TargetName)/')" Directories="$(ExportDir)/$(TargetName)/" />
     <MakeDir Directories="$(ExportDir)/$(TargetName)/" />
+    
     <MakeDir Directories="$(ExportDir)/$(TargetName)/zip/" />
+    <MakeDir Directories="$(ExportDir)/$(TargetName)/zip/Cutscenes/" />
     <MakeDir Condition="!Exists('$(HollowKnightRefs)/Mods/$(TargetName)/')" Directories="$(HollowKnightRefs)/Mods/$(TargetName)/" />
+    <MakeDir Directories="$(HollowKnightRefs)/Mods/$(TargetName)/Cutscenes/" />
+
 
     <Copy Condition="'$(DocumentationFile)' != ''" SourceFiles="$(TargetPath);$(TargetDir)/$(TargetName).pdb;$(TargetDir)/$(TargetName).xml" DestinationFolder="$(HollowKnightRefs)/Mods/$(TargetName)/" />
     <Copy Condition="'$(DocumentationFile)' == ''" SourceFiles="$(TargetPath);$(TargetDir)/$(TargetName).pdb" DestinationFolder="$(HollowKnightRefs)/Mods/$(TargetName)/" />
 
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ExportDir)/$(TargetName)/" />
+
+    <!--Copy cutscenes into the ZIP file-->
+    <ItemGroup>
+      <CutsceneFiles Include="Resources/Cutscenes/*.*" />
+    </ItemGroup>
+    
+    <Copy SourceFiles="@(CutsceneFiles)" DestinationFolder="$(ExportDir)/$(TargetName)/zip/Cutscenes/" />
+    <Copy SourceFiles="@(CutsceneFiles)" DestinationFolder="$(HollowKnightRefs)/Mods/$(TargetName)/Cutscenes/" />
     
     <Copy Condition="'$(DocumentationFile)' != ''" SourceFiles="ReadMe.md;$(TargetPath);$(TargetDir)/$(TargetName).pdb;$(TargetDir)/$(TargetName).xml" DestinationFolder="$(ExportDir)/$(TargetName)/zip/" />
     <Copy Condition="'$(DocumentationFile)' == ''" SourceFiles="ReadMe.md;$(TargetPath);$(TargetDir)/$(TargetName).pdb" DestinationFolder="$(ExportDir)/$(TargetName)/zip/" />
