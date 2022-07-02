@@ -74,6 +74,12 @@ namespace HKSecondQuest.Rooms.Area6
             ReplaceText("QUEEN_MEET_REPEAT", "Please... I beg you... Release him from his suffering.");
 
             ReplaceText("ABYSS_GREET", "Ah, the little wanderer shows himself again! I have just finished fixing up the old station at the palace.<page>Not much of a palace anymore. Filled with fortifications, burned down and smashed to bits. But the stag network has a duty to fullfill.<page>Be careful, the station is still full of cable reels from my repairs.");
+
+            //Xero
+            ReplaceText("XERO_INSPECT", "Here rests the great toothpick industrialist");
+            ReplaceText("XERO_TALK", "My empire! I sold thousands of toothpicks a year once! Now all is gone!<page>You! You wield a toothpick! I challenge you!");
+            ReplaceText("XERO_DEFEAT", "My toothpicks! You've broken them! What else is left for me in this cruel world!");
+            ReplaceText("XERO_REPEAT", "Fight me, you blasphemer against all holy toothpicks!");
         }
     }
 }

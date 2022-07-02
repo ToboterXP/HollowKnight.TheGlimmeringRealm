@@ -59,6 +59,12 @@ namespace HKSecondQuest.Rooms.Area1
 
             ReplaceText("STAG_NEST", "???", "StagMenu");
             ReplaceText("STAG_EGG_INSPECT", "An empty eggshell. Someone had a delicious breakfast.<page>Probably Leg Eater.");
+
+            //Gorb
+            ReplaceText("ALADAR_INSPECT", "Here lies Gorb, the Inventor of Ibuprofen");
+            ReplaceText("ALADAR_TALK", "I am Gorb--- I am inventor of Ibuprofen--- Do you want an Ibuprofen?");
+            ReplaceText("ALADAR_REPEAT", "Ibuprofen---");
+            ReplaceText("ALADAR_DEFEAT", "Ouch--- Now I need an Ibuprofen---");
         }
 
         public override void OnWorldInit()

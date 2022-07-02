@@ -74,6 +74,10 @@ namespace HKSecondQuest.Rooms.Area3
 
             ReplaceText("FUNG_TAB_04", "This plantation is property of the Glimmering King");
 
+            ReplaceText("HU_INSPECT", "Here rests the master of mushroom pancakes");
+            ReplaceText("HU_TALK", "Ho! In life I was the best chef in the realm! Noone could withstand my mighty mushroom pancakes! Will you challenge my prowess?!");
+            ReplaceText("HU_REPEAT", "Will you challenge my mushroom pancakes?!");
+            ReplaceText("HU_DEFEAT", "Delicious! What exquisit knife work! Truly, you are a great chef!");
         }
     }
 }
