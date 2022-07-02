@@ -56,6 +56,7 @@ namespace HKSecondQuest.Rooms.Area6
             ReplaceText("HIDDEN_STATION_SUPER", "The King's");
             ReplaceText("RESTING_GROUNDS_SUPER", "Old Palace");
             ReplaceText("RESTING_GROUNDS_MAIN", "Graveyard");
+            ReplaceText("RESTING_GROUNDS_SUB", "");
             ReplaceText("ABYSS_MAIN", "Gardens");
             ReplaceText("ABYSS_SUPER", "Scorched");
             ReplaceText("PALACE_GROUNDS_MAIN", "Ruins");
