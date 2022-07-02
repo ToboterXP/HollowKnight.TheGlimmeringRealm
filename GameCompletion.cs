@@ -27,7 +27,7 @@ namespace HKSecondQuest
 
             if (!Enabled) return;
 
-            int charmCount = self.GetInt("charmsOwned"); //max 17
+            int charmCount = self.GetInt("charmsOwned"); //max 19
 
             int nailUpgrades = self.GetInt("nailSmithUpgrades"); // max 3
 
@@ -38,7 +38,7 @@ namespace HKSecondQuest
             if (self.GetInt("screamLevel") > 0) spells++;
             if (self.GetInt("quakeLevel") > 0) spells++;
 
-            int mainUpgrades = 0; //max 7
+            int mainUpgrades = 0; //max 8
             if (self.GetBool("hasDoubleJump")) mainUpgrades++;
             if (self.GetBool("hasSuperDash")) mainUpgrades++;
             if (self.GetBool("hasTramPass")) mainUpgrades++;
@@ -46,16 +46,17 @@ namespace HKSecondQuest
             if (self.GetBool("hasLantern")) mainUpgrades++;
             if (self.GetBool("hasDreamNail")) mainUpgrades++;
             if (self.GetBool("hasDreamGate")) mainUpgrades++;
+            if (self.GetBool("dreamNailUpgraded")) mainUpgrades++;
 
             int dreamers = 0; //max 3
             if (self.GetBool("monomonDefeated")) dreamers++;
             if (self.GetBool("hegemolDefeated")) dreamers++;
             if (self.GetBool("lurienDefeated")) dreamers++;
 
-            int masks = self.GetInt("maxHealth") - 5; //max 1
+            int masks = self.GetInt("maxHealth") - 5; //max 2
             int vessels = self.GetInt("MPReserveMax") / 33; //max 1
 
-            float percentage = 3 * charmCount + 2 * nailUpgrades + 3 * charmNotches + 2 * spells + 2 * mainUpgrades + 3 * dreamers + 3 * masks + 2 * vessels;
+            float percentage = 3 * charmCount + 1 * nailUpgrades + 2 * charmNotches + 2 * spells + 2 * mainUpgrades + 2 * dreamers + 2 * masks + 2 * vessels;
 
             if (percentage > 100) percentage = 100;
 

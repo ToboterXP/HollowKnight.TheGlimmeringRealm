@@ -72,6 +72,7 @@ namespace HKSecondQuest
             ReplaceText("CHARM_DESC_3", "A present from an old catapillar. Probably won't change your size though.");
             ReplaceText("CHARM_DESC_31", "A very pretty medal. Could probably be sold for a good prize to a collector. If you had a mouth to barter with, that is.");
             ReplaceText("CHARM_DESC_40_N", "A finely crafted medal, eternally giving off a faint lullaby.<br>Crafted by a mother mourning her family.");
+            ReplaceText("CHARM_DESC_38", "A little medal with an emblem shaped like a flower. Used by gardeners across the world to repell snail invasions.");
 
             //Replace Elegy to Hallownest
             ReplaceText("PROLOGUE_EXCERPT_01", "A note to all who it may concern:");
