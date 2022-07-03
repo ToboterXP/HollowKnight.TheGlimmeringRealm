@@ -65,6 +65,8 @@ namespace HKSecondQuest.Rooms.Area1
             ReplaceText("ALADAR_TALK", "I am Gorb--- I am inventor of Ibuprofen--- Do you want an Ibuprofen?");
             ReplaceText("ALADAR_REPEAT", "Ibuprofen---");
             ReplaceText("ALADAR_DEFEAT", "Ouch--- Now I need an Ibuprofen---");
+
+            ReplaceText("HIGHER_BEING_CORPSE", "...My money!...Stay away!...");
         }
 
         public override void OnWorldInit()

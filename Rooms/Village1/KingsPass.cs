@@ -20,7 +20,7 @@ namespace HKSecondQuest.Rooms.Village1
 
         public override void OnInit()
         {
-            HKSecondQuest.Instance.TextChanger.AddReplacement("TUT_TAB_01", "Welcome, traveler<br>You are now approaching the gates<br>Be mindful of queue times");
+            HKSecondQuest.Instance.TextChanger.AddReplacement("TUT_TAB_01", "Welcome, Traveler<br>You are now approaching the gates<br>Be mindful of queue times");
             HKSecondQuest.Instance.TextChanger.AddReplacement("TUT_TAB_02", "The King of Light welcomes you, Traveler<br>His blessing is with you while you obey his law<br><page>Now step forth, into the glory of his creation<br><br>The Glimmering Realm");
             HKSecondQuest.Instance.TextChanger.AddReplacement("TUT_TAB_03", "Western Guard House<br>Only authorized bugs may enter<br><br>--Signed: Guard Captain Jinn");
         }

@@ -212,6 +212,8 @@ namespace HKSecondQuest
 
             On.HeroController.Start += OnGameStart;
 
+            On.GrimmEnemyRange.GetTarget += DisableGrimmchildShooting;
+
             Events.OnEnterGame += CorrectGrubfather;
             Events.OnEnterGame += OnSaveLoad;
 
@@ -242,6 +244,12 @@ namespace HKSecondQuest
             Log("Initialization Complete");
         }
 
+        public GameObject DisableGrimmchildShooting(On.GrimmEnemyRange.orig_GetTarget orig, global::GrimmEnemyRange self)
+        {
+            if (!Enabled) return orig(self);
+            return null;
+        }
+
         /// <summary>
         /// Called when a file is started, ensures the mod gets enabled/disabled based on if the file is a Glimmering Realm save
         /// </summary>
@@ -254,6 +262,15 @@ namespace HKSecondQuest
             if (saveSettings.glimmeringRealmEnabled)
             {
                 SetEnabled(true);
+
+                //workaround if HoGE messes with the PV fight
+                if (ModHooks.GetMod("Hall of Gods Extras") is Mod)
+                {
+                    IMod hog = ModHooks.GetMod("Hall of Gods Extras");
+                    object settings = hog.GetType().GetField("_localSettings", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
+                    settings.GetType().GetField("_statueStateHollowKnight", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(settings, new BossStatue.Completion { hasBeenSeen = true, isUnlocked = true, usingAltVersion = true });
+                }
+
             } else
             {
                 SetEnabled(false);
@@ -269,7 +286,7 @@ namespace HKSecondQuest
         /// </summary>
         public void OnDamage(On.HeroController.orig_TakeDamage orig, global::HeroController self, GameObject go, CollisionSide damageSide, int damageAmount, int hazardType)
         {
-            if (Enabled && ActiveRoom != null && damageAmount < ActiveRoom.MinDamage)
+            if (Enabled && ActiveRoom != null && damageAmount < ActiveRoom.MinDamage && damageAmount > 0)
             {
                 damageAmount = ActiveRoom.MinDamage;
             }
