@@ -37,6 +37,8 @@ namespace HKSecondQuest
 
             var mainLabel = new MenuLabel(SteelSoulSelector, "The Glimmering Realm");
 
+            var expansion1Label = new MenuLabel(SteelSoulSelector, "Including Expansion 1 - Dream of the Fallen", MenuLabel.Style.Body);
+
             var mapWarningLabel = new MenuLabel(SteelSoulSelector, "No map included - make one yourself or venture forth at your own risk", MenuLabel.Style.Body);
 
             var startButton = new BigButton(SteelSoulSelector, "Start", "");
@@ -45,16 +47,18 @@ namespace HKSecondQuest
 
             steelSoulToggle.SetNeighbor(Neighbor.Down, startButton);
 
-            new VerticalItemPanel(SteelSoulSelector, new UnityEngine.Vector2(0, 300), 300, false, new IMenuElement[]
+            new VerticalItemPanel(SteelSoulSelector, new UnityEngine.Vector2(0, 300), 150, false, new IMenuElement[]
             {
                 mainLabel,
+                expansion1Label,
                 steelSoulToggle,
                 mapWarningLabel,
-                startButton
+                startButton 
             });
 
-            mapWarningLabel.MoveTo(new UnityEngine.Vector2(250, -200));
-            startButton.MoveTo(new UnityEngine.Vector2(-100, -300));
+            expansion1Label.Translate(new UnityEngine.Vector2(400, 0));
+            mapWarningLabel.Translate(new UnityEngine.Vector2(250, 0));
+            startButton.Translate(new UnityEngine.Vector2(-91, 0));
         }
 
         /// <summary>
