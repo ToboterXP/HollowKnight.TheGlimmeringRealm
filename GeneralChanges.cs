@@ -47,6 +47,7 @@ namespace HKSecondQuest
             ReplaceText("INV_DESC_KINGSBRAND", "The key to a long forgotten door");
             ReplaceText("INV_DESC_GEO", "The currency of the Glimmering Realm and its neighbouring kingdoms.");
             ReplaceText("INV_NAME_KINGSBRAND", "Mask Maker's Key");
+            ReplaceText("INV_DESC_KINGSBRAND", "An intricate piece of carved shell. Created by a rather questionable creator.");
             ReplaceText("INV_DESC_TRAM_PASS", "A piece of chitin, etched with a pattern. Used to gain access to the trams of the Glimmering Realm.");
             ReplaceText("INV_DESC_TRINKET1", "A journal of a long dead wanderer. His story is riveting!");
             ReplaceText("INV_DESC_TRINKET2", "The seal of the Glimmering Realm. Quite fetching.");
@@ -80,8 +81,16 @@ namespace HKSecondQuest
             ReplaceText("PROLOGUE_EXCERPT_03", "He is evil anyways, and has spread his monsters everywhere!");
             ReplaceText("PROLOGUE_EXCERPT_04", "Now can everyone please start rebuilding?!");
             ReplaceText("PROLOGUE_EXCERPT_AUTHOR", "- Recent notice to all citizens of the Glimmering Realm");
+             
+            ReplaceText("DREAM_PLANT_FUNGUS_FOG", "...Mushrooms growing...<br>...Feeding all...");
+            ReplaceText("DREAM_PLANT_GREENPATH", "...Pens untended...<br>...Beasts escaped...");
+            ReplaceText("DREAM_PLANT_CLIFFS", "...Strong walls...<br>...But what use against a foe inside?...");
+            ReplaceText("DREAM_PLANT_MINES", "...A Battle won...<br>...A Battle lost...");
+            ReplaceText("DREAM_PLANT_QUEEN_GARDEN", "...Such useful beasts...<br>...But what danger when restraints are left untended...");
+            ReplaceText("DREAM_PLANT_REST_MAIN", "...White flowers charred...<br>...Venerable graves spoiled...<br>...Beautiful arches smashed...");
 
-            ReplaceText("CARD", "Have fun with your ticket, see you soon!<br><br>- Cornifer", "Cornifer");
+
+            ReplaceText("CARD", "Sorry for leaving, I'm terribly busy right now. See you soon!<br><br>- Cornifer", "Cornifer");
         }
 
         /// <summary>

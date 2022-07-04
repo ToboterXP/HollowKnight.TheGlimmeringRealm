@@ -68,7 +68,7 @@ namespace HKSecondQuest.Rooms.City
             ReplaceText("RELICDEALER_JOURNAL_2", "These aren't actually written by wanderers. Their stories just aren't captivating enough.");
             ReplaceText("RELICDEALER_JOURNAL_3", "You know, these were quite the rage for a while in Hallownest. No idea what happened with all those journals there.");
             ReplaceText("RELICDEALER_JOURNAL_4", "Oh, I really liked this one! It's about a slug warrior who carries his son with him in his house. Fantastic lore!");
-            ReplaceText("RELICDEALER_JOURNAL_5", "Hmm, this is a curious story. It seems to be written by a bug called Elena, about the depths of a derelict kingdom. Strange, I can't remember ever writing this.");
+            ReplaceText("RELICDEALER_JOURNAL_5", "Hmm, this is a curious story. It seems to be written by a bug called Elinna, about the depths of a derelict kingdom. Strange, I can't remember ever writing this.");
             ReplaceText("RELICDEALER_JOURNAL_6", "Ah, another journal. Thanks!");
             ReplaceText("RELICDEALER_JOURNAL_7", "Ah, another journal. Thanks!");
             ReplaceText("RELICDEALER_JOURNAL_8", "Ah, another journal. Thanks!");
@@ -173,8 +173,8 @@ namespace HKSecondQuest.Rooms.City
             ReplaceText("XUN_DREAM", "Flower vendor is such a wonderful and fullfilling job! Now I even get to boss around heavily armed children!");
             ReplaceText("XUN_KING_BRAND", "Oh, you stole the Mask Maker's key? What a delightful story! You'll have to tell me all about your heist at some point!");
             ReplaceText("XUN_GRAVE_FLOWER", "A flower has been placed");
-            ReplaceText("XUN_MAIN", "Vendor");
-
+            ReplaceText("XUN_NC_MAIN", "Vendor"); 
+             
             ReplaceText("POGGY_TALK", "Ah, welcome to my butcher's shop! I might be a little see through, but I guarantee you, my meat is not!<page>Except the aspic.<page>Can I interest you in a lovely slice of crawling ham?");
             ReplaceText("POGGY_REPEAT", "I can guarantee you, it's fresher than it looks! And you won't get it cheaper anywhere else!");
 
@@ -182,6 +182,8 @@ namespace HKSecondQuest.Rooms.City
             ReplaceText("MARISSA_TALK", "Oh dear, an audience! Sadly, my dear friend Sylas has departed, so it won't be the same. But an aria should still be possible!");
             ReplaceText("MARISSA_REPEAT", "He truely was a dear friend... Maybe I should follow? ... One day maybe.");
             ReplaceText("BATHHOUSE_CORPSE", "...Sylas!...Delilah!...");
+
+            ReplaceText("FALSE_KNIGHT", "He told me I would be revered! I even became his General!<page>But then he just locked me in here. Said it was the best for the kingdom.<page>I won this war for him, how could he do such a thing?!");
         }
     }
 }

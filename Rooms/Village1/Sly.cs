@@ -14,6 +14,7 @@ namespace HKSecondQuest.Rooms.Village1
         public override void OnInit()
         {
             ReplaceText("SLY_GENERIC", "Ah a customer from afar. Come in, come in!");
+            ReplaceText("SLY_GENERIC_NM", "Oh, if it isn't my best customer! What can I do for you?");
             ReplaceText("SLY_NAIL_HONED", "Oh, you met the old Nailsmith? Funny old fella. Always had an interesting story to tell, on an evening in the pubs of the Glimmering City.<page>Most of them were about swords, though.");
             ReplaceText("SLY_MAPPER", "Ah, the old stag station is getting back up and running? I used to take it all the way up to the City three times a week, to resupply. But those days have long passed.");
             ReplaceText("SLY_DREAM_STORE", "More geo... maybe... just one more visit?");

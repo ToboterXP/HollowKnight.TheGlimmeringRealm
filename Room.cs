@@ -144,7 +144,7 @@ namespace HKSecondQuest
         /// </summary>
         public void DestroyGO(string name)
         {
-            GameObject.Destroy(GameObject.Find(name));
+            GameObject.Destroy(GameObject.Find(name)); 
         }
 
         /// <summary>

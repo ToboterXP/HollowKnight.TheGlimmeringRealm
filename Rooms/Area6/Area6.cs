@@ -56,6 +56,7 @@ namespace HKSecondQuest.Rooms.Area6
             ReplaceText("HIDDEN_STATION_SUPER", "The King's");
             ReplaceText("RESTING_GROUNDS_SUPER", "Old Palace");
             ReplaceText("RESTING_GROUNDS_MAIN", "Graveyard");
+            ReplaceText("RESTING_GROUNDS_SUB", "");
             ReplaceText("ABYSS_MAIN", "Gardens");
             ReplaceText("ABYSS_SUPER", "Scorched");
             ReplaceText("PALACE_GROUNDS_MAIN", "Ruins");
@@ -72,8 +73,16 @@ namespace HKSecondQuest.Rooms.Area6
             ReplaceText("QUEEN_TALK_02", "My husband has been locked deep below, battered and beaten, to suffer for all eternity.<page>I want you to break the seal placed on him, to end his pain forever.");
             ReplaceText("QUEEN_TALK_EXTRA", "Killing him won't be enough... a more powerful strike will be needed to break his seal.<page>I know there are tools to enter minds. I know such a tool is hidden on these Grounds, but whether it's enough I cannot say.<page>You may need to find a way to strengthen it.");
             ReplaceText("QUEEN_MEET_REPEAT", "Please... I beg you... Release him from his suffering.");
+            ReplaceText("QUEEN_GRIMMCHILD", "This little creature is a companion I crafted myself. I made it to lessen my grief. It's probably best to give it away.");
+            ReplaceText("QUEEN_HORNET", "You stole the key to my husband's prison? I can't thank you enough! You truly are a good creature.");
 
             ReplaceText("ABYSS_GREET", "Ah, the little wanderer shows himself again! I have just finished fixing up the old station at the palace.<page>Not much of a palace anymore. Filled with fortifications, burned down and smashed to bits. But the stag network has a duty to fullfill.<page>Be careful, the station is still full of cable reels from my repairs.");
+
+            //Xero
+            ReplaceText("XERO_INSPECT", "Here rests the great toothpick industrialist");
+            ReplaceText("XERO_TALK", "My empire! I sold thousands of toothpicks a year once! Now all is gone!<page>You! You wield a toothpick! I challenge you!");
+            ReplaceText("XERO_DEFEAT", "My toothpicks! You've broken them! What else is left for me in this cruel world!");
+            ReplaceText("XERO_REPEAT", "Fight me, you blasphemer against all holy toothpicks!");
         }
     }
 }

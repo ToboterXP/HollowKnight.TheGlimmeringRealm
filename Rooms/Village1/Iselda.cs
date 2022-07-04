@@ -16,7 +16,7 @@ namespace HKSecondQuest.Rooms.Village1
         {
             ReplaceText("ISELDA_SUB", "Station Keeper");
             ReplaceText("ISELDA_MEET", "A traveler? Well you're in luck, we've got this fantastic stag network running all throughout the kingdom!<page>Unfortunately, it's mostly broken. Usually.<page>My husband spends most of his time fixing up the old nail signaling system. If you meet him, maybe he'll let you use it.<page>I'm just selling souvenirs these days.");
-            ReplaceText("ISELDA_REPEAT", "Are you having a nice time exploring our beautiful, peaceful kingdom?<br>I heard the vegetation is paticularly murderous this time of the year!");
+            ReplaceText("ISELDA_REPEAT", "Are you having a nice time exploring our beautiful, peaceful kingdom?<br>I heard the vegetation is particularly murderous this time of the year!");
             ReplaceText("ISELDA_DREAM", "I love my husband so much... and the old stag.<br>First place probably going to the stag.");
             ReplaceText("ISELDA_GREET1", "I studied under the head station keeper of the Glimmering City, you know? Station keeping used to be a real job in those days. Now I just sell this stupid stuff, to fund repairs.");
             ReplaceText("ISELDA_CORNIFER_HOME", "Corny is home at last. You should have seen his face, I couldn't even kiss him welcome through the grease. But at least the network seems to be back in reasonable order.<page>I hope it stays that way.");

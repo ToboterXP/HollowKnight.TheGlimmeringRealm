@@ -32,7 +32,20 @@ namespace HKSecondQuest
                     placement.Add(aitem);
                     ItemChangerMod.AddPlacements(new AbstractPlacement[] { placement }, PlacementConflictResolution.Replace);
                 }
+
+                SetTransition("Ruins1_31", "bot1", "Room_GG_Shortcut", "top1");
+                SetTransition("Room_GG_Shortcut", "left1", "Ruins2_10b", "right1");
             }
+        }
+
+        public static void SetTransition(string sourceScene, string sourceGate, string targetScene, string targetGate, bool oneWay = false)
+        {
+            Transition t1 = new Transition(sourceScene, sourceGate);
+            Transition t2 = new Transition(targetScene, targetGate);
+
+            ItemChangerMod.AddTransitionOverride(t1, t2);
+
+            if (!oneWay) ItemChangerMod.AddTransitionOverride(t2, t1);
         }
     }
 }
