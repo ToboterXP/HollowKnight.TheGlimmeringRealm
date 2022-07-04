@@ -43,7 +43,7 @@ namespace HKSecondQuest.Rooms.Area1
             ReplaceText("MATO_BOW", "Best of luck!");
             ReplaceText("MATO_GREET", "Oh, it's my little customer! How is my old charm coming along?");
             ReplaceText("MATO_DREAM", "Maybe I should pay a visit to the old village at the foot of the hill again?<page>But no... they'll just be staring at me, as usual.");
-            ReplaceText("MATO_SLY", "That's a truly exquisit little charm you are wearing there! Where did you get it? The village to the west? ... Perhaps I'll have to pay them a visit at some point...");
+            ReplaceText("MATO_SLY", "That's a truly exquisite little charm you are wearing there! Where did you get it? The village to the west? ... Perhaps I'll have to pay them a visit at some point...");
             ReplaceText("MATO_MEET", "Oh, a visitor! That's quite unusual, all the way up here. Unless you count the bugs that try to kill you, of course.<page>I make little charms as a hobby, do you want one?");
             ReplaceText("MATO_TAUGHT", "I hope you'll have much success with my little charm! Just polish it regularly with some Durandoo fat!");
             ReplaceText("NM_MATO_SUPER", "Charm Maker");

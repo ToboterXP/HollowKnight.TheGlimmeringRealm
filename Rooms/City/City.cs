@@ -68,7 +68,7 @@ namespace HKSecondQuest.Rooms.City
             ReplaceText("RELICDEALER_JOURNAL_2", "These aren't actually written by wanderers. Their stories just aren't captivating enough.");
             ReplaceText("RELICDEALER_JOURNAL_3", "You know, these were quite the rage for a while in Hallownest. No idea what happened with all those journals there.");
             ReplaceText("RELICDEALER_JOURNAL_4", "Oh, I really liked this one! It's about a slug warrior who carries his son with him in his house. Fantastic lore!");
-            ReplaceText("RELICDEALER_JOURNAL_5", "Hmm, this is a curious story. It seems to be written by a bug called Elena, about the depths of a derelict kingdom. Strange, I can't remember ever writing this.");
+            ReplaceText("RELICDEALER_JOURNAL_5", "Hmm, this is a curious story. It seems to be written by a bug called Elinna, about the depths of a derelict kingdom. Strange, I can't remember ever writing this.");
             ReplaceText("RELICDEALER_JOURNAL_6", "Ah, another journal. Thanks!");
             ReplaceText("RELICDEALER_JOURNAL_7", "Ah, another journal. Thanks!");
             ReplaceText("RELICDEALER_JOURNAL_8", "Ah, another journal. Thanks!");

@@ -81,7 +81,7 @@ namespace HKSecondQuest
             ReplaceText("PROLOGUE_EXCERPT_03", "He is evil anyways, and has spread his monsters everywhere!");
             ReplaceText("PROLOGUE_EXCERPT_04", "Now can everyone please start rebuilding?!");
             ReplaceText("PROLOGUE_EXCERPT_AUTHOR", "- Recent notice to all citizens of the Glimmering Realm");
-
+             
             ReplaceText("DREAM_PLANT_FUNGUS_FOG", "...Mushrooms growing...<br>...Feeding all...");
             ReplaceText("DREAM_PLANT_GREENPATH", "...Pens untended...<br>...Beasts escaped...");
             ReplaceText("DREAM_PLANT_CLIFFS", "...Strong walls...<br>...But what use against a foe inside?...");

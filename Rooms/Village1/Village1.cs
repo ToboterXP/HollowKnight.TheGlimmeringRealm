@@ -20,7 +20,7 @@ namespace HKSecondQuest.Rooms.Village1
 
             //new Elderbug dialog
             ReplaceText("ELDERBUG_DREAM", "I'd love to visit the Glimmering City again, one day.");
-            ReplaceText("ELDERBUG_JIJI_DOOR", "The easterly winds blow strong today. Is good for the heart, my father always used to say");
+            ReplaceText("ELDERBUG_JIJI_DOOR", "The easterly winds blow strong today. Is good for the heart, my father always used to say.");
             ReplaceText("ELDERBUG_GOSSIP_HINT", "The Realm's roads have become treacherous in recent years.<br>You'd be well advised to always carry that little sword of yours close at hand.");
             ReplaceText("ELDERBUG_HINT_ANCIENT_BASIN", "Hello, dear wanderer. And where have your travels lead you this time?");
             ReplaceText("ELDERBUG_HINT_CRYSTAL_PEAK", "Hello, dear wanderer. And where have your travels lead you this time?");
