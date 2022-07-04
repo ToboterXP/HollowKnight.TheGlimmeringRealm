@@ -12,7 +12,7 @@ namespace HKSecondQuest.Rooms.Area3
 
         public override void OnLoad()
         {
-            PlaceGO(Prefabs.SMALL_PLATFORM.Object, 8, 57);
+            //PlaceGO(Prefabs.SMALL_PLATFORM.Object, 8, 57);
             DestroyGO("plat_float_08");
             DestroyGO("plat_float_02");
             PlaceGO(Prefabs.SMALL_PLATFORM.Object, 5, 147);

@@ -33,6 +33,9 @@ namespace HKSecondQuest.Rooms.City
             SetTransition("Ruins1_31", "bot1", "Room_GG_Shortcut", "top1");
             SetTransition("Room_GG_Shortcut", "left1", "Ruins2_10b", "right1");
 
+            //left extension
+            SetTransition("Ruins1_05b", "left1", "Ruins1_01", "left1");
+
             SetItem(LocationNames.Flukenest, ItemNames.Desolate_Dive);
             SetItem(LocationNames.Wanderers_Journal_Pleasure_House, ItemNames.Dream_Nail);
             SetItem(LocationNames.Kings_Station_Stag, ItemNames.Geo_Rock_Default);

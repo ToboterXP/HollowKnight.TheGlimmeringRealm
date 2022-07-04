@@ -23,6 +23,7 @@ namespace HKSecondQuest.Rooms.Area4
             SetTransition("Fungus3_08", "left1", "Fungus2_11", "right1");
             SetTransition("Fungus3_11", "right1", "Deepnest_43", "left1");
             SetTransition("Deepnest_43", "right1", "Fungus1_26", "right1");
+            SetTransition("Fungus1_26", "left1", "Room_Fungus_Shaman", "left1");
 
             //Create Mantis Claw Location
             AbstractLocation loc = new CoordinateLocation() { x = 58, y = 25, elevation = 0, name="newMantisClaw", sceneName="Fungus1_26" };
