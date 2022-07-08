@@ -15,7 +15,7 @@ namespace HKSecondQuest
         public static void OnRevision(int oldRev, int newRev)
         {
             //Change Vengeful Spirit placement to Shade Soul
-            if (oldRev < 2 && newRev >= 2)
+            if (oldRev < 3 && newRev >= 3)
             {
                 AbstractPlacement vsPlacement;
                 Ref.Settings.Placements.TryGetValue(LocationNames.City_Crest, out vsPlacement);

@@ -68,7 +68,7 @@ namespace HKSecondQuest
         public void OnLoadLocal(SaveSettings s) => saveSettings = s;
         public SaveSettings OnSaveLocal() => saveSettings;
 
-        public const int CurrentRevision = 2;
+        public const int CurrentRevision = 3;
 
 
         public HKSecondQuest() : base("The Glimmering Realm")
@@ -92,7 +92,7 @@ namespace HKSecondQuest
 
         public override string GetVersion()
         {
-            return "v1.1.1.0";
+            return "v1.1.2.0";
         }
 
         public void SetEnabled(bool enabled)

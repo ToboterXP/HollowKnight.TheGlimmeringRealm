@@ -37,7 +37,7 @@ namespace HKSecondQuest.Rooms.City
             SetItem(LocationNames.Wanderers_Journal_Pleasure_House, ItemNames.Dream_Nail);
             SetItem(LocationNames.Kings_Station_Stag, ItemNames.Geo_Rock_Default);
             SetItem(LocationNames.Hallownest_Seal_Kings_Station, ItemNames.Wanderers_Journal);
-            SetItem(LocationNames.City_Crest, ItemNames.Shade_Soul);
+            SetItem(LocationNames.City_Crest, ItemNames.Shade_Soul, nonIncremental: true);
             SetItem(LocationNames.City_of_Tears_Map, ItemNames.Kings_Station_Stag);
             SetItem(LocationNames.World_Sense, ItemNames.Kings_Brand);
             SetItem(LocationNames.Grub_City_of_Tears_Guarded, ItemNames.Grub);
