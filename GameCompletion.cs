@@ -27,7 +27,7 @@ namespace HKSecondQuest
 
             if (!Enabled) return;
 
-            int charmCount = self.GetInt("charmsOwned"); //max 19
+            int charmCount = self.GetInt("charmsOwned"); //max 18
 
             int nailUpgrades = self.GetInt("nailSmithUpgrades"); // max 3
 
@@ -56,7 +56,7 @@ namespace HKSecondQuest
             int masks = self.GetInt("maxHealth") - 5; //max 2
             int vessels = self.GetInt("MPReserveMax") / 33; //max 1
 
-            float percentage = 3 * charmCount + 1 * nailUpgrades + 2 * charmNotches + 2 * spells + 2 * mainUpgrades + 2 * dreamers + 2 * masks + 2 * vessels;
+            float percentage = 3 * charmCount + 2 * nailUpgrades + 2 * charmNotches + 2 * spells + 2 * mainUpgrades + 2 * dreamers + 2 * masks + 2 * vessels;
 
             if (percentage > 100) percentage = 100;
 
