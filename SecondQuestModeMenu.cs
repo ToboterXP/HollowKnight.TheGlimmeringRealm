@@ -40,6 +40,7 @@ namespace HKSecondQuest
             var expansion1Label = new MenuLabel(SteelSoulSelector, "Including Expansion 1 - Dream of the Fallen", MenuLabel.Style.Body);
 
             var mapWarningLabel = new MenuLabel(SteelSoulSelector, "No map included - make one yourself or venture forth at your own risk", MenuLabel.Style.Body);
+            var discordLabel = new MenuLabel(SteelSoulSelector, "Join the Discord if you need help!", MenuLabel.Style.Body);
 
             var startButton = new BigButton(SteelSoulSelector, "Start", "");
             startButton.OnClick += StartGame;
@@ -53,12 +54,14 @@ namespace HKSecondQuest
                 expansion1Label,
                 steelSoulToggle,
                 mapWarningLabel,
+                discordLabel,
                 startButton 
             });
 
             expansion1Label.Translate(new UnityEngine.Vector2(400, 0));
             mapWarningLabel.Translate(new UnityEngine.Vector2(250, 0));
-            startButton.Translate(new UnityEngine.Vector2(-91, 0));
+            discordLabel.Translate(new UnityEngine.Vector2(480, 50));
+            startButton.Translate(new UnityEngine.Vector2(-91, 75));
         }
 
         /// <summary>
