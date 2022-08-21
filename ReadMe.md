@@ -13,6 +13,9 @@ Dependencies:\
 ItemChanger\
 MenuChanger
 
+Discord: https://discord.gg/wP2FFY6uAB
+Join if you need help!
+
 Made by Toboter\
 Cutscenes drawn by Gaia - the Dancer On The Sun
 
