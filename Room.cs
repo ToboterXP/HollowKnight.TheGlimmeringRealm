@@ -30,6 +30,8 @@ namespace HKSecondQuest
         /// </summary>
         public int MinDamage = 0;
 
+        public int MaxDamage = 100;
+
         public int Revision = 1; //World init gets called if save from older Revision is loaded
 
         

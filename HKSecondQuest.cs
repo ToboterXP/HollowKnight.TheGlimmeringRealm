@@ -286,10 +286,19 @@ namespace HKSecondQuest
         /// </summary>
         public void OnDamage(On.HeroController.orig_TakeDamage orig, global::HeroController self, GameObject go, CollisionSide damageSide, int damageAmount, int hazardType)
         {
-            if (Enabled && ActiveRoom != null && damageAmount < ActiveRoom.MinDamage && damageAmount > 0)
+            if (Enabled && ActiveRoom != null)
             {
-                damageAmount = ActiveRoom.MinDamage;
-            }
+                if (damageAmount < ActiveRoom.MinDamage && damageAmount > 0)
+                {
+                    damageAmount = ActiveRoom.MinDamage;
+                }
+
+                if (damageAmount > ActiveRoom.MaxDamage)
+                {
+                    damageAmount = ActiveRoom.MaxDamage;
+                }
+            } 
+
             orig(self, go, damageSide, damageAmount, hazardType);
         }
 
