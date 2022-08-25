@@ -33,7 +33,7 @@ namespace HKSecondQuest.Endings
 
         public override void OnLoad()
         {
-            GameObject.Find("Cinematic Player").AddComponent<CutsceneChanger>().Cutscene = "Ending1.mp4";
+            GameObject.Find("Cinematic Player").AddComponent<CutsceneChanger>().Cutscene = "Ending1.webm";
         }
     }
 }

@@ -182,6 +182,7 @@ namespace HKSecondQuest.Rooms.City
             ReplaceText("MARISSA_TALK", "Oh dear, an audience! Sadly, my dear friend Sylas has departed, so it won't be the same. But an aria should still be possible!");
             ReplaceText("MARISSA_REPEAT", "He truely was a dear friend... Maybe I should follow? ... One day maybe.");
             ReplaceText("BATHHOUSE_CORPSE", "...Sylas!...Delilah!...");
+            ReplaceText("GH_MARISSA_NC_MAIN", "Delilah");
 
             ReplaceText("FALSE_KNIGHT", "He told me I would be revered! I even became his General!<page>But then he just locked me in here. Said it was the best for the kingdom.<page>I won this war for him, how could he do such a thing?!");
         }
