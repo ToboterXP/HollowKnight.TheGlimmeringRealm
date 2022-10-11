@@ -26,7 +26,7 @@ namespace HKSecondQuest.Rooms.Area7
             SetItem(LocationNames.Wanderers_Journal_Kingdoms_Edge_Camp, ItemNames.Soul_Totem_B);
             SetItem(LocationNames.Quick_Slash, ItemNames.Mask_Shard);
             SetItem(LocationNames.Wanderers_Journal_Kingdoms_Edge_Entrance, ItemNames.Hallownest_Seal);
-            SetItem(LocationNames.Kingdoms_Edge_Map, ItemNames.Mask_Shard);
+            SetItem(LocationNames.Kingdoms_Edge_Map, ItemNames.Mask_Shard, geoCost: 150);
             SetItem(LocationNames.Wanderers_Journal_Kingdoms_Edge_Requires_Dive, ItemNames.Dreamshield);
         }
 

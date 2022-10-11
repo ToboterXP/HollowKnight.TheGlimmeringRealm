@@ -99,7 +99,7 @@ namespace HKSecondQuest.Rooms.Area1
 
             //place items
             SetItem(LocationNames.Kings_Idol_Cliffs, ItemNames.Geo_Rock_Default);
-            SetItem(LocationNames.Howling_Cliffs_Map, ItemNames.Dirtmouth_Stag);
+            SetItem(LocationNames.Howling_Cliffs_Map, ItemNames.Dirtmouth_Stag, geoCost: 100);
             SetItem(LocationNames.Cyclone_Slash, ItemNames.Longnail);
             SetItem(LocationNames.Wanderers_Journal_Crystal_Peak_Crawlers, ItemNames.Quick_Focus);
             SetItem(LocationNames.Deep_Focus, ItemNames.Crystal_Heart);

@@ -55,7 +55,7 @@ namespace HKSecondQuest.Rooms.Area2
             SetItem(LocationNames.Wanderers_Journal_Greenpath_Stag, ItemNames.Grub);
             SetItem(LocationNames.Greenpath_Stag, ItemNames.Geo_Rock_Default);
 
-            SetItem(LocationNames.Crystal_Peak_Map, ItemNames.Greenpath_Stag);
+            SetItem(LocationNames.Crystal_Peak_Map, ItemNames.Greenpath_Stag, geoCost: 150);
         }
     }
 }

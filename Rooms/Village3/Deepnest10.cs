@@ -16,6 +16,8 @@ namespace HKSecondQuest.Rooms.Village3
             PlaceGO(Prefabs.SMALL_PLATFORM.Object, 24, 106);
             PlaceGO(Prefabs.SMALL_PLATFORM.Object, 56, 7);
 
+            PlaceGO(Prefabs.SMALL_PLATFORM.Object, 51, 129);
+
             for (int y = 8; y < 90; y += 6) PlaceGO(Prefabs.BOUNCE_MUSHROOM.Object, 12 - (y*y*y % 5), y);
         }
     }

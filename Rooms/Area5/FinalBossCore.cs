@@ -78,7 +78,7 @@ namespace HKSecondQuest.Rooms.Area5
 
         public override void OnBeforeLoad()
         {
-            SetDarkness(true);
+            //SetDarkness(true);
         }
 
         public override void OnLoad()

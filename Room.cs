@@ -1,4 +1,5 @@
 ﻿using ItemChanger;
+using ItemChanger.Placements;
 using ItemChanger.Tags;
 using ItemChanger.UIDefs;
 using System;
@@ -85,7 +86,14 @@ namespace HKSecondQuest
             //set cost tags if necessary
             if (geoCost > 0) 
             {
-                aitem.AddTag<CostTag>().Cost = new GeoCost(geoCost);
+                if (placement is ISingleCostPlacement)
+                {
+                    ((ISingleCostPlacement)placement).Cost = new GeoCost(geoCost);
+                } 
+                else 
+                {
+                    aitem.AddTag<CostTag>().Cost = new GeoCost(geoCost);
+                }
             }
 
             if (essenceCost > 0)

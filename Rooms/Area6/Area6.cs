@@ -31,7 +31,7 @@ namespace HKSecondQuest.Rooms.Area6
             SetItem(LocationNames.Dreamshield, ItemNames.Mask_Shard);
             SetItem(LocationNames.Hidden_Station_Stag, ItemNames.Kings_Idol);
 
-            SetItem(LocationNames.Ancient_Basin_Map, ItemNames.Hidden_Station_Stag);
+            SetItem(LocationNames.Ancient_Basin_Map, ItemNames.Hidden_Station_Stag, geoCost: 150);
             SetItem(LocationNames.Vessel_Fragment_Basin, ItemNames.Mask_Shard);
 
             //place Carefree Melody

@@ -92,7 +92,7 @@ namespace HKSecondQuest
 
         public override string GetVersion()
         {
-            return "v1.1.3.0";
+            return "v1.1.5.2";
         }
 
         public void SetEnabled(bool enabled)
